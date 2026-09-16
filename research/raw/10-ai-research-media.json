@@ -1,0 +1,212 @@
+[
+  {
+    "id": 91,
+    "name": "NotebookLM",
+    "category": "AI, Research and Media-native",
+    "website": "https://cloud.google.com/gemini/enterprise/notebooklm-enterprise",
+    "description": "Enterprise edition of Google's NotebookLM (now branded Gemini Notebook Enterprise) for AI-assisted research over uploaded source documents, exposed as a preview REST API under Gemini Enterprise / Vertex AI Discovery Engine.",
+    "auth_methods": ["OAuth2 (Google Cloud IAM / gcloud bearer token)", "Google Workspace / Cloud Identity SSO"],
+    "self_serve": "gated",
+    "gating_notes": "No self-serve API key for the consumer NotebookLM product. The API only exists under Gemini Notebook Enterprise, which requires an admin to set up a Google Cloud project, purchase/assign Gemini Notebook Enterprise licenses, and grant the 'Cloud NotebookLM User' IAM role. The API itself is in Preview / Pre-GA status.",
+    "api_surface": "REST",
+    "api_breadth": "narrow",
+    "mcp_exists": false,
+    "mcp_notes": "No official or well-known MCP server found; Google positions access through Gemini Enterprise agent tooling rather than a standalone MCP integration.",
+    "buildability": "partial",
+    "blocker": "Requires customer-owned GCP project with Gemini Notebook Enterprise licensing and admin-configured IAM/OAuth before any API call works; no consumer-level self-serve credential exists, and the API is still Preview/Pre-GA.",
+    "evidence": [
+      "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks",
+      "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/overview"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "id": 92,
+    "name": "Otter.ai",
+    "category": "AI, Research and Media-native",
+    "website": "https://otter.ai",
+    "description": "AI meeting transcription and notes platform with a public REST API and an official MCP server for surfacing meeting transcripts/insights to AI assistants.",
+    "auth_methods": ["API key (Bearer token)"],
+    "self_serve": "self-serve",
+    "gating_notes": "Any user can generate an API key from Integrations > Developer tab in their Otter.ai account (limit of 2 keys per user); no sales/approval process found.",
+    "api_surface": "REST",
+    "api_breadth": "moderate",
+    "mcp_exists": true,
+    "mcp_notes": "Otter publishes an official 'Otter MCP Server' documented in its help center for connecting meeting transcripts/search into Claude and other MCP clients; separate unofficial community MCP servers also exist (some using email/password login instead of the API key).",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://help.otter.ai/hc/en-us/articles/36130822688279-Otter-ai-Public-API",
+      "https://help.otter.ai/hc/en-us/articles/35287607569687-Otter-MCP-Server"
+    ],
+    "confidence": "high"
+  },
+  {
+    "id": 93,
+    "name": "Fathom",
+    "category": "AI, Research and Media-native",
+    "website": "https://fathom.video",
+    "description": "AI meeting recorder/notetaker offering a public REST API (meeting summaries, transcripts, action items), OAuth2, webhooks, TS/Python SDKs, and an MCP server.",
+    "auth_methods": ["API key", "OAuth 2.0"],
+    "self_serve": "self-serve",
+    "gating_notes": "Developer docs at developers.fathom.ai state anyone can browse docs, generate an API key, and start building immediately; 60 requests/min rate limit applies to all API keys.",
+    "api_surface": "REST",
+    "api_breadth": "moderate",
+    "mcp_exists": true,
+    "mcp_notes": "Fathom's developer hub explicitly lists an MCP server for AI assistants alongside the REST API and webhooks.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://developers.fathom.ai/",
+      "https://api-docs.fathom.global/index.html"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "id": 94,
+    "name": "Consensus",
+    "category": "AI, Research and Media-native",
+    "website": "https://consensus.app",
+    "description": "AI-powered research search engine over 220M+ academic papers, offered as a ChatGPT/Claude App via one-click OAuth and as a V2 developer API with OAuth2, plus an official 'Consensus AI Connect' MCP server.",
+    "auth_methods": ["OAuth 2.0 (with PKCE, per RFC 6749/8707)", "API key/secret pair (V2 API)"],
+    "self_serve": "partial",
+    "gating_notes": "The ChatGPT/Claude App integration is self-serve one-click OAuth via the Apps directory. The underlying V2 REST API and OAuth client registration are documented through a support-portal PDF/guide rather than an open public signup flow, suggesting some developer onboarding friction versus a fully open API console.",
+    "api_surface": "REST",
+    "api_breadth": "narrow",
+    "mcp_exists": true,
+    "mcp_notes": "Official 'Consensus AI Connect' MCP server hosted at mcp.goconsensus.com/mcp using OAuth2 with PKCE; also distributed as a ChatGPT App.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://consensus.app/home/api/",
+      "https://support.goconsensus.com/hubfs/consensus-oauth-guide%20for%20V2%20API%20(1).pdf",
+      "https://help.consensus.app/en/articles/10059020-consensus-in-chatgpt"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "id": 95,
+    "name": "Reducto",
+    "category": "AI, Research and Media-native",
+    "website": "https://reducto.ai",
+    "description": "Document parsing and extraction API that converts PDFs, scans, and other complex documents (30+ file types) into structured, LLM-ready data via classification, parsing, extraction, splitting, editing, and multi-step pipelines.",
+    "auth_methods": ["API key"],
+    "self_serve": "self-serve",
+    "gating_notes": "Docs advertise a 5-minute quickstart to parse a first document; Enterprise tier adds dedicated field engineering and custom fine-tuning but is not required for base API access.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": false,
+    "mcp_notes": "No official or well-known MCP server found in Reducto's documentation during this research pass.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://docs.reducto.ai/"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "id": 96,
+    "name": "Devin",
+    "category": "AI, Research and Media-native",
+    "website": "https://docs.devin.ai",
+    "description": "Autonomous AI software engineer from Cognition with a session-based REST API and an official hosted MCP server for driving Devin sessions from other AI tools.",
+    "auth_methods": ["API key (Bearer token)", "Org-scoped service user keys with X-Org-Id header"],
+    "self_serve": "partial",
+    "gating_notes": "API/MCP access requires a paid Devin plan (personal or org/enterprise); enterprise service-user and PAT keys need org admin provisioning and an X-Org-Id header, though no sales conversation is strictly required to start on a paid self-serve plan.",
+    "api_surface": "REST",
+    "api_breadth": "moderate",
+    "mcp_exists": true,
+    "mcp_notes": "Official Devin MCP server hosted at mcp.devin.ai/mcp, using the same API-key auth as the REST API; also a separate CLI-focused MCP overview at cli.devin.ai.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://docs.devin.ai/work-with-devin/devin-mcp",
+      "https://mcp.devin.ai/"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "id": 97,
+    "name": "higgsfield",
+    "category": "AI, Research and Media-native",
+    "website": "https://higgsfield.ai",
+    "description": "AI content generation suite (image, video, audio/voice, 3D, marketing/shorts studios, website builder, social publishing) exposed via a REST API, official CLI, SDKs, and an extensive MCP tool surface.",
+    "auth_methods": ["API key (Authorization: Key {id}:{secret})", "Browser-based login for CLI (higgsfield auth login)"],
+    "self_serve": "self-serve",
+    "gating_notes": "Users generate their own API key from the Higgsfield dashboard; CLI installs via npm and authenticates through a browser login flow. Usage is credit/plan-based but signup itself is self-serve.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "Higgsfield has an extensive, actively maintained MCP tool surface (image/video/audio/3D generation, marketing studio, website builder, TikTok publishing, voice cloning, scene building, etc.) confirmed directly via a live Higgsfield MCP integration; this is one of the most complete MCP surfaces among the researched apps.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://docs.higgsfield.ai/docs",
+      "https://higgsfield.ai/cli",
+      "https://github.com/higgsfield-ai/cli"
+    ],
+    "confidence": "high"
+  },
+  {
+    "id": 98,
+    "name": "Mermaid CLI",
+    "category": "AI, Research and Media-native",
+    "website": "https://github.com/mermaid-js/mermaid-cli",
+    "description": "Open-source command-line tool (mmdc) that renders Mermaid diagram definitions (including those embedded in Markdown) into SVG/PNG/PDF, backed by Node.js and Puppeteer.",
+    "auth_methods": ["none / local execution"],
+    "self_serve": "self-serve",
+    "gating_notes": "Free, open-source; install via npm, Docker/Podman, or npx. No account, key, or auth of any kind — it runs entirely locally.",
+    "api_surface": "CLI",
+    "api_breadth": "none",
+    "mcp_exists": false,
+    "mcp_notes": "No official MCP server from the mermaid-cli project itself; various unrelated third-party 'mermaid diagram' MCP servers exist in the community but none are the official CLI wrapped as MCP.",
+    "buildability": "partial",
+    "blocker": "There is no hosted API or auth model to integrate against — it is a local CLI/Node library requiring a Puppeteer/Chromium runtime. A Composio toolkit would need to shell out to the CLI (or embed the Node API) rather than call a remote endpoint, which is a fundamentally different integration pattern than the rest of Composio's toolkits.",
+    "evidence": [
+      "https://github.com/mermaid-js/mermaid-cli"
+    ],
+    "confidence": "high"
+  },
+  {
+    "id": 99,
+    "name": "YouTube Transcript",
+    "category": "AI, Research and Media-native",
+    "website": "https://transcriptapi.com",
+    "description": "Third-party REST API (TranscriptAPI.com) for fetching YouTube video transcripts plus search, channel, and playlist metadata, with built-in MCP integration guides.",
+    "auth_methods": ["API key"],
+    "self_serve": "self-serve",
+    "gating_notes": "Self-serve signup with a credits/billing system; no approval or sales process evident.",
+    "api_surface": "REST",
+    "api_breadth": "narrow",
+    "mcp_exists": true,
+    "mcp_notes": "Site documents MCP setup guides for ChatGPT, Claude, and OpenAI Agent Builder, indicating a first-party MCP integration path alongside the raw REST API.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "http://transcriptapi.com/docs/"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "id": 100,
+    "name": "Grain",
+    "category": "AI, Research and Media-native",
+    "website": "https://grain.com",
+    "description": "AI meeting recording, transcription, and note-taking platform with a REST API supporting personal, workspace, and OAuth2 app integrations.",
+    "auth_methods": ["OAuth 2.0", "Personal Access Token (PAT)", "Workspace Access Token (WAT)"],
+    "self_serve": "partial",
+    "gating_notes": "Personal API access requires a Starter, Business, or Enterprise paid plan; Workspace API access requires Business/Enterprise plus admin access to generate a workspace token. OAuth2 app registration is available for building integrations used by any Grain user.",
+    "api_surface": "REST",
+    "api_breadth": "moderate",
+    "mcp_exists": false,
+    "mcp_notes": "No official or well-known MCP server found for Grain during this research pass.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://developers.grain.com/",
+      "https://docs.grain.inc/api-overview",
+      "https://support.grain.com/en/articles/15507288-grain-api"
+    ],
+    "confidence": "medium"
+  }
+]

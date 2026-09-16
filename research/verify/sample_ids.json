@@ -1,0 +1,110 @@
+{
+  "generated_at": "2026-09-16T19:21:25.904408+00:00",
+  "seed": 42,
+  "tricky": [
+    {
+      "id": 10,
+      "name": "DealCloud"
+    },
+    {
+      "id": 20,
+      "name": "Gladly"
+    },
+    {
+      "id": 50,
+      "name": "fanbasis"
+    },
+    {
+      "id": 58,
+      "name": "Sherlock"
+    },
+    {
+      "id": 59,
+      "name": "Waterfall.io"
+    },
+    {
+      "id": 84,
+      "name": "Paygent Connect"
+    },
+    {
+      "id": 85,
+      "name": "iPayX"
+    },
+    {
+      "id": 90,
+      "name": "PitchBook"
+    },
+    {
+      "id": 91,
+      "name": "NotebookLM"
+    },
+    {
+      "id": 94,
+      "name": "Consensus"
+    }
+  ],
+  "random": [
+    {
+      "id": 4,
+      "name": "Attio"
+    },
+    {
+      "id": 15,
+      "name": "Pylon"
+    },
+    {
+      "id": 16,
+      "name": "LiveAgent"
+    },
+    {
+      "id": 19,
+      "name": "Gorgias"
+    },
+    {
+      "id": 31,
+      "name": "Google Ads"
+    },
+    {
+      "id": 34,
+      "name": "GoHighLevel"
+    },
+    {
+      "id": 38,
+      "name": "Pinterest"
+    },
+    {
+      "id": 75,
+      "name": "Asana"
+    },
+    {
+      "id": 89,
+      "name": "Ramp"
+    },
+    {
+      "id": 97,
+      "name": "higgsfield"
+    }
+  ],
+  "all_ids": [
+    4,
+    10,
+    15,
+    16,
+    19,
+    20,
+    31,
+    34,
+    38,
+    50,
+    58,
+    59,
+    75,
+    84,
+    85,
+    89,
+    90,
+    91,
+    94,
+    97
+  ]
+}

@@ -1,0 +1,211 @@
+[
+  {
+    "id": 21,
+    "name": "Slack",
+    "category": "Communications and Messaging",
+    "website": "https://slack.com",
+    "description": "Team messaging and collaboration platform with channels, DMs, and app integrations.",
+    "auth_methods": ["OAuth2", "bot tokens", "user tokens", "app tokens"],
+    "self_serve": "self-serve",
+    "gating_notes": "Any developer can create a free Slack workspace and register an app at api.slack.com to get OAuth tokens and bot tokens for free; some features (e.g. canvases, certain enterprise scopes) require paid Slack plans, and public distribution requires app review.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "Slack ships an official remote MCP server (mcp.slack.com) with OAuth-based client approval by workspace admins; replaced Anthropic's earlier community reference server.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://docs.slack.dev/authentication/",
+      "https://slack.com/help/articles/48855576908307-Guide-to-the-Slack-MCP-server"
+    ],
+    "confidence": "high"
+  },
+  {
+    "id": 22,
+    "name": "Twilio",
+    "category": "Communications and Messaging",
+    "website": "https://www.twilio.com",
+    "description": "Programmable communications platform for SMS, voice, video, and messaging channels.",
+    "auth_methods": ["Basic auth (API key SID/secret)", "OAuth2 (for Twilio apps)"],
+    "self_serve": "self-serve",
+    "gating_notes": "Developers can sign up for a free trial account and immediately get an Account SID/Auth Token and create API keys; full production use (e.g. sending to unverified numbers, higher throughput) requires upgrading to a paid account.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "Twilio hosts an official MCP server (mcp.twilio.com, Public Beta) covering 1,800+ endpoints across 30+ products, though the current public version is doc/search-focused (search + retrieve) rather than executing calls.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://www.twilio.com/docs/iam/api",
+      "https://www.twilio.com/docs/ai/mcp",
+      "https://github.com/twilio-labs/mcp"
+    ],
+    "confidence": "high"
+  },
+  {
+    "id": 23,
+    "name": "Zoho Cliq",
+    "category": "Communications and Messaging",
+    "website": "https://www.zoho.com/cliq",
+    "description": "Team chat and collaboration app from Zoho with bots, channels, and workflow automation.",
+    "auth_methods": ["OAuth2"],
+    "self_serve": "self-serve",
+    "gating_notes": "Developers register an application in the Zoho API console and use standard OAuth2 self-serve flow to get access tokens for a free Zoho/Cliq account; docs did not detail any paid-plan gating for the core REST API.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "Zoho published an official Zoho Cliq MCP server exposing chats, channels, users, and threads as MCP tools.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://www.zoho.com/cliq/help/restapi/v2/",
+      "https://www.zoho.com/cliq/mcp-server.html",
+      "https://www.zoho.com/cliq/help/platform/zoho-cliq-mcp.html"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "id": 24,
+    "name": "Lark (Larksuite)",
+    "category": "Communications and Messaging",
+    "website": "https://open.larksuite.com",
+    "description": "All-in-one collaboration suite (chat, docs, calendar, base) with an extensive Open Platform API.",
+    "auth_methods": ["tenant access token (app credentials)", "OAuth2 (user access token)"],
+    "self_serve": "self-serve",
+    "gating_notes": "Developers can self-register a custom ('self-built') app on the Lark Open Platform for free and obtain app_id/app_secret to generate tenant access tokens; broader tenant-wide install or marketplace publishing may need admin approval within an org.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "Official larksuite/lark-openapi-mcp GitHub repo (飞书/Lark官方 OpenAPI MCP) wraps messages, groups, calendar, and Base as MCP tools, supporting both app-level and user-level auth.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://open.larksuite.com/document/home/index",
+      "https://github.com/larksuite/lark-openapi-mcp"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "id": 25,
+    "name": "Pumble",
+    "category": "Communications and Messaging",
+    "website": "https://pumble.com",
+    "description": "Team chat app (Slack alternative) with channels, DMs, and an API-keys add-on for automation.",
+    "auth_methods": ["API key (workspace-level, via ApiKey header)"],
+    "self_serve": "self-serve",
+    "gating_notes": "Any workspace member can install the 'API' add-on and self-generate an API key via the /api-keys generate slash command; available on all plans including free.",
+    "api_surface": "REST",
+    "api_breadth": "narrow",
+    "mcp_exists": true,
+    "mcp_notes": "Only unofficial/community projects found (e.g. apet97/pumble-python-sdk mentions an MCP 2026 server); no official Pumble MCP server.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://pumble.com/help/integrations/automation-workflow-integrations/api-keys-integration/"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "id": 26,
+    "name": "Discord",
+    "category": "Communications and Messaging",
+    "website": "https://discord.com",
+    "description": "Community chat platform with servers, channels, voice, and a widely used bot/app ecosystem.",
+    "auth_methods": ["bot tokens", "OAuth2 (authorization code, implicit, client credentials, bot)"],
+    "self_serve": "self-serve",
+    "gating_notes": "Anyone can register a free developer application in the Discord Developer Portal, generate a bot token, and use OAuth2 flows with no cost or manual approval for standard bot/API access; verification is only needed once a bot exceeds 100 servers.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "No official Discord MCP server; multiple actively maintained community servers exist (e.g. SaseQ/discord-mcp, BrainDAO/mcp-discord) covering messaging, channels, and webhooks.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://docs.discord.com/developers/topics/oauth2"
+    ],
+    "confidence": "high"
+  },
+  {
+    "id": 27,
+    "name": "Telegram",
+    "category": "Communications and Messaging",
+    "website": "https://core.telegram.org",
+    "description": "Messaging app with an extensive free Bot API for building bots and automations.",
+    "auth_methods": ["bot token (via BotFather)"],
+    "self_serve": "self-serve",
+    "gating_notes": "Any user can create a bot via @BotFather in seconds and get a bot token at no cost with no approval process; a separate MTProto client API exists for user-account automation, requiring an api_id/api_hash from my.telegram.org.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "No official Telegram MCP server, but numerous well-known community MCP servers wrap the Bot API (and separately the MTProto client API).",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://core.telegram.org/bots/api"
+    ],
+    "confidence": "high"
+  },
+  {
+    "id": 28,
+    "name": "WhatsApp Business",
+    "category": "Communications and Messaging",
+    "website": "https://developers.facebook.com/docs/whatsapp",
+    "description": "Meta's WhatsApp Cloud API for sending/receiving business messages, templates, and media.",
+    "auth_methods": ["access tokens (temporary or permanent via Meta Business system users)", "OAuth2 (Meta app-based)"],
+    "self_serve": "partial",
+    "gating_notes": "A developer can self-serve create a Meta app, add the WhatsApp product, and get a temporary test access token and test phone number for free; production use requires connecting a verified WhatsApp Business Account, business verification, and permanent token setup, and message templates must be approved by Meta.",
+    "api_surface": "REST",
+    "api_breadth": "moderate",
+    "mcp_exists": true,
+    "mcp_notes": "Meta launched an official 'WhatsApp Business Tools' MCP server for setup/config tasks (account creation, phone verification, Cloud API registration); separately many community MCP servers wrap the Cloud API or personal WhatsApp Web for messaging.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://developers.facebook.com/docs/whatsapp/cloud-api/get-started",
+      "https://www.storyboard18.com/digital/meta-launches-ai-tool-for-whatsapp-business-setup-management-ws-l-110755.htm"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "id": 29,
+    "name": "Aircall",
+    "category": "Communications and Messaging",
+    "website": "https://aircall.io",
+    "description": "Cloud-based business phone system with call, contact, and SMS management APIs.",
+    "auth_methods": ["Basic auth (api_id/api_token)", "OAuth2 (for marketplace/technology partners)"],
+    "self_serve": "partial",
+    "gating_notes": "Existing paid Aircall customers can self-serve grab an api_id/api_token from Company Settings for basic auth; but Aircall itself is a paid phone-system product (no free API-only tier), and building an OAuth app for the Marketplace requires submitting a form and waiting for approval from Aircall.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "No official Aircall MCP server; several unofficial community servers exist (e.g. themobilefirstco/aircall-mcp-server with 73 tools, growth-box/aircall-mcp read-only), none endorsed by Aircall.",
+    "buildability": "partial",
+    "blocker": "Requires an existing paid Aircall subscription to obtain API credentials, and OAuth/partner integration requires manual approval by Aircall.",
+    "evidence": [
+      "https://developers.aircall.io/api-references"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "id": 30,
+    "name": "Vonage",
+    "category": "Communications and Messaging",
+    "website": "https://developer.vonage.com",
+    "description": "Communications platform (CPaaS) offering Voice, Messaging, Verify, and Number Insight APIs.",
+    "auth_methods": ["Basic auth (API key/secret)", "JWT (for webhooks/Voice API)"],
+    "self_serve": "self-serve",
+    "gating_notes": "Developers can sign up for a free account and immediately receive an API key/secret plus free trial credit to start using the APIs; higher-volume production use requires adding billing.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "Vonage (via the Vonage-Community and official Vonage GitHub orgs) offers multiple MCP servers: an official Documentation MCP server, a Telephony MCP server (voice/SMS tools), and an API-bindings MCP server covering reports, numbers, and applications.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://developer.vonage.com/en/getting-started/overview",
+      "https://github.com/Vonage-Community/telephony-mcp-server",
+      "https://developer.vonage.com/en/blog/introducing-the-vonage-documentation-mcp-server"
+    ],
+    "confidence": "high"
+  }
+]

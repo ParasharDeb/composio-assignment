@@ -1,0 +1,219 @@
+[
+  {
+    "id": 1,
+    "name": "Salesforce",
+    "category": "CRM and Sales",
+    "website": "salesforce.com",
+    "description": "Enterprise CRM and platform for sales, service, marketing, and custom app development.",
+    "auth_methods": ["OAuth2", "Connected Apps / Session token"],
+    "self_serve": "self-serve",
+    "gating_notes": "Free Developer Edition org signup at developer.salesforce.com gives full API access (capped at 15,000 requests/day); production access typically comes with a paid org but developer/trial orgs are free and unrestricted for building.",
+    "api_surface": "REST+GraphQL",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "Official Salesforce MCP server exists (60+ tools) alongside REST/SOAP/Bulk/GraphQL(pilot) APIs.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://developer.salesforce.com/docs/platform/connect-rest-api/guide/quickstart_dev_org.html",
+      "https://developer.salesforce.com/docs/platform/api-rest/guide/quickstart-oauth.html",
+      "https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_oauth_and_connected_apps.htm"
+    ],
+    "confidence": "high"
+  },
+  {
+    "id": 2,
+    "name": "HubSpot",
+    "category": "CRM and Sales",
+    "website": "hubspot.com",
+    "description": "CRM and marketing/sales/service platform with a broad suite of inbound marketing and pipeline tools.",
+    "auth_methods": ["OAuth2", "Private App access tokens", "Developer API key (legacy)"],
+    "self_serve": "self-serve",
+    "gating_notes": "Private apps (instant access token) are available on most plans including the free tier; OAuth apps require a HubSpot developer account, which is free to create.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "Official HubSpot MCP server (public beta), developers.hubspot.com/ai-tools/mcp, plus a separate developer-platform MCP.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://developers.hubspot.com/docs/guides/apps/authentication/intro-to-auth",
+      "https://developers.hubspot.com/docs/api/overview",
+      "https://developers.hubspot.com/ai-tools/mcp"
+    ],
+    "confidence": "high"
+  },
+  {
+    "id": 3,
+    "name": "Pipedrive",
+    "category": "CRM and Sales",
+    "website": "pipedrive.com",
+    "description": "Sales-pipeline-focused CRM for small and mid-size sales teams.",
+    "auth_methods": ["API token", "OAuth2"],
+    "self_serve": "self-serve",
+    "gating_notes": "API token can be grabbed directly from any Pipedrive account (trial included); a developer sandbox account is also available on request for building OAuth apps.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "Pipedrive released an official MCP server (reported June 2026), available on every plan.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://developers.pipedrive.com/docs/api/v1",
+      "https://dev.to/grove_chatforest/crm-mcp-servers-salesforce-hubspot-pipedrive-attio-and-beyond-off"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "id": 4,
+    "name": "Attio",
+    "category": "CRM and Sales",
+    "website": "attio.com",
+    "description": "Modern, flexible/customizable CRM built around a relational data model.",
+    "auth_methods": ["OAuth2", "API key"],
+    "self_serve": "self-serve",
+    "gating_notes": "API key can be self-generated from workspace developer settings; Attio offers a free trial of paid plans, so a developer can get API access without a sales conversation, though exact free-tier API limits weren't confirmed in docs.",
+    "api_surface": "REST",
+    "api_breadth": "moderate",
+    "mcp_exists": true,
+    "mcp_notes": "Attio MCP integration exists with 40+ tools (lists, meetings, calls/transcripts) per third-party roundups; unclear if official or community-maintained.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://docs.attio.com/",
+      "https://docs.attio.com/rest-api/guides/authentication",
+      "https://dev.to/grove_chatforest/crm-mcp-servers-salesforce-hubspot-pipedrive-attio-and-beyond-off"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "id": 5,
+    "name": "Twenty",
+    "category": "CRM and Sales",
+    "website": "twenty.com",
+    "description": "Open-source CRM alternative to Salesforce, self-hostable or used via Twenty's cloud.",
+    "auth_methods": ["API key", "OAuth"],
+    "self_serve": "self-serve",
+    "gating_notes": "Fully open source (self-hostable) and API keys are generated directly from Settings > API & Webhooks with no approval process; cloud version also allows self-serve signup.",
+    "api_surface": "REST+GraphQL",
+    "api_breadth": "moderate",
+    "mcp_exists": true,
+    "mcp_notes": "No single official MCP server confirmed, but multiple actively maintained community MCP servers exist (e.g. mhenry3164/twenty-crm-mcp-server, IgorWarzocha/twenty-mcp-server); an official one was requested via GitHub issue #12953.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://docs.twenty.com/developers/introduction",
+      "https://github.com/mhenry3164/twenty-crm-mcp-server",
+      "https://github.com/twentyhq/twenty/issues/12953"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "id": 6,
+    "name": "Podio",
+    "category": "CRM and Sales",
+    "website": "podio.com",
+    "description": "Customizable work/project-management and CRM platform (now operated by Progress Software).",
+    "auth_methods": ["OAuth2", "API key"],
+    "self_serve": "self-serve",
+    "gating_notes": "Developer docs describe grabbing an API key per app from account settings after agreeing to terms of use; no paid-plan gate mentioned, though the product's ongoing investment level is uncertain after being spun out to Progress Software in 2025.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": false,
+    "mcp_notes": "No official or notable community MCP server found for Podio.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://developers.podio.com/",
+      "https://www.larksuite.com/en_us/blog/podio-crm"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "id": 7,
+    "name": "Zoho CRM",
+    "category": "CRM and Sales",
+    "website": "zoho.com/crm",
+    "description": "CRM component of the broader Zoho SaaS suite, covering sales pipeline, automation, and analytics.",
+    "auth_methods": ["OAuth2"],
+    "self_serve": "self-serve",
+    "gating_notes": "Any Zoho account (including the free plan, up to 3 users / 5,000 API credits per day) can access the API console and generate OAuth clients; a free Developer Edition is also offered for testing — no sales/approval gate.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": false,
+    "mcp_notes": "No production-ready official MCP server found as of research; only informal/community efforts noted despite Zoho's large install base.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://www.zoho.com/crm/developer/docs/api/v7/",
+      "https://www.zoho.com/crm/developer/docs/api/v8/oauth-overview.html",
+      "https://www.pulsemcp.com/servers"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "id": 8,
+    "name": "Close",
+    "category": "CRM and Sales",
+    "website": "close.com",
+    "description": "Sales CRM built for inside-sales teams with built-in calling, SMS, and email.",
+    "auth_methods": ["API key", "OAuth2"],
+    "self_serve": "self-serve",
+    "gating_notes": "API keys are generated directly by any Close user/trial account from settings; Close offers a free trial, so developers can self-serve without a sales conversation.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "Close has a calling-CRM MCP server with a three-tier scope model (read / write_safe / write_destructive) per third-party coverage; official status not fully confirmed but appears first-party.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://developer.close.com/",
+      "https://dev.to/grove_chatforest/crm-mcp-servers-salesforce-hubspot-pipedrive-attio-and-beyond-off"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "id": 9,
+    "name": "Copper",
+    "category": "CRM and Sales",
+    "website": "copper.com",
+    "description": "CRM built tightly around Google Workspace/Gmail for relationship-driven sales teams.",
+    "auth_methods": ["API key", "OAuth2"],
+    "self_serve": "partial",
+    "gating_notes": "Copper offers a free trial signup, and API keys can be generated by admin users from System Settings; full API access effectively requires an active (trial or paid) Copper account and admin role.",
+    "api_surface": "REST",
+    "api_breadth": "moderate",
+    "mcp_exists": false,
+    "mcp_notes": "No official or notable community MCP server found for Copper.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://developer.copper.com/",
+      "https://support.copper.com/en/articles/8823347-generating-an-api-key",
+      "https://docs.copper.co/"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "id": 10,
+    "name": "DealCloud",
+    "category": "CRM and Sales",
+    "website": "api.docs.dealcloud.com",
+    "description": "Enterprise deal/relationship-management platform (by Intapp) built for private equity, investment banking, and M&A firms.",
+    "auth_methods": ["API key", "Authorization token (OAuth-style token exchange)"],
+    "self_serve": "gated",
+    "gating_notes": "DealCloud is sold enterprise-only to existing client sites; API access requires an existing DealCloud site plus a site Admin to enable the 'API' capability for a user group and issue keys — no public self-serve developer signup or free trial found.",
+    "api_surface": "REST",
+    "api_breadth": "moderate",
+    "mcp_exists": false,
+    "mcp_notes": "No official or community MCP server found for DealCloud.",
+    "buildability": "partial",
+    "blocker": "Requires an existing paid DealCloud client site and admin-provisioned access; no public free trial or self-serve developer sandbox, so Composio could build the toolkit but end users need an existing enterprise contract to use it.",
+    "evidence": [
+      "https://api.docs.dealcloud.com/",
+      "https://api.docs.dealcloud.com/docs/apikeys",
+      "https://api.docs.dealcloud.com/docs/data"
+    ],
+    "confidence": "medium"
+  }
+]

@@ -1,0 +1,209 @@
+[
+  {
+    "id": 51,
+    "name": "DataForSEO",
+    "category": "Data, SEO and Scraping",
+    "website": "https://docs.dataforseo.com",
+    "description": "SEO/SERP/keyword/backlink/on-page data API aggregator covering Google, Bing, YouTube, and other search and e-commerce data sources.",
+    "auth_methods": ["Basic auth (email + dedicated API password, base64-encoded in Authorization header)"],
+    "self_serve": "self-serve",
+    "gating_notes": "Sign up free, account email + auto-generated API password used for Basic Auth; pay-as-you-go credits with a free trial balance, no sales approval needed.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "DataForSEO publishes an official Model Context Protocol server/integration (dataforseo.com/model-context-protocol).",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://docs.dataforseo.com/v3/",
+      "https://docs.dataforseo.com/v3/auth/",
+      "https://dataforseo.com/model-context-protocol"
+    ],
+    "confidence": "high"
+  },
+  {
+    "id": 52,
+    "name": "SE Ranking",
+    "category": "Data, SEO and Scraping",
+    "website": "https://seranking.com/api.html",
+    "description": "SEO platform API for keyword research, rank tracking, backlink analysis, site audits, and AI-search visibility data.",
+    "auth_methods": ["API key"],
+    "self_serve": "self-serve",
+    "gating_notes": "API key is generated in account Settings; access included with paid subscription plans (Core $129/mo, Growth $279/mo) and available in free trial accounts, no sales call required.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "SE Ranking advertises an official MCP server for querying data conversationally from AI assistants like Claude.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://seranking.com/api.html"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "id": 53,
+    "name": "Ahrefs",
+    "category": "Data, SEO and Scraping",
+    "website": "https://ahrefs.com/api",
+    "description": "SEO data API for backlinks, keywords, rankings, site health, and brand/bot visibility analytics.",
+    "auth_methods": ["API key (Bearer/token, exact header format not confirmed in fetched pages)"],
+    "self_serve": "gated",
+    "gating_notes": "Docs offer free test queries to try endpoints, but full API access requires an Ahrefs Enterprise plan; not a simple self-serve signup for real usage.",
+    "api_surface": "REST",
+    "api_breadth": "moderate",
+    "mcp_exists": false,
+    "mcp_notes": "No official Ahrefs MCP server found in researched docs; unofficial community wrappers may exist but were not confirmed.",
+    "buildability": "partial",
+    "blocker": "Full API access gated behind Enterprise-tier subscription, limiting self-serve onboarding for most users.",
+    "evidence": [
+      "https://ahrefs.com/api",
+      "https://docs.ahrefs.com/"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "id": 54,
+    "name": "MrScraper",
+    "category": "Data, SEO and Scraping",
+    "website": "https://docs.mrscraper.com",
+    "description": "AI-assisted web scraping platform with prebuilt agents (General, Listing, Map) for single-page, paginated, and URL-discovery scraping.",
+    "auth_methods": ["API token"],
+    "self_serve": "self-serve",
+    "gating_notes": "Users sign up at app.mrscraper.com and create an API token themselves; docs describe a 'Token Plan' flow from sign-up to first scraped dataset.",
+    "api_surface": "REST",
+    "api_breadth": "moderate",
+    "mcp_exists": false,
+    "mcp_notes": "No evidence of an official or community MCP server found.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://docs.mrscraper.com/"
+    ],
+    "confidence": "low"
+  },
+  {
+    "id": 55,
+    "name": "Apify",
+    "category": "Data, SEO and Scraping",
+    "website": "https://docs.apify.com/api/v2",
+    "description": "Cloud platform and marketplace for web scraping/automation 'Actors', with generic APIs for running actors and managing datasets, storages, and webhooks.",
+    "auth_methods": ["API token (Bearer header or query parameter)"],
+    "self_serve": "self-serve",
+    "gating_notes": "Signup is self-serve via the Apify Console with a free tier/starter credits; API token available immediately from account Integrations settings, no sales gate.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "Apify provides an official MCP server exposing Actors as tools for AI agents.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://docs.apify.com/api/v2"
+    ],
+    "confidence": "high"
+  },
+  {
+    "id": 56,
+    "name": "Firecrawl",
+    "category": "Data, SEO and Scraping",
+    "website": "https://docs.firecrawl.dev",
+    "description": "Web scraping/crawling API that converts websites into LLM-ready structured data (scrape, crawl, map, search, extract).",
+    "auth_methods": ["API key (Bearer token)"],
+    "self_serve": "self-serve",
+    "gating_notes": "Free account signup gives an API key immediately; some basic usage works without a key, with higher rate limits unlocked via free-tier key.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "Official hosted MCP server at mcp.firecrawl.dev/v2/mcp, explicitly built for Claude, ChatGPT, Cursor, and other AI tools.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://docs.firecrawl.dev/introduction"
+    ],
+    "confidence": "high"
+  },
+  {
+    "id": 57,
+    "name": "Bright Data",
+    "category": "Data, SEO and Scraping",
+    "website": "https://brightdata.com",
+    "description": "Web data platform offering proxies, Web Unlocker, and a library of 800+ prebuilt scrapers/datasets for sites like LinkedIn, Amazon, Instagram, and Google Maps.",
+    "auth_methods": ["API key as Bearer token"],
+    "self_serve": "self-serve",
+    "gating_notes": "Free signup with 'Start free' plan (5K free records/month, no credit card required) gives an auto-created default API key from account settings; higher volumes require paid plans.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "Bright Data offers an official free MCP server for AI agent integration, listed prominently on their site.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://brightdata.com/products/web-scraper",
+      "https://docs.brightdata.com/general/account/api-token",
+      "https://docs.brightdata.com/api-reference/authentication"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "id": 58,
+    "name": "Sherlock",
+    "category": "Data, SEO and Scraping",
+    "website": "https://github.com/sherlock-project/sherlock",
+    "description": "Open-source CLI tool that hunts down social media accounts by username across 400+ platforms.",
+    "auth_methods": ["none (no hosted API or account required)"],
+    "self_serve": "self-serve",
+    "gating_notes": "Not applicable in the traditional sense: Sherlock is a locally-run, MIT-licensed CLI tool (installed via pipx/Docker/pip), not a hosted service with credentials.",
+    "api_surface": "none public",
+    "api_breadth": "none",
+    "mcp_exists": false,
+    "mcp_notes": "No official MCP server; being a local CLI tool, any Composio integration would need to shell out to the binary rather than call a remote API.",
+    "buildability": "no",
+    "blocker": "No hosted API exists to call — Sherlock is a local command-line tool, not a remote service, so there is no endpoint for Composio to broker auth/calls against without bundling and executing the binary itself.",
+    "evidence": [
+      "https://github.com/sherlock-project/sherlock"
+    ],
+    "confidence": "high"
+  },
+  {
+    "id": 59,
+    "name": "Waterfall.io",
+    "category": "Data, SEO and Scraping",
+    "website": "https://www.waterfall.io",
+    "description": "B2B contact/company intelligence platform aggregating 30+ data vendors for waterfall enrichment, email/phone verification, job-change tracking, and prospect search.",
+    "auth_methods": ["API key (x-api-key header)"],
+    "self_serve": "gated",
+    "gating_notes": "Public API docs exist with code samples, but there is no visible self-serve signup — the site requires booking a sales call to obtain API credentials.",
+    "api_surface": "REST",
+    "api_breadth": "moderate",
+    "mcp_exists": false,
+    "mcp_notes": "No evidence of an official or community MCP server found.",
+    "buildability": "partial",
+    "blocker": "Credential acquisition requires a sales conversation ('book a call') rather than self-serve signup, which limits automated onboarding.",
+    "evidence": [
+      "https://www.waterfall.io/"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "id": 60,
+    "name": "Clay",
+    "category": "Data, SEO and Scraping",
+    "website": "https://www.clay.com",
+    "description": "Go-to-market data enrichment and automation platform combining 100+ data provider integrations, AI agents, and workflow tables for prospecting and outreach.",
+    "auth_methods": ["API key (clay-api-key header)", "JWT (for HTTP API integrations with dynamically-issued tokens)"],
+    "self_serve": "self-serve",
+    "gating_notes": "Clay shipped a Public API and CLI (api.clay.com/public/v0) on July 9, 2026, authenticated via a clay-api-key header; usable on paid Clay plans without a dedicated sales/API contract, though deeper developer support is informal (Slack community; dedicated support only for Enterprise).",
+    "api_surface": "REST",
+    "api_breadth": "moderate",
+    "mcp_exists": false,
+    "mcp_notes": "No official Clay MCP server confirmed in researched sources; Clay itself is often used as a client that connects to other apps' MCP/APIs rather than exposing one broadly at time of research.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://developers.clay.com/",
+      "https://university.clay.com/docs/http-api-integration-overview",
+      "https://university.clay.com/docs/http-api-with-jwt-authentication-integration-overview"
+    ],
+    "confidence": "medium"
+  }
+]

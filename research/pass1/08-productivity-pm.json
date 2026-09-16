@@ -1,0 +1,214 @@
+[
+  {
+    "id": 71,
+    "name": "Notion",
+    "category": "Productivity and Project Management",
+    "website": "developers.notion.com",
+    "description": "All-in-one workspace/docs/wiki/database tool with a REST API for pages, databases, blocks, and users.",
+    "auth_methods": ["OAuth2", "API key (internal integration token / personal access token)"],
+    "self_serve": "partial",
+    "gating_notes": "Internal integration tokens and personal access tokens can be created immediately by a workspace owner/user with no approval. Public (multi-workspace) OAuth integrations must be 'submitted for review' before the authorization URL is activated, which is a light approval gate.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "Official, vendor-hosted MCP server at mcp.notion.com (confirmed via web search of 2026 MCP server listings; not independently verified against a primary Notion docs page).",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://developers.notion.com/docs/authorization",
+      "https://www.usecarly.com/blog/mcp-servers/"
+    ],
+    "confidence": "high"
+  },
+  {
+    "id": 72,
+    "name": "Airtable",
+    "category": "Productivity and Project Management",
+    "website": "airtable.com/developers",
+    "description": "Spreadsheet-database hybrid with a REST API for bases, tables, records, fields, and webhooks.",
+    "auth_methods": ["OAuth2", "Personal Access Token"],
+    "self_serve": "self-serve",
+    "gating_notes": "Personal access tokens are created instantly via account token management UI; OAuth integrations are registered self-serve in the developer portal. Legacy API keys were deprecated Feb 2024 in favor of these token models.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "Reported as having a genuinely official, vendor-hosted MCP server per 2026 MCP aggregator listings; not independently confirmed on airtable.com primary docs.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://airtable.com/developers/web/api/authentication",
+      "https://www.usecarly.com/blog/mcp-servers/"
+    ],
+    "confidence": "high"
+  },
+  {
+    "id": 73,
+    "name": "Linear",
+    "category": "Productivity and Project Management",
+    "website": "developers.linear.app",
+    "description": "Issue tracking and project management tool for software teams, exposed via a GraphQL API.",
+    "auth_methods": ["OAuth2", "Personal API key"],
+    "self_serve": "self-serve",
+    "gating_notes": "Personal API keys are created directly in account settings; OAuth apps are registered self-serve in the developer workspace settings, no sales/approval gate found.",
+    "api_surface": "GraphQL",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "Official Linear MCP server exists (widely referenced in 2026 MCP listings, e.g. mcp.linear.app); the developers.linear.app docs page itself redirected during fetch and did not explicitly confirm MCP, so this is corroborated via secondary source.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://linear.app/developers",
+      "https://www.usecarly.com/blog/mcp-servers/"
+    ],
+    "confidence": "high"
+  },
+  {
+    "id": 74,
+    "name": "Jira",
+    "category": "Productivity and Project Management",
+    "website": "developer.atlassian.com",
+    "description": "Issue and project tracking tool (Atlassian) with a broad REST API covering issues, projects, workflows, and more.",
+    "auth_methods": ["OAuth2 (3LO)", "Basic auth with API token", "Forge/Connect app auth"],
+    "self_serve": "self-serve",
+    "gating_notes": "API tokens are generated instantly from an Atlassian account. OAuth 2.0 (3LO) apps are registered free and immediately in the Atlassian developer console for private/internal use; only publishing to the Atlassian Marketplace as a public app requires additional review. Using the API also requires a Jira Cloud site/license, which itself has a free tier.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "Atlassian has an official remote MCP server (Rovo/Atlassian MCP) covering Jira and Confluence, per 2026 MCP server listings.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://developer.atlassian.com/cloud/jira/platform/basic-auth-for-rest-apis/",
+      "https://www.usecarly.com/blog/mcp-servers/"
+    ],
+    "confidence": "high"
+  },
+  {
+    "id": 75,
+    "name": "Asana",
+    "category": "Productivity and Project Management",
+    "website": "developers.asana.com",
+    "description": "Work/task management tool with a REST API covering workspaces, projects, tasks, and more.",
+    "auth_methods": ["OAuth2", "Personal Access Token", "Service Account (Enterprise-only)"],
+    "self_serve": "self-serve",
+    "gating_notes": "PATs are generated self-serve from the developer console; OAuth apps are self-registered. The one gated option is Service Accounts, which require Asana Enterprise and can only be created by super admins — but this is an optional org-wide credential, not required for standard agent/API access.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "Official Asana MCP server exists per 2026 MCP aggregator listings.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://developers.asana.com/docs/authentication",
+      "https://www.usecarly.com/blog/mcp-servers/"
+    ],
+    "confidence": "high"
+  },
+  {
+    "id": 76,
+    "name": "Monday.com",
+    "category": "Productivity and Project Management",
+    "website": "developer.monday.com",
+    "description": "Work OS / project management platform exposed via a GraphQL API (api.monday.com/v2).",
+    "auth_methods": ["API token (personal)", "OAuth2 (for published apps)"],
+    "self_serve": "self-serve",
+    "gating_notes": "Personal API tokens are viewable/regenerable directly from a user's Developer Center profile; token permissions mirror the user's own UI access level. No approval step found for basic API usage.",
+    "api_surface": "GraphQL",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "Reported as a genuinely official, vendor-hosted MCP server per 2026 MCP aggregator listings.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://developer.monday.com/api-reference/docs/authentication",
+      "https://www.usecarly.com/blog/mcp-servers/"
+    ],
+    "confidence": "high"
+  },
+  {
+    "id": 77,
+    "name": "ClickUp",
+    "category": "Productivity and Project Management",
+    "website": "clickup.com/api",
+    "description": "Project/task management platform with a REST API for spaces, lists, tasks, and workspace data.",
+    "auth_methods": ["OAuth2", "Personal API Token"],
+    "self_serve": "self-serve",
+    "gating_notes": "Personal tokens (prefixed pk_) are generated directly in account settings and never expire; OAuth apps can be created by workspace owners within the platform without needing outside approval.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "Official ClickUp MCP server exists per 2026 MCP aggregator listings.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://developer.clickup.com/docs/authentication",
+      "https://www.usecarly.com/blog/mcp-servers/"
+    ],
+    "confidence": "high"
+  },
+  {
+    "id": 78,
+    "name": "Coda",
+    "category": "Productivity and Project Management",
+    "website": "coda.io/developers",
+    "description": "Doc/database hybrid ('all-in-one doc') with a REST API for docs, tables, rows, formulas, and automations.",
+    "auth_methods": ["API token (Bearer)", "OAuth2 (used within Coda Packs SDK for connecting external services, not for the core REST API)"],
+    "self_serve": "self-serve",
+    "gating_notes": "API tokens (Bearer) are generated directly from Coda account settings; no plan gating or approval found for basic REST API access. Note: Coda's developer docs now resolve to docs.superhuman.com (Coda was folded into Grammarly/Superhuman's docs infrastructure following its 2025 acquisition), which is a notable site-migration oddity worth double-checking before integration.",
+    "api_surface": "REST",
+    "api_breadth": "moderate",
+    "mcp_exists": false,
+    "mcp_notes": "No official MCP server found; explicitly called out as a gap in 2026 MCP aggregator listings alongside Harvest. Community MCP servers may exist but were not verified.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://coda.io/developers/apis/v1",
+      "https://docs.superhuman.com/developers/apis/v1",
+      "https://www.usecarly.com/blog/mcp-servers/"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "id": 79,
+    "name": "Smartsheet",
+    "category": "Productivity and Project Management",
+    "website": "smartsheet.com/developers",
+    "description": "Spreadsheet-style work management/collaboration platform with a REST API for sheets, rows, reports, and workspaces.",
+    "auth_methods": ["OAuth2", "API Access Token"],
+    "self_serve": "partial",
+    "gating_notes": "Per Smartsheet's own guidance, only licensed users on Business and Enterprise plans can generate API access tokens (not available on free/individual plans). A free trial of the Business plan can unlock this self-serve, but there is a real plan-tier gate for production use.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "A 2026 MCP aggregator source states Smartsheet 'launched an official MCP server between February and April 2026' — plausible but not verified against a primary Smartsheet source, so treat with caution.",
+    "buildability": "partial",
+    "blocker": "API access requires a paid Business/Enterprise plan (or trial thereof), not available on Smartsheet's free tier, which limits pure self-serve onboarding for a toolkit.",
+    "evidence": [
+      "https://developers.smartsheet.com/",
+      "https://developers.smartsheet.com/api/smartsheet/guides/basics/authentication",
+      "https://www.usecarly.com/blog/mcp-servers/"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "id": 80,
+    "name": "Harvest",
+    "category": "Productivity and Project Management",
+    "website": "harvestapp.com (help.getharvest.com/api-v2)",
+    "description": "Time tracking and invoicing tool with a REST API (api.harvestapp.com/v2) for time entries, projects, clients, and invoices.",
+    "auth_methods": ["OAuth2", "Personal Access Token"],
+    "self_serve": "self-serve",
+    "gating_notes": "Personal Access Tokens are created directly from the Harvest ID 'Developers' section with full ('all') account scope by default. OAuth2 apps (server-side authorization code flow or client-side implicit flow) are also self-registered with no approval gate found.",
+    "api_surface": "REST",
+    "api_breadth": "moderate",
+    "mcp_exists": false,
+    "mcp_notes": "No official MCP server found; explicitly called out as a gap (alongside Coda) in 2026 MCP aggregator listings. Community MCP servers may exist but were not verified.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://help.getharvest.com/api-v2/authentication-api/authentication/authentication/",
+      "https://www.usecarly.com/blog/mcp-servers/"
+    ],
+    "confidence": "high"
+  }
+]

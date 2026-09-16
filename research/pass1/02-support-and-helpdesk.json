@@ -1,0 +1,222 @@
+[
+  {
+    "id": 11,
+    "name": "Zendesk",
+    "category": "Support and Helpdesk",
+    "website": "zendesk.com",
+    "description": "Widely used customer service and ticketing platform with a broad suite of support, messaging, and voice APIs.",
+    "auth_methods": ["OAuth2", "API token (Basic auth)"],
+    "self_serve": "self-serve",
+    "gating_notes": "Free trial accounts are available self-serve and include full API access; API tokens can be generated directly from admin settings without sales involvement. OAuth apps (public/marketplace) go through an app review process.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "Zendesk runs an official per-tenant MCP server at https://<subdomain>.zendesk.com/api/mcp (OAuth, read/write scopes), plus several community MCP servers on GitHub (e.g. reminia/zendesk-mcp-server, michaelrice/zendesk-mcp).",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://developer.zendesk.com/api-reference/",
+      "https://developer.zendesk.com/api-reference/introduction/security-and-auth/",
+      "https://support.zendesk.com/hc/en-us/articles/10497779528730-Connecting-to-MCP-servers-and-using-MCP-tools-in-action-flows"
+    ],
+    "confidence": "high"
+  },
+  {
+    "id": 12,
+    "name": "Intercom",
+    "category": "Support and Helpdesk",
+    "website": "intercom.com",
+    "description": "Customer messaging and support platform (now positioned around Fin AI agent) with a REST API for conversations, contacts, and companies.",
+    "auth_methods": ["OAuth2", "Access token (private app)"],
+    "self_serve": "partial",
+    "gating_notes": "Developers can self-serve create a private app and generate an access token via the Developer Hub, but this requires an active (paid) Intercom workspace — access tokens grant access to 'your paid Intercom workspace' data. A trial workspace can be used to test. Public OAuth apps require Developer Hub setup but no sales gate mentioned.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "Official remote MCP server at https://mcp.intercom.com/mcp with 13 tools (conversations, contacts, companies, Help Center articles), OAuth-scoped, available for US and EU hosted workspaces (not yet AU).",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://developers.intercom.com/docs/references/introduction",
+      "https://developers.intercom.com/docs/build-an-integration/learn-more/authentication",
+      "https://www.pulsemcp.com/servers/intercom"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "id": 13,
+    "name": "Freshdesk",
+    "category": "Support and Helpdesk",
+    "website": "freshdesk.com",
+    "description": "Cloud helpdesk/ticketing software (Freshworks) with a broad REST API covering tickets, contacts, companies, and automations.",
+    "auth_methods": ["API key (Basic auth)"],
+    "self_serve": "self-serve",
+    "gating_notes": "API key is available directly from the support portal profile page; trial accounts get a default rate limit (50 calls/min) and can use the API immediately with no sales approval.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "Freshworks shipped an official MCP integration for Freshdesk (GA as of Sept 2026), plus community servers such as NeuraLegion/freshdesk_mcp (41 tools) and Enreign/freshdeck-mcp.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://developers.freshdesk.com/api/",
+      "https://support.freshdesk.com/support/solutions/articles/50000012670-model-context-protocol-mcp-integration-in-freshdesk-eap-"
+    ],
+    "confidence": "high"
+  },
+  {
+    "id": 14,
+    "name": "Front",
+    "category": "Support and Helpdesk",
+    "website": "front.com",
+    "description": "Shared-inbox customer communication platform with a REST Core API plus webhooks, connectors, and a plugin SDK.",
+    "auth_methods": ["OAuth2", "API token"],
+    "self_serve": "self-serve",
+    "gating_notes": "Developers can sign up for a free developer environment and generate API tokens directly from account settings for testing/internal integrations; public/marketplace integrations are steered toward OAuth and generally require Front's exception/approval to publish, but building and testing is self-serve.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "Front has an official beta MCP server at mcp.frontapp.com/mcp (OAuth-scoped, teammate-permission-bound) plus a community server (zqushair/Frontapp-MCP).",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://dev.frontapp.com/docs/welcome",
+      "https://dev.frontapp.com/docs/authentication",
+      "https://help.front.com/en/articles/4883136"
+    ],
+    "confidence": "high"
+  },
+  {
+    "id": 15,
+    "name": "Pylon",
+    "category": "Support and Helpdesk",
+    "website": "usepylon.com",
+    "description": "B2B customer support platform (issues, Slack-based support, account intelligence) with a REST API and admin-issued tokens.",
+    "auth_methods": ["API token", "OAuth2 (for MCP)"],
+    "self_serve": "gated",
+    "gating_notes": "API tokens can only be created by Admin users, and third-party pricing trackers report that API access is only available starting on the Professional tier (paid, 3-seat minimum, ~$89/seat/mo), not on any free/self-serve tier.",
+    "api_surface": "REST",
+    "api_breadth": "moderate",
+    "mcp_exists": true,
+    "mcp_notes": "Official remote MCP server at https://mcp.usepylon.com (Streamable HTTP, OAuth-based, configured via Settings > AI Controls > MCP Server) for issues, accounts, and contacts.",
+    "buildability": "partial",
+    "blocker": "API/admin token access appears gated behind a paid Professional-tier plan rather than a free self-serve trial, based on third-party pricing sources (not directly confirmed on usepylon.com pricing page).",
+    "evidence": [
+      "https://docs.usepylon.com/pylon-docs",
+      "https://docs.usepylon.com/pylon-docs/integrations/pylon-mcp",
+      "https://www.usepylon.com/pricing (via search summary)"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "id": 16,
+    "name": "LiveAgent",
+    "category": "Support and Helpdesk",
+    "website": "liveagent.com",
+    "description": "Help desk / live chat software with a REST API (v3) for tickets, agents, and configuration, accessed via per-account API keys.",
+    "auth_methods": ["API key"],
+    "self_serve": "self-serve",
+    "gating_notes": "API keys are generated by an admin directly in Configuration > System > API within any LiveAgent account (including free trial accounts), no sales approval needed.",
+    "api_surface": "REST",
+    "api_breadth": "moderate",
+    "mcp_exists": true,
+    "mcp_notes": "LiveAgent has a built-in MCP integration (Settings/Agents area) plus a community MCP server (QualityUnit/liveagent-mcp-server on GitHub).",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://support.liveagent.com/802463-REST-API (via search)",
+      "https://support.liveagent.com/647358-MCP-Integration-for-Agents (via search)",
+      "https://github.com/QualityUnit/liveagent-mcp-server"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "id": 17,
+    "name": "Plain",
+    "category": "Support and Helpdesk",
+    "website": "plain.com",
+    "description": "API-first B2B support/ticketing tool built around a GraphQL API, designed for engineering-led support workflows.",
+    "auth_methods": ["API key (Bearer token)", "OAuth2 (for MCP)"],
+    "self_serve": "self-serve",
+    "gating_notes": "Entry-level Foundation plan ($35/seat/mo) explicitly supports self-serve setup with a 7-day free trial (no credit card); API keys are generated by the account owner without sales contact.",
+    "api_surface": "GraphQL",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "Official MCP server at https://mcp.plain.com/mcp, documented at plain.com/docs/agents/mcp-server, using OAuth scoped to the connecting user's permissions.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://www.plain.com/docs",
+      "https://www.plain.com/docs/graphql/introduction",
+      "https://www.plain.com/docs/agents/mcp-server",
+      "https://www.plain.com/pricing (via search summary)"
+    ],
+    "confidence": "high"
+  },
+  {
+    "id": 18,
+    "name": "Help Scout",
+    "category": "Support and Helpdesk",
+    "website": "helpscout.com",
+    "description": "Email-based helpdesk platform with Mailbox (Inbox), Docs, Beacon, and Chat APIs, all authenticated via OAuth2.",
+    "auth_methods": ["OAuth2 (Authorization Code and Client Credentials flows)"],
+    "self_serve": "self-serve",
+    "gating_notes": "Any account holder can create an OAuth2 app themselves via Profile > My apps; Help Scout offers a free trial account which is sufficient to register an app and pull credentials without sales involvement.",
+    "api_surface": "REST",
+    "api_breadth": "moderate",
+    "mcp_exists": true,
+    "mcp_notes": "No official Help Scout MCP server found, but several active community servers exist (drewburchfield/help-scout-mcp-server and forks by GravityKit, WayLit, BusyBee3333).",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://developer.helpscout.com/",
+      "https://developer.helpscout.com/mailbox-api/overview/authentication/",
+      "https://github.com/drewburchfield/help-scout-mcp-server"
+    ],
+    "confidence": "high"
+  },
+  {
+    "id": 19,
+    "name": "Gorgias",
+    "category": "Support and Helpdesk",
+    "website": "gorgias.com",
+    "description": "E-commerce-focused helpdesk (deep Shopify/BigCommerce integration) with a REST API for tickets, customers, and automation.",
+    "auth_methods": ["API key (Basic auth) for private apps", "OAuth2 for public apps"],
+    "self_serve": "self-serve",
+    "gating_notes": "REST API credentials (base URL, email, API key) are available directly from Settings > Account > REST API on any account, including trial accounts; public OAuth apps require Gorgias approval to be listed, but private-app API-key access needs no approval.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "Official MCP server at mcp.gorgias.com/mcp, included on every helpdesk plan (currently in beta); community servers also exist (e.g. cacosat/gorgias, benpalmer1/Gorgias-MCP-Server).",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://developers.gorgias.com/reference/introduction",
+      "https://developers.gorgias.com/reference/authentication (via search)",
+      "https://docs.gorgias.com/en-US/connect-your-ai-assistant-to-the-gorgias-mcp-6310546"
+    ],
+    "confidence": "high"
+  },
+  {
+    "id": 20,
+    "name": "Gladly",
+    "category": "Support and Helpdesk",
+    "website": "gladly.com",
+    "description": "Enterprise customer-service platform centered on a lifelong customer conversation timeline, mainly sold to large retail/CX teams.",
+    "auth_methods": ["unknown (API reference at developer.gladly.com was not directly accessible; likely API key/OAuth token per standard app platform patterns)"],
+    "self_serve": "gated",
+    "gating_notes": "No public self-serve signup or pricing for the core platform — evaluation requires booking a demo/sales engagement, and the platform is enterprise-contract only (reported deployments in the $100K-$500K+/year range). A separate self-serve 'Sidekick for Shopify' product has a free trial, but that is a narrower AI product, not general platform API access.",
+    "api_surface": "REST",
+    "api_breadth": "narrow",
+    "mcp_exists": true,
+    "mcp_notes": "No official Gladly MCP server found; a third-party managed connector (StackOne) offers a Gladly MCP server with 65 actions, which implies an underlying REST API exists but isn't independently documented here.",
+    "buildability": "partial",
+    "blocker": "No self-serve developer signup or public API docs were reachable; API access appears to require an existing paid enterprise contract and sales relationship, making it hard for Composio to build/test a toolkit without a customer account.",
+    "evidence": [
+      "https://www.gladly.ai/developers/",
+      "https://www.stackone.com/connectors/gladly/mcp/",
+      "https://www.eesel.ai/blog/gladly-pricing (via search summary)"
+    ],
+    "confidence": "low"
+  }
+]

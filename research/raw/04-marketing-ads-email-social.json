@@ -1,0 +1,219 @@
+[
+  {
+    "id": 31,
+    "name": "Google Ads",
+    "category": "Marketing, Ads, Email and Social",
+    "website": "https://developers.google.com/google-ads",
+    "description": "Google's advertising platform API for managing search/display/video ad campaigns, budgets, and reporting.",
+    "auth_methods": ["OAuth2", "API key (developer token)"],
+    "self_serve": "partial",
+    "gating_notes": "OAuth2 client credentials are self-serve via Google Cloud, but every call also requires a Google Ads 'developer token' which must be applied for and approved by Google; tokens start at a restricted 'test account' level and require application review to reach Basic/Standard access for production/real accounts.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "Google itself open-sourced an official read-only Google Ads MCP server (googleads/google-ads-mcp, referenced at developers.google.com/google-ads/api/docs/developer-toolkit/mcp-server); multiple community MCP servers also exist (e.g. jgdeutsch/google-ads-mcp, gomarble-ai/google-ads-mcp-server).",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://developers.google.com/google-ads/api/docs/start",
+      "https://developers.google.com/google-ads/api/docs/developer-toolkit/mcp-server",
+      "https://searchengineland.com/google-open-sources-ads-api-mcp-server-463219"
+    ],
+    "confidence": "high"
+  },
+  {
+    "id": 32,
+    "name": "Meta Ads",
+    "category": "Marketing, Ads, Email and Social",
+    "website": "https://developers.facebook.com/docs/marketing-apis",
+    "description": "Meta's Marketing API for creating and managing Facebook/Instagram ad campaigns, audiences, and insights.",
+    "auth_methods": ["OAuth2", "access tokens"],
+    "self_serve": "gated",
+    "gating_notes": "New apps start on the free 'Standard/Limited Access' tier limited to the developer's own ad accounts for testing; production use with ads_management/ads_read at scale requires 'Advanced/Full Access', which needs Meta App Review plus separate Business Verification (legal business documents), a multi-week process.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "No single official Meta MCP server for ads found, but many active community servers exist (gabe-almeida/meta-ads-mcp-server, hashcott/meta-ads-mcp-server, pipeboard-co/meta-ads-mcp with a hosted free plan, serkanhaslak/meta-mcp with 77 tools).",
+    "buildability": "partial",
+    "blocker": "Production-grade access requires Meta App Review and Business Verification, which is a per-customer approval process, not something Composio can bypass with a single developer app.",
+    "evidence": [
+      "https://developers.facebook.com/docs/marketing-apis/get-started",
+      "https://developers.facebook.com/documentation/ads-commerce/marketing-api/get-started/authorization",
+      "https://singhamandeep.com/what-is-meta-advanced-access/"
+    ],
+    "confidence": "high"
+  },
+  {
+    "id": 33,
+    "name": "LinkedIn Ads",
+    "category": "Marketing, Ads, Email and Social",
+    "website": "https://learn.microsoft.com/en-us/linkedin/marketing",
+    "description": "LinkedIn's Marketing/Advertising API for managing Campaign Manager ad accounts, campaigns, creatives and reporting.",
+    "auth_methods": ["OAuth2 (3-legged only)"],
+    "self_serve": "gated",
+    "gating_notes": "Developers must create a LinkedIn developer app and be accepted into the 'LinkedIn Marketing API Program' before ad-related OAuth scopes (rw_ads, r_ads, r_ads_reporting) are granted; the 2-legged client-credentials flow is not available for marketing use cases, and access to real ad accounts also depends on the member's Ad Account role.",
+    "api_surface": "REST",
+    "api_breadth": "moderate",
+    "mcp_exists": true,
+    "mcp_notes": "No official LinkedIn Ads MCP server; several community/hosted servers exist (Insightful-Pipe/linkedin-ads-mcp-server, danielpopamd/linkedin-ads-mcp, CData's JDBC-backed server).",
+    "buildability": "partial",
+    "blocker": "Requires LinkedIn's Marketing API Program approval (partner-style review) before ad OAuth scopes are issued to a new developer app.",
+    "evidence": [
+      "https://learn.microsoft.com/en-us/linkedin/marketing/getting-started",
+      "https://github.com/danielpopamd/linkedin-ads-mcp"
+    ],
+    "confidence": "high"
+  },
+  {
+    "id": 34,
+    "name": "GoHighLevel",
+    "category": "Marketing, Ads, Email and Social",
+    "website": "https://highlevel.stoplight.io",
+    "description": "All-in-one CRM/marketing platform (funnels, SMS/email conversations, calendars, opportunities, payments) with a broad REST API.",
+    "auth_methods": ["OAuth2", "Private Integration Token"],
+    "self_serve": "self-serve",
+    "gating_notes": "Developers can self-serve via the GoHighLevel Marketplace developer portal, choosing either a Marketplace OAuth app or a Private Integration Token scoped to their own sub-account, without formal partner approval for basic access.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "GoHighLevel ships an official hosted MCP server (services.leadconnectorhq.com/mcp/, ~21 tools, documented at marketplace.gohighlevel.com/docs/other/mcp) authenticated via Private Integration Token; community servers expose far more tools (e.g. drausal/gohighlevel-mcp).",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://marketplace.gohighlevel.com/docs/other/mcp",
+      "https://github.com/drausal/gohighlevel-mcp"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "id": 35,
+    "name": "Mailchimp",
+    "category": "Marketing, Ads, Email and Social",
+    "website": "https://mailchimp.com/developer",
+    "description": "Email marketing and automation platform with a REST API for audiences, campaigns, automations, reports and e-commerce data.",
+    "auth_methods": ["API key", "OAuth2"],
+    "self_serve": "self-serve",
+    "gating_notes": "A free Mailchimp account gets an API key immediately from account settings; OAuth2 is also available for apps accessing other users' accounts. Some functionality is limited by the account's paid plan tier, but core API access itself is not gated behind approval.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "Mailchimp has an official MCP server, but only for Transactional Messaging (Mandrill, mandrillapp.com/mcp) plus a hosted remote MCP (ai-inc.mailchimp.com/claude/mcp/v2); the core Marketing API (campaigns/audiences/automations) has no official MCP, but many active community servers exist (damientilman/mailchimp-mcp-server with 227 tools, cyanheads, AgentX-ai).",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://mailchimp.com/developer/marketing/docs/fundamentals/",
+      "https://mailchimp.com/developer/transactional/guides/how-to-use-mailchimps-transactional-messaging-mcp/",
+      "https://www.usecarly.com/blog/mailchimp-mcp/"
+    ],
+    "confidence": "high"
+  },
+  {
+    "id": 36,
+    "name": "Klaviyo",
+    "category": "Marketing, Ads, Email and Social",
+    "website": "https://developers.klaviyo.com",
+    "description": "E-commerce-focused email/SMS marketing platform with a REST API covering campaigns, flows, profiles, segments, catalogs and events.",
+    "auth_methods": ["API key (private/public)", "OAuth2"],
+    "self_serve": "self-serve",
+    "gating_notes": "Developers can sign up for a free/test Klaviyo account at klaviyo.com/sign-up and immediately generate a private API key from account settings; no approval process is needed to start building.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "Klaviyo has an official, generally-available hosted remote MCP server at mcp.klaviyo.com/mcp (announced Aug 2025), documented at developers.klaviyo.com/en/docs/klaviyo_mcp_server, covering campaigns, flows, profiles, events, catalogs and reporting via OAuth.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://developers.klaviyo.com/en/docs/authenticate",
+      "https://developers.klaviyo.com/en/docs/klaviyo_mcp_server",
+      "https://www.klaviyo.com/newsroom/mcp-server"
+    ],
+    "confidence": "high"
+  },
+  {
+    "id": 37,
+    "name": "systeme.io",
+    "category": "Marketing, Ads, Email and Social",
+    "website": "https://systeme.io",
+    "description": "All-in-one funnel builder/course platform (funnels, contacts, email campaigns, digital products) with a public REST API.",
+    "auth_methods": ["API key"],
+    "self_serve": "self-serve",
+    "gating_notes": "Any systeme.io user can generate up to 3 public API keys directly from account/profile settings (X-API-Key header) with no approval process.",
+    "api_surface": "REST",
+    "api_breadth": "moderate",
+    "mcp_exists": true,
+    "mcp_notes": "systeme.io publishes an official MCP server (documented under help.systeme.io, category 'Model Context Protocol (MCP)') covering contacts, digital products, newsletters/email campaigns, usable from Claude and ChatGPT.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://help.systeme.io/article/9489-how-to-use-systeme-ios-mcp",
+      "https://help.systeme.io/article/2323-how-to-create-a-public-api-key-on-systeme-io",
+      "https://developer.systeme.io/reference"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "id": 38,
+    "name": "Pinterest",
+    "category": "Marketing, Ads, Email and Social",
+    "website": "https://developers.pinterest.com",
+    "description": "Pinterest's API for pins, boards, ads campaigns and analytics.",
+    "auth_methods": ["OAuth2"],
+    "self_serve": "partial",
+    "gating_notes": "Any developer can create an app and get OAuth2 credentials plus Trial access immediately (sandbox-only pins/boards visible only to the creator, 24h test tokens); moving to Standard access (fully visible content, ads at scale) requires an app review that now includes submitting a video recording of the OAuth flow.",
+    "api_surface": "REST",
+    "api_breadth": "moderate",
+    "mcp_exists": true,
+    "mcp_notes": "No single dominant official MCP server for the public Pinterest API found (Pinterest's internal MCP ecosystem, covered in their engineering blog, is largely for internal tooling); several community MCP servers exist (aymandakirgh/pinterest-mcp with 35 tools, scottheffield/pinterest-mcp, collactivelabs/pinterest-mcp-server).",
+    "buildability": "partial",
+    "blocker": "Full (non-sandbox) access requires Pinterest's Standard-access app review, which is a per-app approval gate.",
+    "evidence": [
+      "https://developers.pinterest.com/docs/getting-started/set-up-authentication-and-authorization/",
+      "https://medium.com/pinterest-engineering/building-an-mcp-ecosystem-at-pinterest-d881eb4c16f1"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "id": 39,
+    "name": "Threads (Meta)",
+    "category": "Marketing, Ads, Email and Social",
+    "website": "https://developers.facebook.com/docs/threads",
+    "description": "Meta's Threads API for publishing posts/carousels, managing replies, and reading insights on the Threads social app.",
+    "auth_methods": ["OAuth2"],
+    "self_serve": "partial",
+    "gating_notes": "Developers can immediately test with invited 'testers' using app-scoped OAuth tokens; broader/public access requires each permission (threads_content_publish, threads_manage_replies, threads_read_replies, threads_manage_insights) to go through Meta App Review and the app must be published.",
+    "api_surface": "REST",
+    "api_breadth": "narrow",
+    "mcp_exists": true,
+    "mcp_notes": "No official Meta MCP server for Threads; several community servers exist (tttn13/threads-mcp, quinnjr/threads-mcp with rate limiting/webhooks, N-Graves/threads-mcp-server, sergekostenchuk/mlllm-threads-mcp).",
+    "buildability": "partial",
+    "blocker": "Public/production use of most permissions requires Meta App Review and app publishing, same gating pattern as other Meta platforms.",
+    "evidence": [
+      "https://developers.facebook.com/docs/threads",
+      "https://developers.facebook.com/docs/threads/get-started",
+      "https://github.com/quinnjr/threads-mcp"
+    ],
+    "confidence": "medium"
+  },
+  {
+    "id": 40,
+    "name": "SendGrid",
+    "category": "Marketing, Ads, Email and Social",
+    "website": "https://sendgrid.com",
+    "description": "Twilio-owned transactional and marketing email platform with a REST API (v3) for sending mail, templates, contacts, and stats.",
+    "auth_methods": ["API key"],
+    "self_serve": "self-serve",
+    "gating_notes": "A free SendGrid account can generate scoped API keys immediately from account settings with no manual approval; usage limits depend on plan tier but API access itself is unrestricted.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "No official SendGrid MCP server exists; Twilio's official MCP server (twilio-labs/mcp) covers Twilio's core API but explicitly does not include SendGrid's v3 email API. Community servers fill the gap (Garoth/sendgrid-mcp, neschadin/sendgrid-mcp, codespar's SendGrid MCP).",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://www.twilio.com/docs/sendgrid/api-reference/how-to-use-the-sendgrid-v3-api/authentication",
+      "https://www.usecarly.com/blog/sendgrid-mcp/",
+      "https://help.twilio.com/articles/43750712673819-Twilio-MCP-Model-Context-Protocol-Availability"
+    ],
+    "confidence": "high"
+  }
+]

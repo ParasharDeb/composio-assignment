@@ -1,0 +1,189 @@
+{
+  "total_apps": 100,
+  "auth_method_counts": {
+    "OAuth2": 68,
+    "API key": 47,
+    "Token / Bearer": 37,
+    "Other": 8,
+    "Basic Auth": 6,
+    "None / local (CLI tool)": 3
+  },
+  "self_serve_counts": {
+    "self-serve": 71,
+    "partial": 17,
+    "gated": 11,
+    "unknown": 1
+  },
+  "buildability_counts": {
+    "yes": 79,
+    "partial": 18,
+    "no": 3
+  },
+  "mcp_exists_count": 78,
+  "self_serve_by_category": {
+    "CRM and Sales": {
+      "self-serve": 8,
+      "partial": 1,
+      "gated": 1
+    },
+    "Support and Helpdesk": {
+      "self-serve": 7,
+      "partial": 1,
+      "gated": 2
+    },
+    "Communications and Messaging": {
+      "self-serve": 8,
+      "partial": 2
+    },
+    "Marketing, Ads, Email and Social": {
+      "partial": 3,
+      "gated": 2,
+      "self-serve": 5
+    },
+    "Ecommerce": {
+      "self-serve": 6,
+      "gated": 1,
+      "partial": 3
+    },
+    "Data, SEO and Scraping": {
+      "self-serve": 8,
+      "gated": 2
+    },
+    "Developer, Infra and Data platforms": {
+      "self-serve": 10
+    },
+    "Productivity and Project Management": {
+      "partial": 2,
+      "self-serve": 8
+    },
+    "Finance and Fintech": {
+      "self-serve": 5,
+      "partial": 2,
+      "unknown": 1,
+      "gated": 2
+    },
+    "AI, Research and Media-native": {
+      "gated": 1,
+      "self-serve": 6,
+      "partial": 3
+    }
+  },
+  "top_blockers": {
+    "Requires an existing paid DealCloud client site and admin-provisioned access; no public free trial or self-serve developer sandbox, so Composio could build the toolkit but end users need an existing enterprise contract to use it.": 1,
+    "API/admin token access appears gated behind a paid Professional-tier plan rather than a free self-serve trial, based on third-party pricing sources (not directly confirmed on usepylon.com pricing page).": 1,
+    "No self-serve developer signup or public API docs were reachable; API access appears to require an existing paid enterprise contract and sales relationship, making it hard for Composio to build/test a toolkit without a customer account.": 1,
+    "Requires an existing paid Aircall subscription to obtain API credentials, and OAuth/partner integration requires manual approval by Aircall.": 1,
+    "Production-grade access requires Meta App Review and Business Verification, which is a per-customer approval process, not something Composio can bypass with a single developer app.": 1,
+    "Requires LinkedIn's Marketing API Program approval (partner-style review) before ad OAuth scopes are issued to a new developer app.": 1,
+    "Full (non-sandbox) access requires Pinterest's Standard-access app review, which is a per-app approval gate.": 1,
+    "Public/production use of most permissions requires Meta App Review and app publishing, same gating pattern as other Meta platforms.": 1,
+    "Requires customer to already have a paid Commerce Cloud org and Account Manager admin access to provision API clients; Composio could build the toolkit but each user needs enterprise credentials.": 1,
+    "Auth/access model differs sharply between self-hosted Open Source (self-serve) and Adobe Commerce SaaS (gated, enterprise sales); a general toolkit works well for Open Source but not guaranteed for Adobe-hosted instances.": 1
+  },
+  "easy_wins": [
+    "Salesforce",
+    "HubSpot",
+    "Pipedrive",
+    "Attio",
+    "Twenty",
+    "Podio",
+    "Zoho CRM",
+    "Close",
+    "Zendesk",
+    "Freshdesk",
+    "Front",
+    "LiveAgent",
+    "Plain",
+    "Help Scout",
+    "Gorgias",
+    "Slack",
+    "Twilio",
+    "Zoho Cliq",
+    "Lark (Larksuite)",
+    "Pumble",
+    "Discord",
+    "Telegram",
+    "Vonage",
+    "GoHighLevel",
+    "Mailchimp",
+    "Klaviyo",
+    "systeme.io",
+    "SendGrid",
+    "Shopify",
+    "WooCommerce",
+    "BigCommerce",
+    "Ecwid",
+    "Gumroad",
+    "fanbasis",
+    "DataForSEO",
+    "SE Ranking",
+    "MrScraper",
+    "Apify",
+    "Firecrawl",
+    "Bright Data",
+    "Clay",
+    "GitHub",
+    "Vercel",
+    "Netlify",
+    "Cloudflare",
+    "Supabase",
+    "Neo4j",
+    "Snowflake",
+    "MongoDB Atlas",
+    "Datadog",
+    "Sentry",
+    "Airtable",
+    "Linear",
+    "Jira",
+    "Asana",
+    "Monday.com",
+    "ClickUp",
+    "Coda",
+    "Harvest",
+    "Stripe",
+    "Binance",
+    "iPayX",
+    "QuickBooks",
+    "Xero",
+    "Otter.ai",
+    "Fathom",
+    "Reducto",
+    "higgsfield",
+    "YouTube Transcript"
+  ],
+  "partial": [
+    "Copper",
+    "Intercom",
+    "WhatsApp Business",
+    "Aircall",
+    "Google Ads",
+    "Pinterest",
+    "Threads (Meta)",
+    "Magento (Adobe Commerce)",
+    "Squarespace",
+    "Amazon Selling Partner API",
+    "Notion",
+    "Smartsheet",
+    "Plaid",
+    "Ramp",
+    "Consensus",
+    "Devin",
+    "Mermaid CLI",
+    "Grain"
+  ],
+  "needs_outreach": [
+    "DealCloud",
+    "Pylon",
+    "Gladly",
+    "Meta Ads",
+    "LinkedIn Ads",
+    "Salesforce Commerce Cloud",
+    "Ahrefs",
+    "Sherlock",
+    "Waterfall.io",
+    "Paygent Connect",
+    "Brex",
+    "PitchBook",
+    "NotebookLM"
+  ]
+}
