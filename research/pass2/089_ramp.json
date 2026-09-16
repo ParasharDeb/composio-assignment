@@ -1,0 +1,37 @@
+{
+  "id": 89,
+  "name": "Ramp",
+  "category": "Finance and Fintech",
+  "website": "https://ramp.com",
+  "description": "Ramp is a corporate card and spend management platform whose Developer API lets businesses and partners programmatically manage cards, transactions, bill pay, reimbursements, accounting sync, and users.",
+  "auth_methods": [
+    "OAuth2 (client_credentials for server-to-server, authorization_code for user-delegated access, with refresh tokens)"
+  ],
+  "self_serve": "partial",
+  "gating_notes": "Creating an OAuth developer app is self-serve within the Ramp dashboard (Company > Developer), but requires admin access to an existing Ramp business account and acceptance of Terms of Service - there's no open public signup independent of being a Ramp customer. Some scopes require submitting a Developer API support ticket, sandbox access is provisioned via a request form, and building integrations for other Ramp businesses (ISV/partner use) requires applying for production access approval from Ramp.",
+  "api_surface": "REST",
+  "api_breadth": "broad",
+  "mcp_exists": true,
+  "mcp_notes": "Ramp maintains an official, open-source MCP server (github.com/ramp-public/ramp_mcp) hosted at https://mcp.ramp.com/mcp, with one-click setup for Claude, ChatGPT, and Notion, and CLI install for coding agents. It exposes transactions, card management, statements, and expense data via a SQL-over-financial-data interface, scoped to the connected user's existing Ramp permissions.",
+  "buildability": "yes",
+  "blocker": "none",
+  "evidence": [
+    "https://docs.ramp.com/",
+    "https://docs.ramp.com/llms.txt",
+    "https://docs.ramp.com/llms-api.txt",
+    "https://docs.ramp.com/llms-guides/authorization.txt",
+    "https://support.ramp.com/hc/en-us/articles/46681939909907-Accessing-the-Developer-API",
+    "https://support.ramp.com/ramp-mcp",
+    "https://github.com/ramp-public/ramp_mcp",
+    "https://ramp.com/developer-tools"
+  ],
+  "confidence": "high",
+  "_run": {
+    "model": "sonnet",
+    "attempt": 1,
+    "cost_usd": 0.37002,
+    "duration_ms": 77098,
+    "session_id": "566d806e-9701-4ce6-b0e8-ee6bd27c8f44",
+    "timestamp": "2026-09-16T19:48:32.972497+00:00"
+  }
+}

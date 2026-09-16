@@ -1,0 +1,33 @@
+{
+  "id": 84,
+  "name": "Paygent Connect",
+  "category": "Finance and Fintech",
+  "website": "unknown",
+  "description": "Could not verify: no official website, developer docs, or product page for a distinct 'Paygent Connect (NMI-powered)' offering was found; extensive search turned up only unrelated same/similar-named entities (Japan's Paygent Co./pay-gent.com, UK's paygent.co.uk (404), Paygent.ai, Paygent Commerce, Paygent.net) and none referenced NMI or a product called 'Paygent Connect'.",
+  "auth_methods": [
+    "unknown"
+  ],
+  "self_serve": "unknown",
+  "gating_notes": "No official developer/pricing/signup pages could be located under this exact name, so gating model cannot be determined.",
+  "api_surface": "unknown",
+  "api_breadth": "unknown",
+  "mcp_exists": false,
+  "mcp_notes": "none found",
+  "buildability": "no",
+  "blocker": "No discoverable official website, API reference, or developer documentation for a product named 'Paygent Connect' powered by NMI. If this is a small ISO/white-label reseller of NMI's gateway (a common pattern per NMI's own white-label partner program), it likely has no independent public API docs of its own — integration would go through NMI's own Direct Post/Gateway API (docs.nmi.com) under the reseller's branding, but this could not be confirmed for 'Paygent Connect' specifically.",
+  "evidence": [
+    "https://www.paygent.co.uk/",
+    "https://www.nmi.com/who-we-serve/independent-sales-iso/",
+    "https://www.nmi.com/blog/the-ultimate-white-label-payment-gateway-introduction-for-merchant-acquirers/",
+    "https://www.pay-gent.com/"
+  ],
+  "confidence": "low",
+  "_run": {
+    "model": "sonnet",
+    "attempt": 2,
+    "cost_usd": 0.5043168,
+    "duration_ms": 85158,
+    "session_id": "9c005bf6-7e2d-4c57-8444-ceed7216a89a",
+    "timestamp": "2026-09-16T19:48:48.963790+00:00"
+  }
+}

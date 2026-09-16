@@ -1,0 +1,36 @@
+{
+  "id": 90,
+  "name": "PitchBook",
+  "category": "Finance and Fintech",
+  "website": "https://pitchbook.com",
+  "description": "PitchBook is a market-intelligence platform providing data and analytics on private and public capital markets (companies, deals, investors, funds, LPs), offered on-demand via a paid REST API/Datafeed and, more recently, an MCP server for AI assistants.",
+  "auth_methods": [
+    "API key / auth token (provisioned by a PitchBook account manager, not self-generated)"
+  ],
+  "self_serve": "gated",
+  "gating_notes": "The API is a separate, paid add-on requiring a standalone contract on top of a PitchBook platform subscription. There is no public signup form or free tier; access (including a sandbox key) is requested by contacting your PitchBook account manager or via 'My PitchBook > Plugins & Apps > PitchBook API' inside the paid platform, after which the account manager provisions credentials.",
+  "api_surface": "REST",
+  "api_breadth": "broad",
+  "mcp_exists": true,
+  "mcp_notes": "PitchBook runs an official remote MCP server at https://premium.mcp.pitchbook.com/mcp (Streamable HTTP transport) exposing tools such as get_company, get_financials, search_companies, search_deals, and search_investors — but it still requires an active PitchBook account/subscription and API credentials to authenticate. PitchBook also announced (Nov 2025) an MCP-based connector integration with OpenAI/ChatGPT for its subscribers (PitchBook Navigator).",
+  "buildability": "partial",
+  "blocker": "Both the REST API and the official MCP server sit behind a paid PitchBook subscription plus a separate contracted add-on; credentials are manually provisioned by an account manager rather than obtainable through self-serve signup, and full endpoint documentation is not publicly published — Composio could integrate technically (REST/JSON, MCP already exists) but cannot offer instant/self-serve credential access.",
+  "evidence": [
+    "https://pitchbook.com/products/direct-access-data/api",
+    "https://pitchbook.com/help/PitchBook-api",
+    "https://pitchbook.com/blog/announcing-the-launch-of-api-and-datafeed",
+    "https://pitchbook.com/help/data-feed-api-crm-direct-data-solutions-q3-2025",
+    "https://mcpservers.org/remote-mcp-servers/pitchbook",
+    "https://apigene.ai/mcp/official/pitchbook",
+    "https://www.businesswire.com/news/home/20251110140497/en/PitchBook-Launches-New-Generative-AI-Experiences-with-the-Introduction-of-PitchBook-Navigator-and-Upcoming-Integration-with-OpenAI"
+  ],
+  "confidence": "medium",
+  "_run": {
+    "model": "sonnet",
+    "attempt": 1,
+    "cost_usd": 0.38389499999999993,
+    "duration_ms": 96461,
+    "session_id": "4b4d1a97-5751-4e53-bb08-0bfd1d2d8231",
+    "timestamp": "2026-09-16T19:50:11.131343+00:00"
+  }
+}

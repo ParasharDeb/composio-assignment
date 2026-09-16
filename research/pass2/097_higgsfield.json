@@ -1,0 +1,43 @@
+{
+  "id": 97,
+  "name": "higgsfield",
+  "category": "AI, Research and Media-native",
+  "website": "https://higgsfield.ai",
+  "description": "Higgsfield is a generative media platform that provides an API, CLI, and MCP server for creating AI images, video, audio, voices, 3D assets, and marketing/social content across 30+ underlying models (Soul, Cinema Studio, Flux, Seedream, Kling, Veo, etc.).",
+  "auth_methods": [
+    "API key (Key ID:Secret via Authorization header)",
+    "OAuth-style account login (CLI: `higgsfield auth login`)",
+    "Account-based auth for MCP connector"
+  ],
+  "self_serve": "partial",
+  "gating_notes": "Signup and API key generation are instant/self-serve via the Higgsfield Console (console.higgsfield.ai) with no manual approval step. However, actual usage is gated by a credit-based billing system layered on top: the API runs on separate per-call billing from MCP/CLI/Canvas credit consumption, and no free API trial is documented (the main app periodically runs a $0/24h promo, but this is not confirmed for API/CLI/MCP use). Higher rate limits and enterprise invoicing require contacting support.",
+  "api_surface": "REST",
+  "api_breadth": "broad",
+  "mcp_exists": true,
+  "mcp_notes": "Official first-party MCP server at https://mcp.higgsfield.ai/mcp (documented at higgsfield.ai/mcp), exposing image/video/audio/3D generation, character (Soul) training, marketing studio, TikTok publishing, website builder, and more (confirmed by the extensive live Higgsfield MCP tool set available in this session). Separately, Higgsfield ships an official CLI (`@higgsfield/cli`, github.com/higgsfield-ai/cli) plus a companion 'skills' package (github.com/higgsfield-ai/skills) intended for coding agents, distinct from the chat-agent-focused MCP server.",
+  "buildability": "yes",
+  "blocker": "none",
+  "evidence": [
+    "https://docs.higgsfield.ai/docs",
+    "https://docs.higgsfield.ai/docs/authentication",
+    "https://docs.higgsfield.ai/docs/llms.txt",
+    "https://docs.higgsfield.ai/docs/quickstart",
+    "https://docs.higgsfield.ai/docs/help/faq",
+    "https://higgsfield.ai/cli",
+    "https://higgsfield.ai/mcp",
+    "https://higgsfield.ai/creator-hub/help-center/mcp-cli/how-do-i-access-higgsfield-via-cli",
+    "https://github.com/higgsfield-ai",
+    "https://github.com/higgsfield-ai/cli",
+    "https://github.com/higgsfield-ai/higgsfield-client",
+    "https://github.com/higgsfield-ai/higgsfield-js"
+  ],
+  "confidence": "high",
+  "_run": {
+    "model": "sonnet",
+    "attempt": 1,
+    "cost_usd": 0.4498638,
+    "duration_ms": 103392,
+    "session_id": "db35d32e-260d-43e5-9d3b-aa51219b5412",
+    "timestamp": "2026-09-16T19:51:56.049069+00:00"
+  }
+}

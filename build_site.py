@@ -207,7 +207,7 @@ HTML = r"""<!DOCTYPE html>
       <div class="meta-item"><strong>100</strong> apps researched</div>
       <div class="meta-item"><strong>10</strong> categories</div>
       <div class="meta-item"><strong>2 passes</strong> + human check</div>
-      <div class="meta-item"><strong>~6 hrs</strong> wall-clock</div>
+      <div class="meta-item"><strong>3 checks</strong>: URL, critic, human</div>
     </div>
   </div>
 </section>
@@ -332,11 +332,11 @@ HTML = r"""<!DOCTYPE html>
       <div class="pipeline">
         <div class="pn"><div class="ni">&#128203;</div><div class="nn">research.py</div><div class="nd">Calls Claude to research each app via web search&nbsp;+ doc fetch</div></div>
         <div class="pa">&#8594;</div>
-        <div class="pn"><div class="ni">&#128279;</div><div class="nn">check_urls.py</div><div class="nd">HEAD-checks every evidence URL; flags 404s and redirects</div></div>
+        <div class="pn"><div class="ni">&#128279;</div><div class="nn">check_urls.py</div><div class="nd">Fetches every evidence URL; flags errors, redirects, and pages not mentioning the claimed auth</div></div>
         <div class="pa">&#8594;</div>
         <div class="pn"><div class="ni">&#129488;</div><div class="nn">critic.py</div><div class="nd">LLM self-critique: flags low-confidence findings and contradictions</div></div>
         <div class="pa">&#8594;</div>
-        <div class="pn"><div class="ni">&#128260;</div><div class="nn">Pass 2 re-run</div><div class="nd">Re-researches flagged apps with tighter prompts and fresh lookups</div></div>
+        <div class="pn"><div class="ni">&#128260;</div><div class="nn">Pass 2 re-run</div><div class="nd">Independent re-research of the 20-app verification sample</div></div>
         <div class="pa">&#8594;</div>
         <div class="pn"><div class="ni">&#128100;</div><div class="nn">Human check</div><div class="nd">Spot-checks 20 apps against live docs; corrects misses by hand</div></div>
       </div>
@@ -351,6 +351,8 @@ HTML = r"""<!DOCTYPE html>
         <li><strong>Mermaid CLI</strong>: same pattern as Sherlock—buildability corrected from "yes" to "partial" after confirming CLI-only architecture.</li>
         <li><strong>Coda</strong>: developer docs redirect to Superhuman—redirect confirmed, caution note added in gating_notes.</li>
         <li><strong>General</strong>: pass 1 ran interactively in Claude Code; the scripted pass 2 needed human review of merge logic in merge.py.</li>
+        <li><strong>fanbasis</strong>: rebranded to commas.com; pass 1 cited stale evidence, the critic caught it.</li>
+        <li><strong>Ramp</strong>: docs are JS-rendered, so the URL checker gave a false flag; the critic confirmed pass 1 was right.</li>
       </ul>
     </div>
     <div class="cmd">python agent/research.py --only "Notion"</div>
@@ -388,7 +390,7 @@ HTML = r"""<!DOCTYPE html>
     <div class="dg" id="defeatedGrid"></div>
     <div class="nb">
       <p>
-        <strong>About the two passes:</strong> Pass 1 ran interactively in Claude Code, using the Claude Sonnet model with web-search and file tools. This allowed real-time prompt iteration as edge cases appeared. The findings were cleaned into <code>agent/research.py</code>&mdash;a reproducible script&mdash;and re-run (<strong>pass 2</strong>) on all 100 apps for verification. Pass-2 output was merged with pass-1 using <code>research/merge.py</code>, with the higher-confidence answer winning field-by-field. The final JSON in <code>research/apps.json</code> reflects that merge plus human corrections from the spot-check.
+        Pass 1 was run interactively in Claude Code (100 apps). The pipeline was then scripted in <code>agent/research.py</code> and re-run as an independent <strong>pass 2</strong> on a 20-app verification sample (10 random + 10 hardest). <code>check_urls.py</code> flagged 54/100 apps, mostly keyword false positives. <code>critic.py</code> reviewed 24 flagged apps (sample + low-confidence): 12 disputed, 12 agreed. The other 30 flagged apps were not critic-reviewed due to time/compute limits.
       </p>
     </div>
   </div>
@@ -399,10 +401,10 @@ HTML = r"""<!DOCTYPE html>
   <div class="fi">
     <div class="fttl">Composio App Research &mdash; 100 Apps Case Study</div>
     <div class="flinks">
-      <a href="#" id="repoLink">&#128230; Source repo (placeholder)</a>
+      <a href="https://github.com/ParasharDeb/composio-assignment" id="repoLink" target="_blank" rel="noopener">&#128230; Source repo</a>
       <a href="../research/apps.json" id="dataLink">&#128196; data.json &mdash; for agents</a>
     </div>
-    <div class="fn2">Built with Claude Sonnet 4.6 &middot; Antigravity IDE &middot; September 2026<br/>
+    <div class="fn2">Built with Claude Code (Sonnet + critic) &middot; Antigravity IDE &middot; September 2026<br/>
     Data: <code>research/apps.json</code> &middot; Patterns: <code>research/patterns.json</code></div>
   </div>
 </footer>
@@ -623,13 +625,18 @@ ACCURACY_PLACEHOLDER
   function buildVerification(){
     const a=ACC;
     const p1=a.pass1_accuracy||0, pf=a.final_accuracy||0;
-    document.getElementById('accBars').innerHTML=`
-      <div class="abr"><div class="abl">Pass 1</div><div class="abt"><div class="abf" style="width:${p1}%;background:linear-gradient(90deg,#ffd166,#ff9f43)"></div></div><div class="abv">${p1}%</div></div>
-      <div class="abr"><div class="abl">Final</div><div class="abt"><div class="abf" style="width:${pf}%;background:linear-gradient(90deg,#00d4aa,#6c63ff)"></div></div><div class="abv">${pf}%</div></div>`;
+    const noData=!p1&&!pf;
+    if(noData){
+      document.getElementById('accBars').innerHTML='<p style="color:var(--muted);font-size:13px">&#128203; Human check in progress on a 20-app sample; see <a href="https://github.com/ParasharDeb/composio-assignment" target="_blank" rel="noopener">research/verify/</a> in the repo.</p>';
+    } else {
+      document.getElementById('accBars').innerHTML=`
+        <div class="abr"><div class="abl">Pass 1</div><div class="abt"><div class="abf" style="width:${p1}%;background:linear-gradient(90deg,#ffd166,#ff9f43)"></div></div><div class="abv">${p1}%</div></div>
+        <div class="abr"><div class="abl">Final</div><div class="abt"><div class="abf" style="width:${pf}%;background:linear-gradient(90deg,#00d4aa,#6c63ff)"></div></div><div class="abv">${pf}%</div></div>`;
+    }
     const pg=document.getElementById('perFieldGrid');
     const fields=a.per_field||{};
     if(!Object.keys(fields).length){
-      pg.innerHTML='<p style="color:var(--muted);font-size:13px">Per-field accuracy appears once the <code>#accuracy</code> placeholder is filled.</p>';
+      pg.innerHTML='';
     } else {
       Object.entries(fields).forEach(([f,v])=>{
         const d=document.createElement('div'); d.className='pfc';

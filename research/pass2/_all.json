@@ -1,0 +1,720 @@
+[
+  {
+    "id": 4,
+    "name": "Attio",
+    "category": "CRM and Sales",
+    "website": "https://attio.com",
+    "description": "Attio is a customizable, AI-powered CRM built on flexible data objects (people, companies, deals) for go-to-market teams.",
+    "auth_methods": [
+      "API key/Bearer token (access tokens)",
+      "OAuth2"
+    ],
+    "self_serve": "self-serve",
+    "gating_notes": "Access tokens can be generated for free on every plan including the Free tier ('API and webhook access' is checked across Free, Plus, Pro, Enterprise). Only workspace admins can generate/manage tokens (non-admins must ask an admin), but there is no paid-plan or sales-contact gate on API access itself.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "Official first-party hosted remote MCP server at https://mcp.attio.com/mcp, documented at docs.attio.com/mcp/overview. Uses OAuth login (no API key needed), exposes 50+ tools across records (people/companies/deals/custom objects), lists/pipelines, notes/tasks/comments, search (incl. semantic search over notes/recordings), reporting, and workspace administration; reads are auto-approved, writes require confirmation.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://docs.attio.com/rest-api/overview",
+      "https://attio.com/platform/developers",
+      "https://attio.com/help/apps/other-apps/generating-an-api-key",
+      "https://attio.com/pricing",
+      "https://docs.attio.com/mcp/overview",
+      "https://docs.attio.com/rest-api/endpoint-reference"
+    ],
+    "confidence": "high",
+    "_run": {
+      "model": "sonnet",
+      "attempt": 1,
+      "cost_usd": 0.28193999999999997,
+      "duration_ms": 46668,
+      "session_id": "8d522c70-8469-43c3-bcee-d81a647e8dc1",
+      "timestamp": "2026-09-16T19:22:27.598156+00:00"
+    }
+  },
+  {
+    "id": 10,
+    "name": "DealCloud",
+    "category": "CRM and Sales",
+    "website": "https://www.dealcloud.com",
+    "description": "DealCloud (by Intapp) is a CRM and deal/relationship intelligence platform used by private capital, investment banking, and other professional services firms to manage relationships, pipelines, and deal execution.",
+    "auth_methods": [
+      "OAuth2 (client credentials)",
+      "API key"
+    ],
+    "self_serve": "gated",
+    "gating_notes": "API access requires an existing paid DealCloud site/subscription; enterprise pricing is quote-only (contact sales/demo, no self-serve signup). Within a site, an admin must enable 'API' capability for a user group, and the Publications feature must be enabled by the account's DealCloud Customer Success Manager before OAuth client credentials (client_id/client_secret) and a personal API key can be generated.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "Official first-party DealCloud MCP Server (from Integration Appliance/Intapp) is in 'client preview' starting July 2026, documented at api.docs.dealcloud.com/mcp. It gives AI agents read access to DealCloud data (tool discovery, context retrieval, permission-scoped responses) for use cases like pipeline insight and meeting prep.",
+    "buildability": "partial",
+    "blocker": "No public self-serve credential acquisition — building/testing a Composio toolkit requires a live, paid DealCloud site plus admin-enabled API/Publications access; the official MCP server is also still in limited client preview, not generally available.",
+    "evidence": [
+      "https://api.docs.dealcloud.com/",
+      "https://api.docs.dealcloud.com/docs/publications/getting_started",
+      "https://api.docs.dealcloud.com/docs/data",
+      "https://api.docs.dealcloud.com/docs/management",
+      "https://api.docs.dealcloud.com/docs/apikeys",
+      "https://api.docs.dealcloud.com/mcp",
+      "https://intapp.com/dealcloud/"
+    ],
+    "confidence": "high",
+    "_run": {
+      "model": "sonnet",
+      "attempt": 1,
+      "cost_usd": 0.31245199999999995,
+      "duration_ms": 53391,
+      "session_id": "3fdde4b8-e3a4-4bbd-889c-17828a0f628f",
+      "timestamp": "2026-09-16T19:22:33.298061+00:00"
+    }
+  },
+  {
+    "id": 15,
+    "name": "Pylon",
+    "category": "Support and Helpdesk",
+    "website": "https://usepylon.com",
+    "description": "Pylon is a B2B customer support platform that unifies Slack Connect, Microsoft Teams, email, chat widget, and forms into a single ticketing system with knowledge base, accounts/contacts, and AI agent orchestration.",
+    "auth_methods": [
+      "Token/Bearer (API key)",
+      "OAuth2 (MCP server, via AuthKit)"
+    ],
+    "self_serve": "partial",
+    "gating_notes": "API tokens are created directly in the Pylon dashboard (Settings > API Tokens) by Admin users only, with no separate approval step ('Only Admin users can create API tokens' - docs.usepylon.com/pylon-docs/developer/api). However, API access itself is gated to paid plans: per third-party pricing summaries citing Pylon's own pricing page, API access is only included starting at the Professional tier (not Starter), and Pylon's account signup/pricing page (usepylon.com/pricing) routes to a 'book a demo' flow rather than instant self-serve signup, so getting an account with API-capable plan likely requires a sales conversation. The MCP server additionally requires the 'MCP Access' role to be enabled per-user by an admin.",
+    "api_surface": "REST",
+    "api_breadth": "moderate",
+    "mcp_exists": true,
+    "mcp_notes": "Official first-party remote MCP server hosted at https://mcp.usepylon.com, enabled from the Pylon dashboard (Settings > AI Controls > MCP Server). Uses OAuth 2.0 (AuthKit); access is scoped to what the authenticated user can already see in the UI. Exposes tools to search/retrieve/create/update issues, search/retrieve/update accounts, and fetch contacts/team members/current user. Requires 'MCP Access' role enabled per Member/Admin user. Source: docs.usepylon.com/pylon-docs/integrations/pylon-mcp.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://docs.usepylon.com/pylon-docs/developer/api",
+      "https://docs.usepylon.com/pylon-docs/developer/api/authentication",
+      "https://docs.usepylon.com/pylon-docs",
+      "https://docs.usepylon.com/pylon-docs/integrations/pylon-mcp",
+      "https://www.usepylon.com/pricing",
+      "https://www.usepylon.com/pricing?tab=platform"
+    ],
+    "confidence": "medium",
+    "_run": {
+      "model": "sonnet",
+      "attempt": 1,
+      "cost_usd": 0.3215218,
+      "duration_ms": 67466,
+      "session_id": "b455c81b-c4e2-418a-90d0-6d4523c2b719",
+      "timestamp": "2026-09-16T19:22:48.533409+00:00"
+    }
+  },
+  {
+    "id": 16,
+    "name": "LiveAgent",
+    "category": "Support and Helpdesk",
+    "website": "https://www.liveagent.com",
+    "description": "LiveAgent is a help desk and customer support platform (email, live chat, call center, social media, knowledge base) with a REST API for managing tickets, contacts, companies, departments, tags, and reports.",
+    "auth_methods": [
+      "API key (header 'apikey')",
+      "Bearer token",
+      "OAuth 2.1"
+    ],
+    "self_serve": "self-serve",
+    "gating_notes": "API keys are generated instantly by an account admin under Configuration > System > API (API v3) - no sales contact needed. API access is included in every paid plan (Small/Medium/Large/Enterprise) at no extra cost, though the number of API keys allowed scales with plan tier (1 on Small up to 100 on Enterprise). A 30-day free trial (no credit card) also includes API access. The separate MCP integration uses Bearer token or OAuth 2.1 and actions performed via MCP consume the account's AI credit budget, an added cost/usage constraint on top of the base plan.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "LiveAgent provides an official, built-in MCP server allowing MCP-compatible clients (Claude Desktop, claude.ai, Cursor, etc.) to connect directly to a LiveAgent account, authenticating via Bearer token or OAuth 2.1, to read/manage tickets and manage knowledge base articles under the connected agent's identity and permissions. Documented at support.liveagent.com/647358-MCP-Integration-for-Agents. A related community repo (QualityUnit/liveagent-mcp-server on GitHub, QualityUnit being LiveAgent's parent company) also exists.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://support.liveagent.com/911737-API-v3",
+      "https://support.liveagent.com/741982-API-key",
+      "https://www.liveagent.com/features/api/",
+      "https://www.liveagent.com/pricing/",
+      "https://support.liveagent.com/647358-MCP-Integration-for-Agents",
+      "https://support.liveagent.com/840770-Complete-API-reference"
+    ],
+    "confidence": "high",
+    "_run": {
+      "model": "sonnet",
+      "attempt": 1,
+      "cost_usd": 0.38083139999999993,
+      "duration_ms": 53471,
+      "session_id": "72f90a70-1fa0-4f42-a1d9-b006c7763208",
+      "timestamp": "2026-09-16T19:22:33.774605+00:00"
+    }
+  },
+  {
+    "id": 19,
+    "name": "Gorgias",
+    "category": "Support and Helpdesk",
+    "website": "https://www.gorgias.com",
+    "description": "Gorgias is an e-commerce-focused helpdesk platform that unifies customer support conversations (email, chat, social, voice) and offers a REST API and AI agent tooling for managing tickets, customers, and automations.",
+    "auth_methods": [
+      "API key (HTTP Basic Auth, private apps)",
+      "OAuth2 (Bearer token, public apps)"
+    ],
+    "self_serve": "self-serve",
+    "gating_notes": "API access is available on all Helpdesk plans with no paid-tier restriction; account owners/admins can self-generate an API key instantly from Settings > Account > REST API. Regular (non-admin) team members cannot create keys. Public apps must use OAuth2 and go through an app submission/review process for the app store, but private-app API key access is instant and self-serve.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "Official first-party Gorgias MCP server (currently in open beta as of May 2026), hosted at https://mcp.gorgias.com/mcp, free on all Helpdesk plans. Ships with ~112 tools: 3 high-level 'smart' tools plus ~109 raw API tools covering nearly every Gorgias REST endpoint (tickets, customers, macros, rules, analytics, help center articles, etc.). Connects via standard MCP client config with browser-based auth against the user's subdomain.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://docs.gorgias.com/en-US/rest-api-208286",
+      "https://developers.gorgias.com/reference/authentication",
+      "https://developers.gorgias.com/reference/introduction",
+      "https://developers.gorgias.com/docs/oauth2-bearer-token",
+      "https://developers.gorgias.com/docs/oauth2-authentication-for-creating-apps-with-gorgias",
+      "https://docs.gorgias.com/en-US/connect-your-ai-assistant-to-the-gorgias-mcp-6310546",
+      "https://updates.gorgias.com/publications/gorgias-mcp-is-now-in-open-beta",
+      "https://developers.gorgias.com/llms.txt"
+    ],
+    "confidence": "high",
+    "_run": {
+      "model": "sonnet",
+      "attempt": 1,
+      "cost_usd": 0.2907944,
+      "duration_ms": 49729,
+      "session_id": "9b5519fe-d1b3-4f96-918e-f858ad7a179c",
+      "timestamp": "2026-09-16T19:23:19.854773+00:00"
+    }
+  },
+  {
+    "id": 20,
+    "name": "Gladly",
+    "category": "Support and Helpdesk",
+    "website": "https://www.gladly.com",
+    "description": "Gladly is a radically personal customer service (helpdesk/CX) platform that unifies conversations across channels around a single customer timeline for contact center agents.",
+    "auth_methods": [
+      "Basic Auth (agent email + API token)"
+    ],
+    "self_serve": "gated",
+    "gating_notes": "Gladly has no public self-serve signup or pricing page (enterprise contact-sales model, ~$150-210/agent/month per third-party pricing aggregators). Within an existing paid account, only users granted the 'API User' role by an admin (Settings > Users) can generate an API token (Settings > App Developer Tools > API Tokens); token generation itself takes ~15 min but requires an admin-provisioned enterprise account first.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": false,
+    "mcp_notes": "No official Gladly-built MCP server found in its developer docs. Only third-party/unofficial offerings exist, e.g. StackOne advertises a Gladly MCP connector with 65 pre-built actions, but this is not published or endorsed by Gladly itself.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://developer.gladly.com/rest/",
+      "https://developer.gladly.com/",
+      "https://help.gladly.com/implementation/docs/get-your-api-tokens",
+      "https://help.gladly.com/docs/generate-api-tokens-and-create-webhooks",
+      "https://help.gladly.com/developer-tutorials/docs"
+    ],
+    "confidence": "high",
+    "_run": {
+      "model": "sonnet",
+      "attempt": 1,
+      "cost_usd": 0.2770634,
+      "duration_ms": 53650,
+      "session_id": "989235de-7ca5-46a7-a041-2b9bafbafd41",
+      "timestamp": "2026-09-16T19:23:29.466554+00:00"
+    }
+  },
+  {
+    "id": 31,
+    "name": "Google Ads",
+    "category": "Marketing, Ads, Email and Social",
+    "website": "https://developers.google.com/google-ads/api",
+    "description": "Programmatic interface to Google Ads for managing accounts, campaigns, ads, keywords, bidding, and performance reporting at scale.",
+    "auth_methods": [
+      "OAuth2",
+      "API key/token (developer token or Cloud-managed access level, sent as header)"
+    ],
+    "self_serve": "partial",
+    "gating_notes": "Test access is instant/self-serve on enabling the API in a Google Cloud project (15,000 ops/day, test accounts only). Explorer access (limited production use) is an automated application. Basic access requires brand verification of the Cloud project but is now automated, reviewed within minutes. Standard access (unlimited quota, full production use) requires a manual Google review, Required Minimum Functionality (RMF) compliance, and can take ~10 business days or longer. As of Sept 2026, standalone 'developer tokens' were sunset in favor of Cloud-Console-managed access levels tied to a GCP project, but the tiered self-serve→gated structure is unchanged. Source: https://developers.google.com/google-ads/api/docs/api-policy/access-levels, https://developers.google.com/google-ads/api/docs/api-policy/developer-token",
+    "api_surface": "REST+GraphQL",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "Google officially open-sourced a Google Ads API MCP server (github.com/googleads/google-ads-mcp), documented at developers.google.com/google-ads/api/docs/developer-toolkit/mcp-server. It's read-only: exposes list_accessible_customers, search (GAQL queries), and get_resource_metadata — it cannot modify campaigns, bids, or assets. Several unofficial/community MCP servers also exist (e.g. johnoconnor0/google-ads-mcp, gomarble-ai/google-ads-mcp-server) claiming fuller read/write coverage.",
+    "buildability": "partial",
+    "blocker": "Full production/write access requires Standard access level, which needs brand verification plus a manual Google review (RMF compliance) that can take 10+ business days; only limited-quota Basic/Explorer/Test tiers are quickly self-serve. The official Google MCP server itself is also read-only, so a full read/write agent toolkit would need to be built directly against the REST/gRPC API rather than reusing the official MCP server as-is.",
+    "evidence": [
+      "https://developers.google.com/google-ads/api/docs/api-policy/access-levels",
+      "https://developers.google.com/google-ads/api/docs/api-policy/developer-token",
+      "https://developers.google.com/google-ads/api/docs/oauth/overview",
+      "https://developers.google.com/google-ads/api/docs/start",
+      "https://developers.google.com/google-ads/api/rest/overview",
+      "https://developers.google.com/google-ads/api/docs/developer-toolkit/mcp-server",
+      "https://ads-developers.googleblog.com/2025/10/open-source-google-ads-api-mcp-server.html"
+    ],
+    "confidence": "high",
+    "_run": {
+      "model": "sonnet",
+      "attempt": 1,
+      "cost_usd": 0.33082140000000004,
+      "duration_ms": 66243,
+      "session_id": "4d721176-f162-479c-9751-e23cda7e1dbc",
+      "timestamp": "2026-09-16T19:23:42.745417+00:00"
+    }
+  },
+  {
+    "id": 34,
+    "name": "GoHighLevel",
+    "category": "Marketing, Ads, Email and Social",
+    "website": "https://www.gohighlevel.com/",
+    "description": "An all-in-one sales/marketing CRM platform (used heavily by agencies) offering contacts, conversations, calendars, opportunities/pipelines, payments, workflows, and websites, exposed via a REST API and marketplace app ecosystem.",
+    "auth_methods": [
+      "OAuth2 (Authorization Code grant only)",
+      "API Key / Basic Auth (Private Integration Tokens, location-level)",
+      "Agency API Keys (Agency Pro plan only)"
+    ],
+    "self_serve": "partial",
+    "gating_notes": "Developer/marketplace app registration and OAuth app creation appear self-serve (register as developer, create app, configure scopes/redirect URL, get client ID/secret) per the App Creation Guide. However, actual API access on the platform is plan-gated: per official support docs, 'Basic API access is included' only on Starter ($97/mo+) and Unlimited plans (location-level API keys), while Agency-level API keys and full OAuth2 agency access require the Agency Pro plan. There is no free tier for API access. Also, an app's chosen auth type (OAuth vs Basic) cannot be changed after publishing.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "Official HighLevel/LeadConnector MCP server exists at https://services.leadconnectorhq.com/mcp/ (platform-specific endpoints for Claude and ChatGPT/Codex). It exposes 4 unified meta-tools (list_locations, search_operations, describe_operation, execute_operation) that route to 550+ read/create/update/delete operations across 38 domains (contacts, opportunities, payments, workflows, social media, etc.). Uses OAuth2 consent flow scoped per sub-account (location); sensitive/irreversible operations require additional confirmation. Multiple unofficial community MCP servers also exist on GitHub (e.g., drausal/gohighlevel-mcp, basicmachines-co/open-ghl-mcp).",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://marketplace.gohighlevel.com/docs/",
+      "https://marketplace.gohighlevel.com/docs/oauth/AppCreationGuide",
+      "https://marketplace.gohighlevel.com/docs/oauth/ExternalAuthentication",
+      "https://marketplace.gohighlevel.com/docs/other/mcp",
+      "https://help.gohighlevel.com/support/solutions/articles/48001060529-highlevel-api"
+    ],
+    "confidence": "high",
+    "_run": {
+      "model": "sonnet",
+      "attempt": 1,
+      "cost_usd": 0.32542,
+      "duration_ms": 67396,
+      "session_id": "533939fd-53a8-48ea-b4b0-524e5f031e12",
+      "timestamp": "2026-09-16T19:23:58.730286+00:00"
+    }
+  },
+  {
+    "id": 38,
+    "name": "Pinterest",
+    "category": "Marketing, Ads, Email and Social",
+    "website": "https://developers.pinterest.com",
+    "description": "Pinterest's developer platform provides a REST API (v5) for managing Pins, Boards, Ads campaigns, product Catalogs, user accounts, and analytics on the Pinterest visual discovery platform.",
+    "auth_methods": [
+      "OAuth2"
+    ],
+    "self_serve": "partial",
+    "gating_notes": "Creating a developer app and requesting Trial access is free and self-serve (business account + email verification + form), but every app must pass a manual review (business-day turnaround) before any API access is granted. Trial access only allows sandboxed Pins/Boards visible to the creator. Production-grade 'Standard' access (public Pins/Boards, higher rate limits) requires an additional approval step including a video demo proving correct OAuth implementation and no storage of sensitive user data — effectively an admin-approval gate rather than instant self-serve.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": false,
+    "mcp_notes": "No official Pinterest MCP server for the public developer API was found. Pinterest Engineering has built an internal MCP ecosystem for its own engineers/agents (per their engineering blog), but this is not an externally available product. Several unofficial/community MCP servers exist on GitHub (e.g. aymandakirgh/pinterest-mcp, scottheffield/pinterest-mcp) wrapping the public API v5.",
+    "buildability": "yes",
+    "blocker": "Manual app-review gating (Trial approval, then a separate Standard-access video-demo review) adds friction/delay versus instant self-serve API key issuance, but does not block eventual toolkit construction.",
+    "evidence": [
+      "https://developers.pinterest.com/docs/getting-started/connect-app/",
+      "https://developers.pinterest.com/docs/key-concepts/access-tiers/",
+      "https://developers.pinterest.com/docs/api/v5/oauth-token/",
+      "https://medium.com/pinterest-engineering/building-an-mcp-ecosystem-at-pinterest-d881eb4c16f1",
+      "https://github.com/aymandakirgh/pinterest-mcp",
+      "https://github.com/pinterest/pinterest-python-generated-api-client"
+    ],
+    "confidence": "medium",
+    "_run": {
+      "model": "sonnet",
+      "attempt": 1,
+      "cost_usd": 0.29953680000000005,
+      "duration_ms": 59472,
+      "session_id": "e31399e3-6cfd-48ad-93ab-62ce730b8b3a",
+      "timestamp": "2026-09-16T19:24:21.666644+00:00"
+    }
+  },
+  {
+    "id": 50,
+    "name": "fanbasis",
+    "category": "Ecommerce",
+    "website": "https://commas.com",
+    "description": "FanBasis (rebranded to Commas) is an all-in-one payments and monetization platform providing checkout/funnel builders, subscription billing, and a REST API for collecting payments, managing subscriptions, customers, invoices, discounts, and webhooks.",
+    "auth_methods": [
+      "API key (x-api-key header, scoped keys)"
+    ],
+    "self_serve": "partial",
+    "gating_notes": "The consumer product has self-serve signup (commas.com 'Get started' -> /login), but the marketing site groups 'APIs and SDKs' under an 'Enterprise & APIs' section, suggesting fuller API/programmatic access is tied to an enterprise tier. The dedicated developer docs portal at dev-docs.fanbasis.com is login/password-gated, and the API reference content found (via a GitHub mirror of the docs and commasdocs.com) assumes a key already exists, with no visible public self-service key-generation flow documented.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "No official/native MCP server found from FanBasis/Commas itself. A third-party Zapier-hosted 'Commas MCP' exists (mcp.zapier.com) but exposes only inbound event triggers (payment/subscription/dispute events), no action/write tools. The API's own CLI (`commas`) supports agent-friendly `--json` output and `commas tools`/`call <tool>` discovery, per the mirrored docs.",
+    "buildability": "partial",
+    "blocker": "Unclear self-serve path to obtain a production API key: official docs portal (dev-docs.fanbasis.com) is login-gated, primary docs.fanbasis.com/api docs redirected/were inaccessible without auth, and marketing copy ties APIs/SDKs to the Enterprise tier — so credential acquisition likely requires signup approval or sales contact rather than instant self-serve, even though the REST surface itself (checkout, subscriptions, customers, transactions, webhooks, invoices, discounts, products, disputes) is broad enough to build a rich toolkit.",
+    "evidence": [
+      "https://www.fanbasis.com/",
+      "https://commas.com/",
+      "https://apidocs.fan/",
+      "https://raw.githubusercontent.com/otniel-bit/fbnewapi/main/api-docs.md",
+      "https://dev-docs.fanbasis.com/",
+      "https://commasdocs.com/",
+      "https://www.fanbasis.com/enterprises",
+      "https://zapier.com/mcp/commas"
+    ],
+    "confidence": "medium",
+    "_run": {
+      "model": "sonnet",
+      "attempt": 1,
+      "cost_usd": 0.5086628000000001,
+      "duration_ms": 109207,
+      "session_id": "db8f16c5-dab7-4b8c-a769-864e2e4878f2",
+      "timestamp": "2026-09-16T19:25:21.118053+00:00"
+    }
+  },
+  {
+    "id": 58,
+    "name": "Sherlock",
+    "category": "Data, SEO and Scraping",
+    "website": "https://github.com/sherlock-project/sherlock",
+    "description": "Sherlock is an open-source Python command-line tool that hunts for a given username across 400+ social networks and websites, reporting confirmed profile URLs.",
+    "auth_methods": [
+      "None"
+    ],
+    "self_serve": "self-serve",
+    "gating_notes": "Fully open-source (MIT license), installed via pip/pipx/Docker; no signup, API key, or account is required to use the core tool since it performs unauthenticated queries against public sites.",
+    "api_surface": "CLI",
+    "api_breadth": "narrow",
+    "mcp_exists": true,
+    "mcp_notes": "No official MCP server from the sherlock-project maintainers. Multiple unofficial/community MCP servers exist, e.g. github.com/Burnsedia/sherlock-mcp (FastMCP wrapper) and several third-party Apify actors exposing Sherlock-like username search via MCP/API endpoints — these are independent projects, not published or endorsed by sherlock-project.",
+    "buildability": "partial",
+    "blocker": "Sherlock is a local CLI/Python tool, not a hosted REST/GraphQL API — there is no official HTTP endpoint to call. A Composio toolkit would have to shell out to the CLI (or embed the library) and directly scrape hundreds of third-party sites, which is fragile, rate-limit prone, and only unofficial MCP/API wrappers exist today.",
+    "evidence": [
+      "https://github.com/sherlock-project/sherlock",
+      "https://sherlockproject.xyz/",
+      "https://github.com/Burnsedia/sherlock-mcp",
+      "https://apify.com/misceres/sherlock/api"
+    ],
+    "confidence": "high",
+    "_run": {
+      "model": "sonnet",
+      "attempt": 1,
+      "cost_usd": 0.219906,
+      "duration_ms": 41273,
+      "session_id": "b82df569-027f-4f08-90b6-6d73097e9121",
+      "timestamp": "2026-09-16T19:24:26.351717+00:00"
+    }
+  },
+  {
+    "id": 59,
+    "name": "Waterfall.io",
+    "category": "Data, SEO and Scraping",
+    "website": "https://www.waterfall.io",
+    "description": "A B2B data enrichment API that aggregates 30+ vendors to find and verify contact emails, phone numbers, company data, and job changes for GTM/RevOps teams.",
+    "auth_methods": [
+      "API key (x-api-key header)"
+    ],
+    "self_serve": "gated",
+    "gating_notes": "No public self-serve signup or free trial found. The marketing site's onboarding flow is 'Book a call' → free data benchmark → custom pricing, explicitly stating 'Before anything is signed we run a benchmark on your data at no cost' and 'From first call to live integration in 1 day.' Docs describe the x-api-key auth mechanism and API key management but never document a self-serve signup/key-issuance page.",
+    "api_surface": "REST",
+    "api_breadth": "moderate",
+    "mcp_exists": false,
+    "mcp_notes": "none found — search turned up only unrelated third-party projects (an Apify 'Work Email Waterfall' actor and an unrelated 'Waterfall' issue-tracker MCP server), not anything from waterfall.io itself",
+    "buildability": "partial",
+    "blocker": "API access is sales/benchmark-gated (no public self-serve API key or trial), so Composio could build the toolkit technically (REST API with ~14 documented endpoints: Prospector, Contact/Phone/Company Enrichment, Search Contact, Email Verification, Job Change Detection, Company Reveal, etc.) but each end user would need to go through Waterfall's sales/benchmark process to obtain credentials before the toolkit is usable.",
+    "evidence": [
+      "https://docs.waterfall.io/v1/introduction",
+      "https://docs.waterfall.io/v1/authentication",
+      "https://docs.waterfall.io/llms.txt",
+      "https://www.waterfall.io",
+      "https://www.waterfall.io/pricing",
+      "https://www.waterfall.io/book-a-call"
+    ],
+    "confidence": "high",
+    "_run": {
+      "model": "sonnet",
+      "attempt": 1,
+      "cost_usd": 0.3791356000000001,
+      "duration_ms": 67082,
+      "session_id": "7a82b885-7ce3-44ea-afb9-d5ba87491bbf",
+      "timestamp": "2026-09-16T19:25:08.157785+00:00"
+    }
+  },
+  {
+    "id": 75,
+    "name": "Asana",
+    "category": "Productivity and Project Management",
+    "website": "https://developers.asana.com/",
+    "description": "Asana is a work management platform that provides a REST API (and official MCP server) for reading and writing its 'Work Graph' — tasks, projects, portfolios, goals, teams, and workflow automation.",
+    "auth_methods": [
+      "OAuth2",
+      "Personal Access Token (PAT)",
+      "Service Account token (Enterprise only)",
+      "OpenID Connect"
+    ],
+    "self_serve": "self-serve",
+    "gating_notes": "Free Asana signup gives immediate access to the developer console (app.asana.com/0/my-apps) to generate a Personal Access Token or register an OAuth app — no paid plan or approval needed for PAT/OAuth. Only 'Service Accounts' (full org-wide data access) require an Enterprise tier and provisioning by a super admin. The official MCP server is available on all plan tiers via OAuth login, though Enterprise+/Legacy Enterprise admins can optionally block/allow specific MCP clients org-wide.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "Asana operates an official, generally-available MCP server (v2) at mcp.asana.com/v2/mcp using Streamable HTTP transport and OAuth, covering tasks, subtasks, dependencies, comments, projects, status updates, goals, portfolios, teams, users, and workspaces. Documented at developers.asana.com/docs/mcp-server and developers.asana.com/docs/using-asanas-mcp-server. Community servers (e.g. roychri/mcp-server-asana) also exist.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://developers.asana.com/docs/overview",
+      "https://developers.asana.com/docs/authentication",
+      "https://developers.asana.com/reference/rest-api-reference",
+      "https://developers.asana.com/llms.txt",
+      "https://developers.asana.com/docs/mcp-server",
+      "https://developers.asana.com/docs/using-asanas-mcp-server"
+    ],
+    "confidence": "high",
+    "_run": {
+      "model": "sonnet",
+      "attempt": 1,
+      "cost_usd": 0.2627004,
+      "duration_ms": 51600,
+      "session_id": "b1c62237-1f6b-4787-b92f-435d3b3dd69b",
+      "timestamp": "2026-09-16T19:25:15.578134+00:00"
+    }
+  },
+  {
+    "id": 84,
+    "name": "Paygent Connect",
+    "category": "Finance and Fintech",
+    "website": "unknown",
+    "description": "Could not verify: no official website, developer docs, or product page for a distinct 'Paygent Connect (NMI-powered)' offering was found; extensive search turned up only unrelated same/similar-named entities (Japan's Paygent Co./pay-gent.com, UK's paygent.co.uk (404), Paygent.ai, Paygent Commerce, Paygent.net) and none referenced NMI or a product called 'Paygent Connect'.",
+    "auth_methods": [
+      "unknown"
+    ],
+    "self_serve": "unknown",
+    "gating_notes": "No official developer/pricing/signup pages could be located under this exact name, so gating model cannot be determined.",
+    "api_surface": "unknown",
+    "api_breadth": "unknown",
+    "mcp_exists": false,
+    "mcp_notes": "none found",
+    "buildability": "no",
+    "blocker": "No discoverable official website, API reference, or developer documentation for a product named 'Paygent Connect' powered by NMI. If this is a small ISO/white-label reseller of NMI's gateway (a common pattern per NMI's own white-label partner program), it likely has no independent public API docs of its own — integration would go through NMI's own Direct Post/Gateway API (docs.nmi.com) under the reseller's branding, but this could not be confirmed for 'Paygent Connect' specifically.",
+    "evidence": [
+      "https://www.paygent.co.uk/",
+      "https://www.nmi.com/who-we-serve/independent-sales-iso/",
+      "https://www.nmi.com/blog/the-ultimate-white-label-payment-gateway-introduction-for-merchant-acquirers/",
+      "https://www.pay-gent.com/"
+    ],
+    "confidence": "low",
+    "_run": {
+      "model": "sonnet",
+      "attempt": 2,
+      "cost_usd": 0.5043168,
+      "duration_ms": 85158,
+      "session_id": "9c005bf6-7e2d-4c57-8444-ceed7216a89a",
+      "timestamp": "2026-09-16T19:48:48.963790+00:00"
+    }
+  },
+  {
+    "id": 85,
+    "name": "iPayX",
+    "category": "Finance and Fintech",
+    "website": "https://www.ipayx.ai/",
+    "description": "iPayX Protocol is a FINTRAC-registered forensic FX (foreign exchange) audit platform/API that scores bank and card-network FX transactions against live mid-market rates to reveal hidden markups and spreads across 300+ currencies.",
+    "auth_methods": [
+      "API key (Bearer token, e.g. ipx_live_xxxxx / ipx_test_xxxxx sandbox keys)"
+    ],
+    "self_serve": "self-serve",
+    "gating_notes": "Free tier requires no signup (5 lifetime audits, or 10 audits/day + 60 mid-market calls/min via MCP). Developer docs show self-serve account creation and production API key generation directly from a dashboard, no manual approval or sales contact mentioned for the base API/Developer ($99) tier. Higher tiers (Starter/Pro/Scale, $499-$4,999/mo) are paid plans, and Enterprise ($100K+/yr) is presumably a custom/contact-sales tier, but credential access itself is instant self-serve at every tier.",
+    "api_surface": "REST",
+    "api_breadth": "narrow",
+    "mcp_exists": true,
+    "mcp_notes": "Official MCP server documented at ipayx.ai/docs/mcp-server, hosted at a Supabase functions endpoint, exposing 3 tools: audit_fx_transaction (free), full_forensic_fx_report (paid, $199), and check_fx_mid_market_rate (free). Also mirrored/published as community packages 'mcp-fx-audit' on GitHub (iPAYX-Technologies and Ipayx-stellar orgs) and listed on MCP directories (Glama, mcpservers.org, awesome MCP servers).",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://www.ipayx.ai/",
+      "https://www.ipayx.ai/docs/mcp-server",
+      "https://www.ipayx.ai/developers",
+      "https://github.com/iPAYX-Technologies/mcp-fx-audit",
+      "https://github.com/Ipayx-stellar/mcp-fx-audit"
+    ],
+    "confidence": "medium",
+    "_run": {
+      "model": "sonnet",
+      "attempt": 1,
+      "cost_usd": 0.22838440000000002,
+      "duration_ms": 56307,
+      "session_id": "da4fd640-806e-44b6-b201-c91677bd5f1c",
+      "timestamp": "2026-09-16T19:47:14.222153+00:00"
+    }
+  },
+  {
+    "id": 89,
+    "name": "Ramp",
+    "category": "Finance and Fintech",
+    "website": "https://ramp.com",
+    "description": "Ramp is a corporate card and spend management platform whose Developer API lets businesses and partners programmatically manage cards, transactions, bill pay, reimbursements, accounting sync, and users.",
+    "auth_methods": [
+      "OAuth2 (client_credentials for server-to-server, authorization_code for user-delegated access, with refresh tokens)"
+    ],
+    "self_serve": "partial",
+    "gating_notes": "Creating an OAuth developer app is self-serve within the Ramp dashboard (Company > Developer), but requires admin access to an existing Ramp business account and acceptance of Terms of Service - there's no open public signup independent of being a Ramp customer. Some scopes require submitting a Developer API support ticket, sandbox access is provisioned via a request form, and building integrations for other Ramp businesses (ISV/partner use) requires applying for production access approval from Ramp.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "Ramp maintains an official, open-source MCP server (github.com/ramp-public/ramp_mcp) hosted at https://mcp.ramp.com/mcp, with one-click setup for Claude, ChatGPT, and Notion, and CLI install for coding agents. It exposes transactions, card management, statements, and expense data via a SQL-over-financial-data interface, scoped to the connected user's existing Ramp permissions.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://docs.ramp.com/",
+      "https://docs.ramp.com/llms.txt",
+      "https://docs.ramp.com/llms-api.txt",
+      "https://docs.ramp.com/llms-guides/authorization.txt",
+      "https://support.ramp.com/hc/en-us/articles/46681939909907-Accessing-the-Developer-API",
+      "https://support.ramp.com/ramp-mcp",
+      "https://github.com/ramp-public/ramp_mcp",
+      "https://ramp.com/developer-tools"
+    ],
+    "confidence": "high",
+    "_run": {
+      "model": "sonnet",
+      "attempt": 1,
+      "cost_usd": 0.37002,
+      "duration_ms": 77098,
+      "session_id": "566d806e-9701-4ce6-b0e8-ee6bd27c8f44",
+      "timestamp": "2026-09-16T19:48:32.972497+00:00"
+    }
+  },
+  {
+    "id": 90,
+    "name": "PitchBook",
+    "category": "Finance and Fintech",
+    "website": "https://pitchbook.com",
+    "description": "PitchBook is a market-intelligence platform providing data and analytics on private and public capital markets (companies, deals, investors, funds, LPs), offered on-demand via a paid REST API/Datafeed and, more recently, an MCP server for AI assistants.",
+    "auth_methods": [
+      "API key / auth token (provisioned by a PitchBook account manager, not self-generated)"
+    ],
+    "self_serve": "gated",
+    "gating_notes": "The API is a separate, paid add-on requiring a standalone contract on top of a PitchBook platform subscription. There is no public signup form or free tier; access (including a sandbox key) is requested by contacting your PitchBook account manager or via 'My PitchBook > Plugins & Apps > PitchBook API' inside the paid platform, after which the account manager provisions credentials.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "PitchBook runs an official remote MCP server at https://premium.mcp.pitchbook.com/mcp (Streamable HTTP transport) exposing tools such as get_company, get_financials, search_companies, search_deals, and search_investors — but it still requires an active PitchBook account/subscription and API credentials to authenticate. PitchBook also announced (Nov 2025) an MCP-based connector integration with OpenAI/ChatGPT for its subscribers (PitchBook Navigator).",
+    "buildability": "partial",
+    "blocker": "Both the REST API and the official MCP server sit behind a paid PitchBook subscription plus a separate contracted add-on; credentials are manually provisioned by an account manager rather than obtainable through self-serve signup, and full endpoint documentation is not publicly published — Composio could integrate technically (REST/JSON, MCP already exists) but cannot offer instant/self-serve credential access.",
+    "evidence": [
+      "https://pitchbook.com/products/direct-access-data/api",
+      "https://pitchbook.com/help/PitchBook-api",
+      "https://pitchbook.com/blog/announcing-the-launch-of-api-and-datafeed",
+      "https://pitchbook.com/help/data-feed-api-crm-direct-data-solutions-q3-2025",
+      "https://mcpservers.org/remote-mcp-servers/pitchbook",
+      "https://apigene.ai/mcp/official/pitchbook",
+      "https://www.businesswire.com/news/home/20251110140497/en/PitchBook-Launches-New-Generative-AI-Experiences-with-the-Introduction-of-PitchBook-Navigator-and-Upcoming-Integration-with-OpenAI"
+    ],
+    "confidence": "medium",
+    "_run": {
+      "model": "sonnet",
+      "attempt": 1,
+      "cost_usd": 0.38389499999999993,
+      "duration_ms": 96461,
+      "session_id": "4b4d1a97-5751-4e53-bb08-0bfd1d2d8231",
+      "timestamp": "2026-09-16T19:50:11.131343+00:00"
+    }
+  },
+  {
+    "id": 91,
+    "name": "NotebookLM",
+    "category": "AI, Research and Media-native",
+    "website": "https://cloud.google.com/gemini/enterprise/notebooklm-enterprise",
+    "description": "NotebookLM Enterprise (Gemini Notebook Enterprise) is an enterprise-grade, Google Cloud-hosted AI research tool that lets users upload documents/sources into notebooks and query, summarize, and generate content (e.g. audio overviews) grounded in those sources.",
+    "auth_methods": [
+      "OAuth2 (Google Cloud IAM bearer access token via gcloud/service account)"
+    ],
+    "self_serve": "gated",
+    "gating_notes": "Requires a Google Cloud project with NotebookLM Enterprise/Gemini Enterprise provisioned and licensed (either standalone or bundled with Gemini Enterprise), admin-managed identity (Cloud Identity or third-party IdP like Entra ID/Okta), and IAM role assignment (e.g. 'Cloud NotebookLM User') for users; there is no personal/self-serve API key — access is enterprise-license and admin-approval gated. Source: https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/overview , https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks",
+    "api_surface": "REST",
+    "api_breadth": "narrow",
+    "mcp_exists": false,
+    "mcp_notes": "No official Google MCP server found. Several unofficial/community MCP servers exist (e.g. github.com/PleasePrompto/notebooklm-mcp, mukundajmera-notebooklm-mcp on LobeHub) that wrap notebook/query/source-add/audio-overview operations, but none are published by Google.",
+    "buildability": "partial",
+    "blocker": "API is v1alpha (preview), and access is gated behind Google Cloud NotebookLM Enterprise/Gemini Enterprise licensing plus admin-provisioned IAM/identity setup rather than a self-serve developer signup — a Composio toolkit would depend on each customer's own enterprise GCP project and credentials.",
+    "evidence": [
+      "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/overview",
+      "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks",
+      "https://docs.cloud.google.com/gemini/enterprise/docs/reference/rpc/google.cloud.notebooklm.v1alpha"
+    ],
+    "confidence": "high",
+    "_run": {
+      "model": "sonnet",
+      "attempt": 1,
+      "cost_usd": 0.30079919999999993,
+      "duration_ms": 58025,
+      "session_id": "65f91310-9e5c-473a-b565-7b12c25ebd92",
+      "timestamp": "2026-09-16T19:49:48.565673+00:00"
+    }
+  },
+  {
+    "id": 94,
+    "name": "Consensus",
+    "category": "AI, Research and Media-native",
+    "website": "https://consensus.app",
+    "description": "Consensus is an AI-powered search engine that lets users and applications query 220+ million peer-reviewed research papers and get ranked, cited answers, with a REST API and an official MCP server for programmatic/agent access.",
+    "auth_methods": [
+      "API key (x-api-key header)",
+      "OAuth2 (PKCE, for MCP connector and enterprise Bearer-token access)"
+    ],
+    "self_serve": "partial",
+    "gating_notes": "The official API page states 'The Consensus API is now open to everyone' with a self-serve 'Create API key' flow (Profile > API & MCP Dashboard > Keys and clients > New key) and pay-per-call pricing ($0.05/call beyond included credits). However, meaningful included credit allotments (500/2000 per month) are tied to paid Pro/Team/Enterprise/Deep plans, and some third-party sources describe full API access as an Enterprise-negotiated feature, so free-tier API usage appears limited/metered rather than fully unrestricted. The MCP server itself is usable with no account (reduced limits) or via OAuth sign-in for full features.",
+    "api_surface": "REST",
+    "api_breadth": "narrow",
+    "mcp_exists": true,
+    "mcp_notes": "Official remote MCP server at https://mcp.consensus.app/mcp (open-source at github.com/Consensus-NLP/consensus-mcp), exposing a research-paper search tool with filters (study design, sample size, journal quality, open access, etc.). Works unauthenticated at reduced limits, or via OAuth2 sign-in for full access; enterprise customers can instead use an API key as a Bearer token. Listed as connectable from Claude Desktop, ChatGPT, Cursor, VS Code/Copilot, and enterprise MCP gateways.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://consensus.app/home/api",
+      "https://consensus.app/home/mcp/",
+      "https://github.com/Consensus-NLP/consensus-mcp",
+      "https://docs.consensus.app/llms.txt"
+    ],
+    "confidence": "medium",
+    "_run": {
+      "model": "sonnet",
+      "attempt": 1,
+      "cost_usd": 0.43713660000000004,
+      "duration_ms": 110805,
+      "session_id": "958a51ec-49df-41ab-95b7-7ee4cb5d6974",
+      "timestamp": "2026-09-16T19:51:41.084246+00:00"
+    }
+  },
+  {
+    "id": 97,
+    "name": "higgsfield",
+    "category": "AI, Research and Media-native",
+    "website": "https://higgsfield.ai",
+    "description": "Higgsfield is a generative media platform that provides an API, CLI, and MCP server for creating AI images, video, audio, voices, 3D assets, and marketing/social content across 30+ underlying models (Soul, Cinema Studio, Flux, Seedream, Kling, Veo, etc.).",
+    "auth_methods": [
+      "API key (Key ID:Secret via Authorization header)",
+      "OAuth-style account login (CLI: `higgsfield auth login`)",
+      "Account-based auth for MCP connector"
+    ],
+    "self_serve": "partial",
+    "gating_notes": "Signup and API key generation are instant/self-serve via the Higgsfield Console (console.higgsfield.ai) with no manual approval step. However, actual usage is gated by a credit-based billing system layered on top: the API runs on separate per-call billing from MCP/CLI/Canvas credit consumption, and no free API trial is documented (the main app periodically runs a $0/24h promo, but this is not confirmed for API/CLI/MCP use). Higher rate limits and enterprise invoicing require contacting support.",
+    "api_surface": "REST",
+    "api_breadth": "broad",
+    "mcp_exists": true,
+    "mcp_notes": "Official first-party MCP server at https://mcp.higgsfield.ai/mcp (documented at higgsfield.ai/mcp), exposing image/video/audio/3D generation, character (Soul) training, marketing studio, TikTok publishing, website builder, and more (confirmed by the extensive live Higgsfield MCP tool set available in this session). Separately, Higgsfield ships an official CLI (`@higgsfield/cli`, github.com/higgsfield-ai/cli) plus a companion 'skills' package (github.com/higgsfield-ai/skills) intended for coding agents, distinct from the chat-agent-focused MCP server.",
+    "buildability": "yes",
+    "blocker": "none",
+    "evidence": [
+      "https://docs.higgsfield.ai/docs",
+      "https://docs.higgsfield.ai/docs/authentication",
+      "https://docs.higgsfield.ai/docs/llms.txt",
+      "https://docs.higgsfield.ai/docs/quickstart",
+      "https://docs.higgsfield.ai/docs/help/faq",
+      "https://higgsfield.ai/cli",
+      "https://higgsfield.ai/mcp",
+      "https://higgsfield.ai/creator-hub/help-center/mcp-cli/how-do-i-access-higgsfield-via-cli",
+      "https://github.com/higgsfield-ai",
+      "https://github.com/higgsfield-ai/cli",
+      "https://github.com/higgsfield-ai/higgsfield-client",
+      "https://github.com/higgsfield-ai/higgsfield-js"
+    ],
+    "confidence": "high",
+    "_run": {
+      "model": "sonnet",
+      "attempt": 1,
+      "cost_usd": 0.4498638,
+      "duration_ms": 103392,
+      "session_id": "db35d32e-260d-43e5-9d3b-aa51219b5412",
+      "timestamp": "2026-09-16T19:51:56.049069+00:00"
+    }
+  }
+]

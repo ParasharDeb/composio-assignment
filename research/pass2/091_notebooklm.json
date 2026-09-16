@@ -1,0 +1,32 @@
+{
+  "id": 91,
+  "name": "NotebookLM",
+  "category": "AI, Research and Media-native",
+  "website": "https://cloud.google.com/gemini/enterprise/notebooklm-enterprise",
+  "description": "NotebookLM Enterprise (Gemini Notebook Enterprise) is an enterprise-grade, Google Cloud-hosted AI research tool that lets users upload documents/sources into notebooks and query, summarize, and generate content (e.g. audio overviews) grounded in those sources.",
+  "auth_methods": [
+    "OAuth2 (Google Cloud IAM bearer access token via gcloud/service account)"
+  ],
+  "self_serve": "gated",
+  "gating_notes": "Requires a Google Cloud project with NotebookLM Enterprise/Gemini Enterprise provisioned and licensed (either standalone or bundled with Gemini Enterprise), admin-managed identity (Cloud Identity or third-party IdP like Entra ID/Okta), and IAM role assignment (e.g. 'Cloud NotebookLM User') for users; there is no personal/self-serve API key — access is enterprise-license and admin-approval gated. Source: https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/overview , https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks",
+  "api_surface": "REST",
+  "api_breadth": "narrow",
+  "mcp_exists": false,
+  "mcp_notes": "No official Google MCP server found. Several unofficial/community MCP servers exist (e.g. github.com/PleasePrompto/notebooklm-mcp, mukundajmera-notebooklm-mcp on LobeHub) that wrap notebook/query/source-add/audio-overview operations, but none are published by Google.",
+  "buildability": "partial",
+  "blocker": "API is v1alpha (preview), and access is gated behind Google Cloud NotebookLM Enterprise/Gemini Enterprise licensing plus admin-provisioned IAM/identity setup rather than a self-serve developer signup — a Composio toolkit would depend on each customer's own enterprise GCP project and credentials.",
+  "evidence": [
+    "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/overview",
+    "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks",
+    "https://docs.cloud.google.com/gemini/enterprise/docs/reference/rpc/google.cloud.notebooklm.v1alpha"
+  ],
+  "confidence": "high",
+  "_run": {
+    "model": "sonnet",
+    "attempt": 1,
+    "cost_usd": 0.30079919999999993,
+    "duration_ms": 58025,
+    "session_id": "65f91310-9e5c-473a-b565-7b12c25ebd92",
+    "timestamp": "2026-09-16T19:49:48.565673+00:00"
+  }
+}
