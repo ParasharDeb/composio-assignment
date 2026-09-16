@@ -1,0 +1,36 @@
+{
+  "id": 15,
+  "name": "Pylon",
+  "category": "Support and Helpdesk",
+  "website": "https://usepylon.com",
+  "description": "Pylon is a B2B customer support platform that unifies Slack Connect, Microsoft Teams, email, chat widget, and forms into a single ticketing system with knowledge base, accounts/contacts, and AI agent orchestration.",
+  "auth_methods": [
+    "Token/Bearer (API key)",
+    "OAuth2 (MCP server, via AuthKit)"
+  ],
+  "self_serve": "partial",
+  "gating_notes": "API tokens are created directly in the Pylon dashboard (Settings > API Tokens) by Admin users only, with no separate approval step ('Only Admin users can create API tokens' - docs.usepylon.com/pylon-docs/developer/api). However, API access itself is gated to paid plans: per third-party pricing summaries citing Pylon's own pricing page, API access is only included starting at the Professional tier (not Starter), and Pylon's account signup/pricing page (usepylon.com/pricing) routes to a 'book a demo' flow rather than instant self-serve signup, so getting an account with API-capable plan likely requires a sales conversation. The MCP server additionally requires the 'MCP Access' role to be enabled per-user by an admin.",
+  "api_surface": "REST",
+  "api_breadth": "moderate",
+  "mcp_exists": true,
+  "mcp_notes": "Official first-party remote MCP server hosted at https://mcp.usepylon.com, enabled from the Pylon dashboard (Settings > AI Controls > MCP Server). Uses OAuth 2.0 (AuthKit); access is scoped to what the authenticated user can already see in the UI. Exposes tools to search/retrieve/create/update issues, search/retrieve/update accounts, and fetch contacts/team members/current user. Requires 'MCP Access' role enabled per Member/Admin user. Source: docs.usepylon.com/pylon-docs/integrations/pylon-mcp.",
+  "buildability": "yes",
+  "blocker": "none",
+  "evidence": [
+    "https://docs.usepylon.com/pylon-docs/developer/api",
+    "https://docs.usepylon.com/pylon-docs/developer/api/authentication",
+    "https://docs.usepylon.com/pylon-docs",
+    "https://docs.usepylon.com/pylon-docs/integrations/pylon-mcp",
+    "https://www.usepylon.com/pricing",
+    "https://www.usepylon.com/pricing?tab=platform"
+  ],
+  "confidence": "medium",
+  "_run": {
+    "model": "sonnet",
+    "attempt": 1,
+    "cost_usd": 0.3215218,
+    "duration_ms": 67466,
+    "session_id": "b455c81b-c4e2-418a-90d0-6d4523c2b719",
+    "timestamp": "2026-09-16T19:22:48.533409+00:00"
+  }
+}

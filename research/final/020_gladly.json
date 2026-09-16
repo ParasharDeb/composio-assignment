@@ -1,0 +1,45 @@
+{
+  "id": 20,
+  "name": "Gladly",
+  "category": "Support and Helpdesk",
+  "website": "gladly.com",
+  "description": "Enterprise customer-service platform centered on a lifelong customer conversation timeline, mainly sold to large retail/CX teams.",
+  "auth_methods": [
+    "API key (token) via HTTP Basic Auth — agent email as username, API token as password, generated in-app under More settings > API Tokens by a user with the API User permission"
+  ],
+  "self_serve": "gated",
+  "gating_notes": "No public self-serve signup or pricing for the core platform — gladly.ai/pricing lists no prices and routes everything to 'Get a demo' / 'Contact sales'; the platform is enterprise-contract only. API docs are fully public at developer.gladly.com, but issuing an API token requires an existing Gladly org and a user with the API User permission. A separate self-serve 'Sidekick for Shopify' product has a free trial, but that is a narrower AI product, not general platform API access.",
+  "api_surface": "REST",
+  "api_breadth": "broad",
+  "mcp_exists": true,
+  "mcp_notes": "No official Gladly MCP server; a third-party managed connector (StackOne) offers a hosted Gladly MCP server with 65 pre-built actions spanning agents, conversations, customers, tasks and answers, brokered through StackOne Connect Sessions. The underlying public REST API is documented directly by Gladly at developer.gladly.com/rest/.",
+  "buildability": "yes",
+  "blocker": "No technical blocker: the REST API is publicly documented and uses simple Basic-auth API tokens, so a toolkit can be built from the docs. The practical constraint is testing — tokens can only be minted inside a paid enterprise Gladly tenant, so Composio would need a customer or partner sandbox to validate endpoints end to end.",
+  "evidence": [
+    "https://developer.gladly.com/rest/",
+    "https://www.gladly.ai/pricing/",
+    "https://www.stackone.com/connectors/gladly/mcp/"
+  ],
+  "confidence": "high",
+  "_critic": {
+    "verdict": "dispute",
+    "disputed_fields": [
+      "auth_methods",
+      "gating_notes",
+      "api_breadth",
+      "mcp_notes",
+      "buildability",
+      "blocker",
+      "evidence",
+      "confidence"
+    ],
+    "notes": "The pass-1 'docs not accessible' premise was wrong: developer.gladly.com/rest/ is publicly reachable and states plainly that the Gladly API uses token-based HTTP Basic Authentication (agent email as username, API token as password), with tokens self-generated in-app under More settings > API Tokens by users holding the API User permission; it documents ~18 resource groups (Conversations, Customers, Tasks, Answers, Communications, Reports, Webhooks, etc.), so breadth is broad, not narrow. The flagged eesel URL is genuinely dead (redirects to the blog index), so the $100K-$500K figure was dropped and gating was re-confirmed directly on gladly.ai/pricing (demo/contact-sales only, no listed prices or signup); gating and 'gated' self-serve hold, but the blocker is now only the lack of a test tenant, not missing docs.",
+    "reviewed_urls": [
+      "https://www.eesel.ai/blog/gladly-pricing (via search summary)",
+      "https://www.gladly.ai/developers/"
+    ],
+    "model": "opus",
+    "cost_usd": 0.5630430000000001,
+    "timestamp": "2026-09-16T19:25:20.981150+00:00"
+  }
+}

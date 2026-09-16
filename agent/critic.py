@@ -20,8 +20,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from common import (  # noqa: E402
-    APP_SCHEMA_FIELDS, RESEARCH_DIR, extract_json, load_records, now_iso, run_claude,
-    slug, write_json,
+    APP_SCHEMA_FIELDS, RESEARCH_DIR, extract_json, load_records, now_iso, parse_ids,
+    run_claude, slug, write_json,
 )
 
 MAX_URLS_PER_APP = 5
@@ -125,6 +125,8 @@ def main():
     ap.add_argument("--flags", default=str(RESEARCH_DIR / "verify" / "url_flags.json"))
     ap.add_argument("--pass1", default=str(RESEARCH_DIR / "pass1"))
     ap.add_argument("--out", default=str(RESEARCH_DIR / "final"))
+    ap.add_argument("--ids", help='Comma/range list of ids to restrict review to, e.g. "1-10" or "1,2,5-10" '
+                                  "(default: all flagged apps)")
     ap.add_argument("--model", default="opus")
     ap.add_argument("--allowed-tools", default="WebFetch")
     ap.add_argument("--concurrency", type=int, default=3)
@@ -147,6 +149,9 @@ def main():
     out_dir.mkdir(parents=True, exist_ok=True)
 
     flagged_ids = sorted(by_app_flags)
+    if args.ids:
+        wanted = parse_ids(args.ids)
+        flagged_ids = [i for i in flagged_ids if i in wanted]
     print(f"{len(flagged_ids)} app(s) have flagged evidence and will be reviewed by {args.model}.")
 
     todo = []

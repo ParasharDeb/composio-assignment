@@ -1,0 +1,44 @@
+{
+  "id": 4,
+  "name": "Attio",
+  "category": "CRM and Sales",
+  "website": "attio.com",
+  "description": "Modern, flexible/customizable CRM built around a relational data model.",
+  "auth_methods": [
+    "OAuth2",
+    "API key"
+  ],
+  "self_serve": "self-serve",
+  "gating_notes": "Fully self-serve: API keys are generated from workspace developer settings, and OAuth2 apps can be registered in the developer console. Attio's pricing page lists API access, webhooks, the App SDK and the MCP server as included on the Free plan (up to 3 seats), so a developer can build without any paid plan or sales conversation; only the SQL/query-particle-sql tool is plan-gated.",
+  "api_surface": "REST",
+  "api_breadth": "broad",
+  "mcp_exists": true,
+  "mcp_notes": "Official Attio-hosted MCP server at https://mcp.attio.com/mcp, authenticated via OAuth (log in with an Attio account, no API key needed). Exposes 50+ tools across records/objects, lists, comments, notes, tasks, meetings & call transcripts, emails, workspace, reporting and read-only SQL (SQL tool is plan-dependent).",
+  "buildability": "yes",
+  "blocker": "none",
+  "evidence": [
+    "https://docs.attio.com/rest-api/guides/authentication",
+    "https://docs.attio.com/mcp/overview",
+    "https://docs.attio.com/llms.txt",
+    "https://attio.com/pricing"
+  ],
+  "confidence": "high",
+  "_critic": {
+    "verdict": "dispute",
+    "disputed_fields": [
+      "gating_notes",
+      "api_breadth",
+      "mcp_notes",
+      "evidence",
+      "confidence"
+    ],
+    "notes": "The docs.attio.com flag was a false positive — the overview redirects to /docs/overview and the authentication guide explicitly documents both OAuth 2.0 (multi-workspace apps) and manually generated single-workspace API keys, so auth_methods and self_serve hold. The dead dev.to link is replaced with Attio's official MCP docs: Attio hosts its own OAuth-authenticated MCP server at https://mcp.attio.com/mcp with 50+ tools, so mcp_notes' 'unclear if official' is wrong. Pricing confirms the Free plan includes API, webhooks, App SDK and MCP (no trial or sales call needed), and the REST surface spans ~20 resource groups (records, objects, attributes, lists, entries, notes, tasks, comments, threads, meetings, call recordings, emails, files, webhooks, SCIM, SQL), which is broad rather than moderate.",
+    "reviewed_urls": [
+      "https://dev.to/grove_chatforest/crm-mcp-servers-salesforce-hubspot-pipedrive-attio-and-beyond-off",
+      "https://docs.attio.com/"
+    ],
+    "model": "opus",
+    "cost_usd": 0.5348744999999999,
+    "timestamp": "2026-09-16T19:22:34.758214+00:00"
+  }
+}

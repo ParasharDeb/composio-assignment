@@ -1,0 +1,134 @@
+{
+  "ran_at": "2026-09-16T19:34:42.716852+00:00",
+  "model": "sonnet",
+  "flagged_app_count": 9,
+  "reviewed_this_run": 9,
+  "skipped_cached": 0,
+  "failed_this_run": 0,
+  "total_reviewed_on_disk": 24,
+  "disputed_count": 12,
+  "agreed_count": 12,
+  "disputed_apps": [
+    {
+      "id": 1,
+      "name": "Salesforce",
+      "disputed_fields": [
+        "mcp_notes",
+        "evidence"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "HubSpot",
+      "disputed_fields": [
+        "auth_methods",
+        "gating_notes",
+        "mcp_notes",
+        "evidence"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Pipedrive",
+      "disputed_fields": [
+        "mcp_notes",
+        "evidence",
+        "confidence"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Attio",
+      "disputed_fields": [
+        "gating_notes",
+        "api_breadth",
+        "mcp_notes",
+        "evidence",
+        "confidence"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Zoho CRM",
+      "disputed_fields": [
+        "mcp_exists",
+        "mcp_notes",
+        "evidence",
+        "confidence"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Copper",
+      "disputed_fields": [
+        "evidence",
+        "mcp_notes",
+        "confidence"
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Zendesk",
+      "disputed_fields": [
+        "mcp_notes",
+        "evidence"
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Pylon",
+      "disputed_fields": [
+        "gating_notes",
+        "api_breadth",
+        "mcp_notes",
+        "blocker",
+        "evidence",
+        "confidence"
+      ]
+    },
+    {
+      "id": 16,
+      "name": "LiveAgent",
+      "disputed_fields": [
+        "auth_methods",
+        "gating_notes",
+        "mcp_notes",
+        "evidence",
+        "confidence"
+      ]
+    },
+    {
+      "id": 20,
+      "name": "Gladly",
+      "disputed_fields": [
+        "auth_methods",
+        "gating_notes",
+        "api_breadth",
+        "mcp_notes",
+        "buildability",
+        "blocker",
+        "evidence",
+        "confidence"
+      ]
+    },
+    {
+      "id": 50,
+      "name": "fanbasis",
+      "disputed_fields": [
+        "website",
+        "gating_notes",
+        "mcp_notes",
+        "evidence",
+        "confidence"
+      ]
+    },
+    {
+      "id": 85,
+      "name": "iPayX",
+      "disputed_fields": [
+        "evidence"
+      ]
+    }
+  ],
+  "cost_usd_this_run": 1.5632
+}

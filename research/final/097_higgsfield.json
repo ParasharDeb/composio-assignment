@@ -1,0 +1,36 @@
+{
+  "id": 97,
+  "name": "higgsfield",
+  "category": "AI, Research and Media-native",
+  "website": "https://higgsfield.ai",
+  "description": "AI content generation suite (image, video, audio/voice, 3D, marketing/shorts studios, website builder, social publishing) exposed via a REST API, official CLI, SDKs, and an extensive MCP tool surface.",
+  "auth_methods": [
+    "API key (Authorization: Key {id}:{secret})",
+    "Browser-based login for CLI (higgsfield auth login)"
+  ],
+  "self_serve": "self-serve",
+  "gating_notes": "Users generate their own API key from the Higgsfield dashboard; CLI installs via npm/brew/curl and authenticates through a browser login flow (higgsfield auth login). Usage is credit/plan-based but signup itself is self-serve.",
+  "api_surface": "REST",
+  "api_breadth": "broad",
+  "mcp_exists": true,
+  "mcp_notes": "Higgsfield has an extensive, actively maintained MCP tool surface (image/video/audio/3D generation, marketing studio, website builder, TikTok publishing, voice cloning, scene building, etc.) confirmed directly via a live Higgsfield MCP integration; this is one of the most complete MCP surfaces among the researched apps.",
+  "buildability": "yes",
+  "blocker": "none",
+  "evidence": [
+    "https://docs.higgsfield.ai/docs",
+    "https://higgsfield.ai/cli",
+    "https://github.com/higgsfield-ai/cli"
+  ],
+  "confidence": "high",
+  "_critic": {
+    "verdict": "agree",
+    "disputed_fields": [],
+    "notes": "The auto-flag on the GitHub CLI page was a false positive: the fetched page text explicitly shows the Quickstart step 'Authenticate: higgsfield auth login', which directly confirms the claimed 'Browser-based login for CLI (higgsfield auth login)' auth method. No other fields are contradicted by this evidence; the page also corroborates the CLI's broad model/tool surface consistent with api_breadth and mcp_notes.",
+    "reviewed_urls": [
+      "https://github.com/higgsfield-ai/cli"
+    ],
+    "model": "sonnet",
+    "cost_usd": 0.0800794,
+    "timestamp": "2026-09-16T19:34:32.007811+00:00"
+  }
+}

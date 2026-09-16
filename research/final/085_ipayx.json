@@ -1,0 +1,36 @@
+{
+  "id": 85,
+  "name": "iPayX",
+  "category": "Finance and Fintech",
+  "website": "https://ipayx.ai",
+  "description": "FINTRAC-registered FX forensic audit layer that audits hidden FX fees/spreads vs live mid-market rates across 300+ currencies for cross-border B2B payments.",
+  "auth_methods": [
+    "API key (optional for basic mid-market rate lookups; required for live provider comparisons)"
+  ],
+  "self_serve": "self-serve",
+  "gating_notes": "Mid-market rate checks work without any key (powered by ECB/exchangerate.host); a free API key for live provider-rate comparisons is obtainable directly at ipayx.ai. No sales/partner gate found for basic use.",
+  "api_surface": "other",
+  "api_breadth": "narrow",
+  "mcp_exists": true,
+  "mcp_notes": "iPayX ships its own MCP server (npx @ipayx/mcp-fx-audit, endpoint https://mcp.ipayx.ai/mcp; GitHub repos iPAYX-Technologies/mcp-fx-audit and Ipayx-stellar/mcp-fx-audit) exposing FX audit tools (mid-market rate lookup, transaction/forensic audit, provider comparison). Public tools are unauthenticated and IP-rate-limited per ipayx.ai/mcp-config; provider-comparison/premium tools use an optional IPAYX_API_KEY.",
+  "buildability": "yes",
+  "blocker": "none",
+  "evidence": [
+    "https://ipayx.ai/mcp-config",
+    "https://github.com/iPAYX-Technologies/mcp-fx-audit"
+  ],
+  "confidence": "medium",
+  "_critic": {
+    "verdict": "dispute",
+    "disputed_fields": [
+      "evidence"
+    ],
+    "notes": "The flagged URL (ipayx.ai/docs/mcp-server) was a genuine false claim of evidence: it resolves to the general product landing page and never mentions MCP, auth, or API keys. The actual MCP documentation lives at ipayx.ai/mcp-config, which I fetched directly and confirms the mcp.ipayx.ai/mcp endpoint plus IP-rate-limited free tools with an optional API key gate on provider-comparison/premium tools — corroborated separately by the linked GitHub repo (optional IPAYX_API_KEY env var; free mid-market lookups, free key required for provider comparisons). All substantive fields (auth_methods, gating_notes, mcp_exists, buildability, etc.) hold up; only the evidence URL needed swapping to one that actually documents the claim.",
+    "reviewed_urls": [
+      "https://www.ipayx.ai/docs/mcp-server"
+    ],
+    "model": "sonnet",
+    "cost_usd": 0.2209336,
+    "timestamp": "2026-09-16T19:33:57.810793+00:00"
+  }
+}

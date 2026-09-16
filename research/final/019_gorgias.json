@@ -1,0 +1,38 @@
+{
+  "id": 19,
+  "name": "Gorgias",
+  "category": "Support and Helpdesk",
+  "website": "gorgias.com",
+  "description": "E-commerce-focused helpdesk (deep Shopify/BigCommerce integration) with a REST API for tickets, customers, and automation.",
+  "auth_methods": [
+    "API key (Basic auth) for private apps",
+    "OAuth2 for public apps"
+  ],
+  "self_serve": "self-serve",
+  "gating_notes": "REST API credentials (base URL, email, API key) are available directly from Settings > Account > REST API on any account, including trial accounts; public OAuth apps require Gorgias approval to be listed, but private-app API-key access needs no approval.",
+  "api_surface": "REST",
+  "api_breadth": "broad",
+  "mcp_exists": true,
+  "mcp_notes": "Official MCP server at mcp.gorgias.com/mcp, included on every helpdesk plan (currently in beta); community servers also exist (e.g. cacosat/gorgias, benpalmer1/Gorgias-MCP-Server).",
+  "buildability": "yes",
+  "blocker": "none",
+  "evidence": [
+    "https://developers.gorgias.com/reference/introduction",
+    "https://developers.gorgias.com/reference/authentication",
+    "https://docs.gorgias.com/en-US/connect-your-ai-assistant-to-the-gorgias-mcp-6310546"
+  ],
+  "confidence": "high",
+  "_critic": {
+    "verdict": "agree",
+    "disputed_fields": [],
+    "notes": "Both flags were false positives: the 404 was caused by a malformed URL (literal '(via search)' text appended to the authentication page URL, not a broken page), and the 'auth_method_not_mentioned' flags were on pages that support the claim contextually (introduction page distinguishes Private/Public apps; MCP article confirms beta status and all-Helpdesk-plan availability) even though they don't restate 'Basic auth'/'OAuth2' verbatim. Refetching the corrected authentication URL directly confirms API key + Basic auth for private apps and mandatory OAuth2 for public apps.",
+    "reviewed_urls": [
+      "https://developers.gorgias.com/reference/authentication (via search)",
+      "https://developers.gorgias.com/reference/introduction",
+      "https://docs.gorgias.com/en-US/connect-your-ai-assistant-to-the-gorgias-mcp-6310546"
+    ],
+    "model": "sonnet",
+    "cost_usd": 0.1348336,
+    "timestamp": "2026-09-16T19:31:55.934883+00:00"
+  }
+}

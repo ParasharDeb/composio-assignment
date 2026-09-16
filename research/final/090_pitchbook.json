@@ -1,0 +1,34 @@
+{
+  "id": 90,
+  "name": "PitchBook",
+  "category": "Finance and Fintech",
+  "website": "https://pitchbook.com",
+  "description": "Private-market research database API covering companies, deals, people, investors, funds, service providers, and limited partners.",
+  "auth_methods": [
+    "API key"
+  ],
+  "self_serve": "gated",
+  "gating_notes": "API access is an add-on that must be requested through a PitchBook account manager or via 'My PitchBook > Plugins & Apps > PitchBook API' contacting the Direct Data team; keys (including sandbox keys) are provisioned manually, not via open self-serve signup. Full developer documentation is only visible to contracted/paying clients.",
+  "api_surface": "REST",
+  "api_breadth": "moderate",
+  "mcp_exists": false,
+  "mcp_notes": "No official or notable community MCP server found for PitchBook.",
+  "buildability": "no",
+  "blocker": "Requires an existing paid PitchBook subscription plus a separate sales-approved API add-on and account-manager-provisioned key; docs are not publicly accessible, blocking self-serve toolkit development.",
+  "evidence": [
+    "https://pitchbook.com/help/PitchBook-api",
+    "https://pipeline.zoominfo.com/sales/pitchbook-api-review"
+  ],
+  "confidence": "medium",
+  "_critic": {
+    "verdict": "agree",
+    "disputed_fields": [],
+    "notes": "The 403 on pitchbook.com/help/PitchBook-api is a bot-block, not a dead/wrong link — a secondary source (ZoomInfo pipeline review) directly quotes that same page's content, confirming API-key/token auth, account-manager/Direct Data gating, and non-public documentation, matching pass 1 exactly.",
+    "reviewed_urls": [
+      "https://pitchbook.com/help/PitchBook-api"
+    ],
+    "model": "sonnet",
+    "cost_usd": 0.17952839999999998,
+    "timestamp": "2026-09-16T19:34:20.683385+00:00"
+  }
+}

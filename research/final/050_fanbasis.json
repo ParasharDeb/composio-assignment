@@ -1,0 +1,42 @@
+{
+  "id": 50,
+  "name": "fanbasis",
+  "category": "Ecommerce",
+  "website": "fanbasis.com (redirects to commas.com)",
+  "description": "Creator/checkout and subscription payments platform (rebranded 'Commas') with an API for checkout sessions, customers, subscriptions, and webhooks.",
+  "auth_methods": [
+    "API key"
+  ],
+  "self_serve": "self-serve",
+  "gating_notes": "dev-docs.fanbasis.com is now login-walled (password required) and apidocs.fan is a JS-only SPA that doesn't render via simple fetch, so signup/API-key details could not be directly re-confirmed. commas.com (the current brand site, confirmed via 301 redirect from fanbasis.com) describes embedded checkouts, APIs/SDKs, and an MCP beta with no mention of a manual sales-approval step, consistent with self-serve; still treated as low-confidence indirect evidence since login could not be completed.",
+  "api_surface": "REST",
+  "api_breadth": "narrow",
+  "mcp_exists": true,
+  "mcp_notes": "Confirmed via commas.com (the current FanBasis brand site): an MCP feature in beta lets users 'Run Commas from your AI assistant. Create checkout links, issue refunds and pull your numbers in plain English,' referencing AI assistant/agent use directly.",
+  "buildability": "yes",
+  "blocker": "none",
+  "evidence": [
+    "https://commas.com/",
+    "https://apidocs.fan/",
+    "https://dev-docs.fanbasis.com/"
+  ],
+  "confidence": "low",
+  "_critic": {
+    "verdict": "dispute",
+    "disputed_fields": [
+      "website",
+      "gating_notes",
+      "mcp_notes",
+      "evidence",
+      "confidence"
+    ],
+    "notes": "fanbasis.com now redirects to commas.com, confirming the 'FanBasis is now Commas' rebrand; commas.com explicitly describes an MCP feature (beta) letting AI assistants create checkout links, issue refunds, and pull numbers in plain English, and mentions APIs/SDKs as an enterprise alternative to Stripe — this is stronger direct evidence for mcp_exists than the original flagged links. Both apidocs.fan (JS-only SPA, content didn't render) and dev-docs.fanbasis.com (login-walled) still could not be used to directly confirm API-key auth or the absence of a sales-approval gate, so auth_methods/self_serve/buildability/blocker/api_surface/api_breadth are left as pass-1's reasonable inferences, unchanged.",
+    "reviewed_urls": [
+      "https://apidocs.fan/",
+      "https://dev-docs.fanbasis.com/"
+    ],
+    "model": "sonnet",
+    "cost_usd": 0.2321102,
+    "timestamp": "2026-09-16T19:32:55.526094+00:00"
+  }
+}

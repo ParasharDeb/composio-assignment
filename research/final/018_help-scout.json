@@ -1,0 +1,35 @@
+{
+  "id": 18,
+  "name": "Help Scout",
+  "category": "Support and Helpdesk",
+  "website": "helpscout.com",
+  "description": "Email-based helpdesk platform with Mailbox (Inbox), Docs, Beacon, and Chat APIs, all authenticated via OAuth2.",
+  "auth_methods": [
+    "OAuth2 (Authorization Code and Client Credentials flows)"
+  ],
+  "self_serve": "self-serve",
+  "gating_notes": "Any account holder can create an OAuth2 app themselves via Your Profile > My Apps > Create My App; Help Scout offers a free trial account which is sufficient to register an app and pull App ID/App Secret without sales involvement. No API-key alternative; all requests use bearer tokens (access tokens expire in ~2 days, refresh tokens available in the Authorization Code flow).",
+  "api_surface": "REST",
+  "api_breadth": "moderate",
+  "mcp_exists": true,
+  "mcp_notes": "No official Help Scout MCP server found, but several active community servers exist (drewburchfield/help-scout-mcp-server, ~47 stars / 22 forks / v2.1.0, and forks by GravityKit, WayLit, BusyBee3333). The reference server authenticates with the OAuth2 Client Credentials flow via HELPSCOUT_APP_ID / HELPSCOUT_APP_SECRET.",
+  "buildability": "yes",
+  "blocker": "none",
+  "evidence": [
+    "https://developer.helpscout.com/mailbox-api/overview/authentication/",
+    "https://developer.helpscout.com/",
+    "https://github.com/drewburchfield/help-scout-mcp-server"
+  ],
+  "confidence": "high",
+  "_critic": {
+    "verdict": "agree",
+    "disputed_fields": [],
+    "notes": "False positive: the flagged URL is the developer-portal landing page, which indexes the API products but by design doesn't discuss auth; the linked Mailbox API authentication page confirms OAuth2 Authorization Code and Client Credentials flows with app creation via Your Profile > My Apps and no API-key alternative. The community MCP server (drewburchfield/help-scout-mcp-server, ~47 stars, v2.1.0, actively maintained) is live and uses OAuth2 client credentials, so mcp_exists and buildability stand.",
+    "reviewed_urls": [
+      "https://developer.helpscout.com/"
+    ],
+    "model": "opus",
+    "cost_usd": 0.3197145,
+    "timestamp": "2026-09-16T19:24:36.751835+00:00"
+  }
+}

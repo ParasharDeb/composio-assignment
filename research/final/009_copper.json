@@ -1,0 +1,40 @@
+{
+  "id": 9,
+  "name": "Copper",
+  "category": "CRM and Sales",
+  "website": "copper.com",
+  "description": "CRM built tightly around Google Workspace/Gmail for relationship-driven sales teams.",
+  "auth_methods": [
+    "API key",
+    "OAuth2"
+  ],
+  "self_serve": "partial",
+  "gating_notes": "Copper offers a free trial signup, and API keys can be generated only by Admin users from Settings > Integrations > API Keys; full API access effectively requires an active (trial or paid) Copper account and admin role. Every request carries X-PW-AccessToken, X-PW-Application: developer_api, and X-PW-UserEmail headers; OAuth2.0 is documented as the alternative for third-party apps.",
+  "api_surface": "REST",
+  "api_breadth": "moderate",
+  "mcp_exists": false,
+  "mcp_notes": "No official Copper MCP server. Two unofficial community servers exist on GitHub (dazanza/copper-mcp, hasankhadra/copper-mcp), both at 0 stars and not notable or maintained at scale.",
+  "buildability": "yes",
+  "blocker": "none",
+  "evidence": [
+    "https://developer.copper.com/",
+    "https://developer.copper.com/introduction/requests.html",
+    "https://support.copper.com/en/articles/8823347-generating-an-api-key"
+  ],
+  "confidence": "high",
+  "_critic": {
+    "verdict": "dispute",
+    "disputed_fields": [
+      "evidence",
+      "mcp_notes",
+      "confidence"
+    ],
+    "notes": "The flag was a real error of identity, not of substance: docs.copper.co belongs to Copper Technologies, a digital-asset custody firm, not Copper CRM (copper.com) — it was replaced with developer.copper.com/introduction/requests.html, which confirms API-key auth via the X-PW-AccessToken/X-PW-Application/X-PW-UserEmail headers, while developer.copper.com's index confirms REST + an OAuth2.0 section. The support article confirms admin-only API key generation, so auth_methods, self_serve, gating_notes, api_surface, api_breadth, buildability and blocker all hold; mcp_notes was refined because two unofficial community MCP servers for Copper CRM do exist on GitHub (dazanza/copper-mcp, hasankhadra/copper-mcp), both at 0 stars, so mcp_exists stays false in the official/notable sense.",
+    "reviewed_urls": [
+      "https://docs.copper.co/"
+    ],
+    "model": "opus",
+    "cost_usd": 0.4532695,
+    "timestamp": "2026-09-16T19:23:53.025817+00:00"
+  }
+}

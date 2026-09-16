@@ -1,0 +1,38 @@
+{
+  "id": 6,
+  "name": "Podio",
+  "category": "CRM and Sales",
+  "website": "podio.com",
+  "description": "Customizable work/project-management and CRM platform (now operated by Progress Software).",
+  "auth_methods": [
+    "OAuth2",
+    "API key"
+  ],
+  "self_serve": "self-serve",
+  "gating_notes": "Confirmed self-serve: developers sign in to Podio and generate one or more API keys (client_id/client_secret) from the API key tab in account settings, subject only to the API terms of use — no approval process and no paid-plan requirement documented. The credentials are then used in one of four OAuth2 flows (server-side, client-side, username/password, or app authentication with app_id/app_token); access tokens last 8 hours, refresh tokens 28 days. Ongoing investment level remains uncertain: the developer site now sits under Progress Software and the developer forum redirects to ShareFile support, though no end-of-life notice is posted.",
+  "api_surface": "REST",
+  "api_breadth": "broad",
+  "mcp_exists": false,
+  "mcp_notes": "No official or notable community MCP server found for Podio.",
+  "buildability": "yes",
+  "blocker": "none",
+  "evidence": [
+    "https://developers.podio.com/authentication",
+    "https://developers.podio.com/api-key",
+    "https://developers.podio.com/"
+  ],
+  "confidence": "medium",
+  "_critic": {
+    "verdict": "agree",
+    "disputed_fields": [
+      "evidence"
+    ],
+    "notes": "False positive on substance: the flagged Lark blog is a third-party marketing comparison that was never the auth source, so it not mentioning auth is expected. Primary docs at developers.podio.com/authentication confirm four OAuth2 flows (server-side, client-side, username/password, app authentication) with client_id/client_secret, and developers.podio.com/api-key confirms self-serve key generation from account settings with no paid-plan gate or approval; the footer confirms Progress Software ownership. I replaced the weak Lark URL with those two primary pages and left every assessed field unchanged; mcp_exists could not be re-verified this pass because WebSearch permission was not granted, so confidence stays medium.",
+    "reviewed_urls": [
+      "https://www.larksuite.com/en_us/blog/podio-crm"
+    ],
+    "model": "opus",
+    "cost_usd": 0.38435150000000007,
+    "timestamp": "2026-09-16T19:23:04.218987+00:00"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "id": 15,
+  "name": "Pylon",
+  "category": "Support and Helpdesk",
+  "website": "usepylon.com",
+  "description": "B2B agentic customer support platform (issues across Slack Connect/email/Teams/chat, knowledge base, account intelligence) with a broad REST API at api.usepylon.com and admin-issued bearer tokens.",
+  "auth_methods": [
+    "API token",
+    "OAuth2 (for MCP)"
+  ],
+  "self_serve": "gated",
+  "gating_notes": "No self-serve path exists: usepylon.com/pricing publishes no tiers, prices, free plan, or signup — it is a 'Schedule a personalized 30-minute demo' contact-sales form, so an account must be obtained through sales. Once inside, REST API tokens can only be created by Admin users, and the MCP server additionally requires the 'MCP Access' role granted in Settings > AI Controls.",
+  "api_surface": "REST",
+  "api_breadth": "broad",
+  "mcp_exists": true,
+  "mcp_notes": "Official remote MCP server at https://mcp.usepylon.com, Streamable HTTP (stateless, no server-side sessions), authenticated via OAuth 2.0 through AuthKit; enabled at Settings > AI Controls > MCP Server and requires the 'MCP Access' role. Tools cover issues (search, get, message history, create, update), accounts (search, get, update), and contacts/users; actions run as the authenticated user and are scoped to the same data as the Pylon dashboard.",
+  "buildability": "partial",
+  "blocker": "No free or self-serve tier to obtain credentials — the pricing page is a book-a-demo form with no published plans or signup, and API tokens are further restricted to Admin users (MCP additionally to the MCP Access role). The API itself is well-documented and broad, so the only blocker is account acquisition, not capability.",
+  "evidence": [
+    "https://docs.usepylon.com/pylon-docs/developer/api",
+    "https://docs.usepylon.com/pylon-docs/developer/api/api-reference",
+    "https://docs.usepylon.com/pylon-docs/developer/api/api-reference/issues",
+    "https://docs.usepylon.com/pylon-docs/integrations/pylon-mcp",
+    "https://www.usepylon.com/pricing"
+  ],
+  "confidence": "high",
+  "_critic": {
+    "verdict": "dispute",
+    "disputed_fields": [
+      "gating_notes",
+      "api_breadth",
+      "mcp_notes",
+      "blocker",
+      "evidence",
+      "confidence"
+    ],
+    "notes": "Both flags were artifacts of bad evidence URLs, not wrong claims: pass 1 cited the docs index instead of docs.usepylon.com/pylon-docs/developer/api (which states verbatim 'Only Admin users can create API tokens' and documents Authorization: Bearer against api.usepylon.com), and the 404 came from ' (via search summary)' being appended into the pricing URL path. Fetching https://www.usepylon.com/pricing directly shows it is a 'Schedule a personalized 30-minute demo' form with no published tiers, prices, free plan, or self-serve signup at all, so gating_notes/blocker were rewritten from the unverifiable third-party $89/seat Professional-tier story to the directly-observed sales-gating; api_breadth was raised to broad because the API reference lists ~21 resource groups (issues, accounts, contacts, knowledge base, tasks/projects, custom objects/fields, macros, teams, surveys, audit logs, call recordings, training data, users/roles) with full CRUD on issues.",
+    "reviewed_urls": [
+      "https://docs.usepylon.com/pylon-docs",
+      "https://www.usepylon.com/pricing (via search summary)"
+    ],
+    "model": "opus",
+    "cost_usd": 0.47306200000000004,
+    "timestamp": "2026-09-16T19:24:20.189789+00:00"
+  }
+}

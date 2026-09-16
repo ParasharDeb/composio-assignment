@@ -1,0 +1,37 @@
+{
+  "id": 16,
+  "name": "LiveAgent",
+  "category": "Support and Helpdesk",
+  "website": "https://www.liveagent.com",
+  "description": "LiveAgent is a help desk and customer support platform (email, live chat, call center, social media, knowledge base) with a REST API for managing tickets, contacts, companies, departments, tags, and reports.",
+  "auth_methods": [
+    "API key (header 'apikey')",
+    "Bearer token",
+    "OAuth 2.1"
+  ],
+  "self_serve": "self-serve",
+  "gating_notes": "API keys are generated instantly by an account admin under Configuration > System > API (API v3) - no sales contact needed. API access is included in every paid plan (Small/Medium/Large/Enterprise) at no extra cost, though the number of API keys allowed scales with plan tier (1 on Small up to 100 on Enterprise). A 30-day free trial (no credit card) also includes API access. The separate MCP integration uses Bearer token or OAuth 2.1 and actions performed via MCP consume the account's AI credit budget, an added cost/usage constraint on top of the base plan.",
+  "api_surface": "REST",
+  "api_breadth": "broad",
+  "mcp_exists": true,
+  "mcp_notes": "LiveAgent provides an official, built-in MCP server allowing MCP-compatible clients (Claude Desktop, claude.ai, Cursor, etc.) to connect directly to a LiveAgent account, authenticating via Bearer token or OAuth 2.1, to read/manage tickets and manage knowledge base articles under the connected agent's identity and permissions. Documented at support.liveagent.com/647358-MCP-Integration-for-Agents. A related community repo (QualityUnit/liveagent-mcp-server on GitHub, QualityUnit being LiveAgent's parent company) also exists.",
+  "buildability": "yes",
+  "blocker": "none",
+  "evidence": [
+    "https://support.liveagent.com/911737-API-v3",
+    "https://support.liveagent.com/741982-API-key",
+    "https://www.liveagent.com/features/api/",
+    "https://www.liveagent.com/pricing/",
+    "https://support.liveagent.com/647358-MCP-Integration-for-Agents",
+    "https://support.liveagent.com/840770-Complete-API-reference"
+  ],
+  "confidence": "high",
+  "_run": {
+    "model": "sonnet",
+    "attempt": 1,
+    "cost_usd": 0.38083139999999993,
+    "duration_ms": 53471,
+    "session_id": "72f90a70-1fa0-4f42-a1d9-b006c7763208",
+    "timestamp": "2026-09-16T19:22:33.774605+00:00"
+  }
+}

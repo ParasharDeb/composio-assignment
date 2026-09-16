@@ -1,0 +1,37 @@
+{
+  "id": 91,
+  "name": "NotebookLM",
+  "category": "AI, Research and Media-native",
+  "website": "https://cloud.google.com/gemini/enterprise/notebooklm-enterprise",
+  "description": "Enterprise edition of Google's NotebookLM (now branded Gemini Notebook Enterprise) for AI-assisted research over uploaded source documents, exposed as a preview REST API under Gemini Enterprise / Vertex AI Discovery Engine.",
+  "auth_methods": [
+    "OAuth2 (Google Cloud IAM / gcloud bearer token)",
+    "Google Workspace / Cloud Identity SSO"
+  ],
+  "self_serve": "gated",
+  "gating_notes": "No self-serve API key for the consumer NotebookLM product. The API only exists under Gemini Notebook Enterprise, which requires an admin to set up a Google Cloud project, purchase/assign Gemini Notebook Enterprise licenses, and grant the 'Cloud NotebookLM User' IAM role (with 'Cloud NotebookLM Admin' for identity/project config). Enterprise access is federated via Cloud Identity or a third-party OIDC/SAML IdP (Entra ID, Okta, Ping, etc.), unlike the personal product's plain Google Account login.",
+  "api_surface": "REST",
+  "api_breadth": "narrow",
+  "mcp_exists": false,
+  "mcp_notes": "No official or well-known MCP server found; Google positions access through Gemini Enterprise agent tooling rather than a standalone MCP integration.",
+  "buildability": "partial",
+  "blocker": "Requires customer-owned GCP project with Gemini Notebook Enterprise licensing and admin-configured IAM/OAuth before any API call works; no consumer-level self-serve credential exists, and the API uses a v1alpha endpoint (Preview/Pre-GA status).",
+  "evidence": [
+    "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks",
+    "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/overview"
+  ],
+  "confidence": "high",
+  "_critic": {
+    "verdict": "agree",
+    "disputed_fields": [
+      "confidence"
+    ],
+    "notes": "The flag was a false positive: the auto-flag snippet cut off before the auth section, but a full fetch of the overview page confirms Cloud Identity and third-party OIDC/SAML IdP (Workspace/Entra/Okta/etc.) SSO for admin access, and the api-notebooks page confirms OAuth2 via gcloud bearer tokens plus the 'Cloud NotebookLM User' IAM role gate — exactly matching pass 1's auth_methods and gating_notes. All other fields (api_surface=REST, mcp_exists=false, buildability=partial, self_serve=gated, blocker) were independently corroborated by the fetched pages, so confidence is raised from medium to high.",
+    "reviewed_urls": [
+      "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/overview"
+    ],
+    "model": "sonnet",
+    "cost_usd": 0.17873740000000002,
+    "timestamp": "2026-09-16T19:34:42.687475+00:00"
+  }
+}

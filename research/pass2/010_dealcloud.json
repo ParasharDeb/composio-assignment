@@ -1,0 +1,37 @@
+{
+  "id": 10,
+  "name": "DealCloud",
+  "category": "CRM and Sales",
+  "website": "https://www.dealcloud.com",
+  "description": "DealCloud (by Intapp) is a CRM and deal/relationship intelligence platform used by private capital, investment banking, and other professional services firms to manage relationships, pipelines, and deal execution.",
+  "auth_methods": [
+    "OAuth2 (client credentials)",
+    "API key"
+  ],
+  "self_serve": "gated",
+  "gating_notes": "API access requires an existing paid DealCloud site/subscription; enterprise pricing is quote-only (contact sales/demo, no self-serve signup). Within a site, an admin must enable 'API' capability for a user group, and the Publications feature must be enabled by the account's DealCloud Customer Success Manager before OAuth client credentials (client_id/client_secret) and a personal API key can be generated.",
+  "api_surface": "REST",
+  "api_breadth": "broad",
+  "mcp_exists": true,
+  "mcp_notes": "Official first-party DealCloud MCP Server (from Integration Appliance/Intapp) is in 'client preview' starting July 2026, documented at api.docs.dealcloud.com/mcp. It gives AI agents read access to DealCloud data (tool discovery, context retrieval, permission-scoped responses) for use cases like pipeline insight and meeting prep.",
+  "buildability": "partial",
+  "blocker": "No public self-serve credential acquisition — building/testing a Composio toolkit requires a live, paid DealCloud site plus admin-enabled API/Publications access; the official MCP server is also still in limited client preview, not generally available.",
+  "evidence": [
+    "https://api.docs.dealcloud.com/",
+    "https://api.docs.dealcloud.com/docs/publications/getting_started",
+    "https://api.docs.dealcloud.com/docs/data",
+    "https://api.docs.dealcloud.com/docs/management",
+    "https://api.docs.dealcloud.com/docs/apikeys",
+    "https://api.docs.dealcloud.com/mcp",
+    "https://intapp.com/dealcloud/"
+  ],
+  "confidence": "high",
+  "_run": {
+    "model": "sonnet",
+    "attempt": 1,
+    "cost_usd": 0.31245199999999995,
+    "duration_ms": 53391,
+    "session_id": "3fdde4b8-e3a4-4bbd-889c-17828a0f628f",
+    "timestamp": "2026-09-16T19:22:33.298061+00:00"
+  }
+}

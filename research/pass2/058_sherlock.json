@@ -1,0 +1,33 @@
+{
+  "id": 58,
+  "name": "Sherlock",
+  "category": "Data, SEO and Scraping",
+  "website": "https://github.com/sherlock-project/sherlock",
+  "description": "Sherlock is an open-source Python command-line tool that hunts for a given username across 400+ social networks and websites, reporting confirmed profile URLs.",
+  "auth_methods": [
+    "None"
+  ],
+  "self_serve": "self-serve",
+  "gating_notes": "Fully open-source (MIT license), installed via pip/pipx/Docker; no signup, API key, or account is required to use the core tool since it performs unauthenticated queries against public sites.",
+  "api_surface": "CLI",
+  "api_breadth": "narrow",
+  "mcp_exists": true,
+  "mcp_notes": "No official MCP server from the sherlock-project maintainers. Multiple unofficial/community MCP servers exist, e.g. github.com/Burnsedia/sherlock-mcp (FastMCP wrapper) and several third-party Apify actors exposing Sherlock-like username search via MCP/API endpoints — these are independent projects, not published or endorsed by sherlock-project.",
+  "buildability": "partial",
+  "blocker": "Sherlock is a local CLI/Python tool, not a hosted REST/GraphQL API — there is no official HTTP endpoint to call. A Composio toolkit would have to shell out to the CLI (or embed the library) and directly scrape hundreds of third-party sites, which is fragile, rate-limit prone, and only unofficial MCP/API wrappers exist today.",
+  "evidence": [
+    "https://github.com/sherlock-project/sherlock",
+    "https://sherlockproject.xyz/",
+    "https://github.com/Burnsedia/sherlock-mcp",
+    "https://apify.com/misceres/sherlock/api"
+  ],
+  "confidence": "high",
+  "_run": {
+    "model": "sonnet",
+    "attempt": 1,
+    "cost_usd": 0.219906,
+    "duration_ms": 41273,
+    "session_id": "b82df569-027f-4f08-90b6-6d73097e9121",
+    "timestamp": "2026-09-16T19:24:26.351717+00:00"
+  }
+}

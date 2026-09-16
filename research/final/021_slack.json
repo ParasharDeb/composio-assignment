@@ -1,0 +1,38 @@
+{
+  "id": 21,
+  "name": "Slack",
+  "category": "Communications and Messaging",
+  "website": "https://slack.com",
+  "description": "Team messaging and collaboration platform with channels, DMs, and app integrations.",
+  "auth_methods": [
+    "OAuth2",
+    "bot tokens",
+    "user tokens",
+    "app tokens"
+  ],
+  "self_serve": "self-serve",
+  "gating_notes": "Any developer can create a free Slack workspace and register an app at api.slack.com to get OAuth tokens and bot tokens for free; some features (e.g. canvases, certain enterprise scopes) require paid Slack plans, and public distribution requires app review. MCP access additionally requires the app to be internal or directory-published (unlisted apps are excluded) and approved by workspace admins.",
+  "api_surface": "REST",
+  "api_breadth": "broad",
+  "mcp_exists": true,
+  "mcp_notes": "Slack ships an official remote MCP server at https://mcp.slack.com/mcp (JSON-RPC 2.0 over Streamable HTTP) using confidential OAuth 2.0 for MCP clients, with workspace-admin approval of client integrations; it supports both read and write tools (search, send messages, canvases, files, lists) under tiered rate limits, and supersedes Anthropic's earlier community reference server.",
+  "buildability": "yes",
+  "blocker": "none",
+  "evidence": [
+    "https://docs.slack.dev/authentication/",
+    "https://docs.slack.dev/ai/slack-mcp-server/",
+    "https://slack.com/help/articles/48855576908307-Guide-to-Model-Context-Protocol-in-Slack"
+  ],
+  "confidence": "high",
+  "_critic": {
+    "verdict": "agree",
+    "disputed_fields": [],
+    "notes": "False positive: the flagged help-center URL is alive (200) and only redirected to a renamed/locale variant, 'Guide to Model Context Protocol in Slack', which confirms an official Slack MCP server for third-party agents but omits auth detail — hence the auth_method_not_mentioned flag. The developer docs at docs.slack.dev/ai/slack-mcp-server/ confirm the endpoint https://mcp.slack.com/mcp uses confidential OAuth 2.0 (client ID/secret, user consent at slack.com/oauth/v2_user/authorize) with workspace-admin app approval, and docs.slack.dev/authentication/ confirms OAuth 2.0 plus bot, user, and app-level tokens; only the evidence URLs were updated to stable, working pages.",
+    "reviewed_urls": [
+      "https://slack.com/help/articles/48855576908307-Guide-to-the-Slack-MCP-server"
+    ],
+    "model": "opus",
+    "cost_usd": 0.37266699999999997,
+    "timestamp": "2026-09-16T19:25:05.523943+00:00"
+  }
+}

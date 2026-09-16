@@ -1,0 +1,38 @@
+{
+  "id": 19,
+  "name": "Gorgias",
+  "category": "Support and Helpdesk",
+  "website": "https://www.gorgias.com",
+  "description": "Gorgias is an e-commerce-focused helpdesk platform that unifies customer support conversations (email, chat, social, voice) and offers a REST API and AI agent tooling for managing tickets, customers, and automations.",
+  "auth_methods": [
+    "API key (HTTP Basic Auth, private apps)",
+    "OAuth2 (Bearer token, public apps)"
+  ],
+  "self_serve": "self-serve",
+  "gating_notes": "API access is available on all Helpdesk plans with no paid-tier restriction; account owners/admins can self-generate an API key instantly from Settings > Account > REST API. Regular (non-admin) team members cannot create keys. Public apps must use OAuth2 and go through an app submission/review process for the app store, but private-app API key access is instant and self-serve.",
+  "api_surface": "REST",
+  "api_breadth": "broad",
+  "mcp_exists": true,
+  "mcp_notes": "Official first-party Gorgias MCP server (currently in open beta as of May 2026), hosted at https://mcp.gorgias.com/mcp, free on all Helpdesk plans. Ships with ~112 tools: 3 high-level 'smart' tools plus ~109 raw API tools covering nearly every Gorgias REST endpoint (tickets, customers, macros, rules, analytics, help center articles, etc.). Connects via standard MCP client config with browser-based auth against the user's subdomain.",
+  "buildability": "yes",
+  "blocker": "none",
+  "evidence": [
+    "https://docs.gorgias.com/en-US/rest-api-208286",
+    "https://developers.gorgias.com/reference/authentication",
+    "https://developers.gorgias.com/reference/introduction",
+    "https://developers.gorgias.com/docs/oauth2-bearer-token",
+    "https://developers.gorgias.com/docs/oauth2-authentication-for-creating-apps-with-gorgias",
+    "https://docs.gorgias.com/en-US/connect-your-ai-assistant-to-the-gorgias-mcp-6310546",
+    "https://updates.gorgias.com/publications/gorgias-mcp-is-now-in-open-beta",
+    "https://developers.gorgias.com/llms.txt"
+  ],
+  "confidence": "high",
+  "_run": {
+    "model": "sonnet",
+    "attempt": 1,
+    "cost_usd": 0.2907944,
+    "duration_ms": 49729,
+    "session_id": "9b5519fe-d1b3-4f96-918e-f858ad7a179c",
+    "timestamp": "2026-09-16T19:23:19.854773+00:00"
+  }
+}

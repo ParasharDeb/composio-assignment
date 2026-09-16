@@ -1,0 +1,37 @@
+{
+  "id": 50,
+  "name": "fanbasis",
+  "category": "Ecommerce",
+  "website": "https://commas.com",
+  "description": "FanBasis (rebranded to Commas) is an all-in-one payments and monetization platform providing checkout/funnel builders, subscription billing, and a REST API for collecting payments, managing subscriptions, customers, invoices, discounts, and webhooks.",
+  "auth_methods": [
+    "API key (x-api-key header, scoped keys)"
+  ],
+  "self_serve": "partial",
+  "gating_notes": "The consumer product has self-serve signup (commas.com 'Get started' -> /login), but the marketing site groups 'APIs and SDKs' under an 'Enterprise & APIs' section, suggesting fuller API/programmatic access is tied to an enterprise tier. The dedicated developer docs portal at dev-docs.fanbasis.com is login/password-gated, and the API reference content found (via a GitHub mirror of the docs and commasdocs.com) assumes a key already exists, with no visible public self-service key-generation flow documented.",
+  "api_surface": "REST",
+  "api_breadth": "broad",
+  "mcp_exists": true,
+  "mcp_notes": "No official/native MCP server found from FanBasis/Commas itself. A third-party Zapier-hosted 'Commas MCP' exists (mcp.zapier.com) but exposes only inbound event triggers (payment/subscription/dispute events), no action/write tools. The API's own CLI (`commas`) supports agent-friendly `--json` output and `commas tools`/`call <tool>` discovery, per the mirrored docs.",
+  "buildability": "partial",
+  "blocker": "Unclear self-serve path to obtain a production API key: official docs portal (dev-docs.fanbasis.com) is login-gated, primary docs.fanbasis.com/api docs redirected/were inaccessible without auth, and marketing copy ties APIs/SDKs to the Enterprise tier — so credential acquisition likely requires signup approval or sales contact rather than instant self-serve, even though the REST surface itself (checkout, subscriptions, customers, transactions, webhooks, invoices, discounts, products, disputes) is broad enough to build a rich toolkit.",
+  "evidence": [
+    "https://www.fanbasis.com/",
+    "https://commas.com/",
+    "https://apidocs.fan/",
+    "https://raw.githubusercontent.com/otniel-bit/fbnewapi/main/api-docs.md",
+    "https://dev-docs.fanbasis.com/",
+    "https://commasdocs.com/",
+    "https://www.fanbasis.com/enterprises",
+    "https://zapier.com/mcp/commas"
+  ],
+  "confidence": "medium",
+  "_run": {
+    "model": "sonnet",
+    "attempt": 1,
+    "cost_usd": 0.5086628000000001,
+    "duration_ms": 109207,
+    "session_id": "db8f16c5-dab7-4b8c-a769-864e2e4878f2",
+    "timestamp": "2026-09-16T19:25:21.118053+00:00"
+  }
+}

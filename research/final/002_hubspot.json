@@ -1,0 +1,43 @@
+{
+  "id": 2,
+  "name": "HubSpot",
+  "category": "CRM and Sales",
+  "website": "hubspot.com",
+  "description": "CRM and marketing/sales/service platform with a broad suite of inbound marketing and pipeline tools.",
+  "auth_methods": [
+    "OAuth2",
+    "Static auth access tokens (single-account apps; formerly private app access tokens)",
+    "Developer API key (hapikey, limited legacy use)"
+  ],
+  "self_serve": "self-serve",
+  "gating_notes": "Single-account apps with a static auth access token (previously called private apps, now under Development > Legacy apps) can be created on any subscription tier including Free and Starter, but require super admin permissions in the portal; rate limits are lower on Free/Starter (100 req/10s vs 190 on Pro/Enterprise). OAuth apps require a HubSpot developer account, which is free to create.",
+  "api_surface": "REST",
+  "api_breadth": "broad",
+  "mcp_exists": true,
+  "mcp_notes": "Two official HubSpot MCP servers at developers.hubspot.com/ai-tools/mcp: a remote HubSpot MCP server giving read/write access to CRM data (contacts, deals, engagements) over OAuth 2.0, and a separate local CLI-based Developer MCP server for the HubSpot Developer Platform. Both require the latest developer platform version.",
+  "buildability": "yes",
+  "blocker": "none",
+  "evidence": [
+    "https://developers.hubspot.com/docs/guides/apps/authentication/intro-to-auth",
+    "https://developers.hubspot.com/docs/guides/apps/private-apps/overview",
+    "https://developers.hubspot.com/docs/api-reference/latest/overview",
+    "https://developers.hubspot.com/ai-tools/mcp"
+  ],
+  "confidence": "high",
+  "_critic": {
+    "verdict": "dispute",
+    "disputed_fields": [
+      "auth_methods",
+      "gating_notes",
+      "mcp_notes",
+      "evidence"
+    ],
+    "notes": "The auth_method_not_mentioned flag was a false positive: /docs/api/overview now redirects to a thin version-index page that never covered auth, while auth lives on the (working) intro-to-auth page — I swapped in the live redirect target and added the private-apps page. The substance of the claim holds, but HubSpot's current docs rename private app tokens to 'static auth access tokens' (private apps now sit under Legacy apps), creating them requires super admin, and the MCP offering is two servers (remote CRM + local developer CLI) with no beta label on the page, so I tightened auth_methods, gating_notes and mcp_notes accordingly.",
+    "reviewed_urls": [
+      "https://developers.hubspot.com/docs/api/overview"
+    ],
+    "model": "opus",
+    "cost_usd": 0.5599905,
+    "timestamp": "2026-09-16T19:21:49.592732+00:00"
+  }
+}

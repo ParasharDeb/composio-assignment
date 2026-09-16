@@ -1,0 +1,37 @@
+{
+  "id": 31,
+  "name": "Google Ads",
+  "category": "Marketing, Ads, Email and Social",
+  "website": "https://developers.google.com/google-ads/api",
+  "description": "Programmatic interface to Google Ads for managing accounts, campaigns, ads, keywords, bidding, and performance reporting at scale.",
+  "auth_methods": [
+    "OAuth2",
+    "API key/token (developer token or Cloud-managed access level, sent as header)"
+  ],
+  "self_serve": "partial",
+  "gating_notes": "Test access is instant/self-serve on enabling the API in a Google Cloud project (15,000 ops/day, test accounts only). Explorer access (limited production use) is an automated application. Basic access requires brand verification of the Cloud project but is now automated, reviewed within minutes. Standard access (unlimited quota, full production use) requires a manual Google review, Required Minimum Functionality (RMF) compliance, and can take ~10 business days or longer. As of Sept 2026, standalone 'developer tokens' were sunset in favor of Cloud-Console-managed access levels tied to a GCP project, but the tiered self-serve→gated structure is unchanged. Source: https://developers.google.com/google-ads/api/docs/api-policy/access-levels, https://developers.google.com/google-ads/api/docs/api-policy/developer-token",
+  "api_surface": "REST+GraphQL",
+  "api_breadth": "broad",
+  "mcp_exists": true,
+  "mcp_notes": "Google officially open-sourced a Google Ads API MCP server (github.com/googleads/google-ads-mcp), documented at developers.google.com/google-ads/api/docs/developer-toolkit/mcp-server. It's read-only: exposes list_accessible_customers, search (GAQL queries), and get_resource_metadata — it cannot modify campaigns, bids, or assets. Several unofficial/community MCP servers also exist (e.g. johnoconnor0/google-ads-mcp, gomarble-ai/google-ads-mcp-server) claiming fuller read/write coverage.",
+  "buildability": "partial",
+  "blocker": "Full production/write access requires Standard access level, which needs brand verification plus a manual Google review (RMF compliance) that can take 10+ business days; only limited-quota Basic/Explorer/Test tiers are quickly self-serve. The official Google MCP server itself is also read-only, so a full read/write agent toolkit would need to be built directly against the REST/gRPC API rather than reusing the official MCP server as-is.",
+  "evidence": [
+    "https://developers.google.com/google-ads/api/docs/api-policy/access-levels",
+    "https://developers.google.com/google-ads/api/docs/api-policy/developer-token",
+    "https://developers.google.com/google-ads/api/docs/oauth/overview",
+    "https://developers.google.com/google-ads/api/docs/start",
+    "https://developers.google.com/google-ads/api/rest/overview",
+    "https://developers.google.com/google-ads/api/docs/developer-toolkit/mcp-server",
+    "https://ads-developers.googleblog.com/2025/10/open-source-google-ads-api-mcp-server.html"
+  ],
+  "confidence": "high",
+  "_run": {
+    "model": "sonnet",
+    "attempt": 1,
+    "cost_usd": 0.33082140000000004,
+    "duration_ms": 66243,
+    "session_id": "4d721176-f162-479c-9751-e23cda7e1dbc",
+    "timestamp": "2026-09-16T19:23:42.745417+00:00"
+  }
+}

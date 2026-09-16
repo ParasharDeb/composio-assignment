@@ -1,0 +1,35 @@
+{
+  "id": 59,
+  "name": "Waterfall.io",
+  "category": "Data, SEO and Scraping",
+  "website": "https://www.waterfall.io",
+  "description": "A B2B data enrichment API that aggregates 30+ vendors to find and verify contact emails, phone numbers, company data, and job changes for GTM/RevOps teams.",
+  "auth_methods": [
+    "API key (x-api-key header)"
+  ],
+  "self_serve": "gated",
+  "gating_notes": "No public self-serve signup or free trial found. The marketing site's onboarding flow is 'Book a call' → free data benchmark → custom pricing, explicitly stating 'Before anything is signed we run a benchmark on your data at no cost' and 'From first call to live integration in 1 day.' Docs describe the x-api-key auth mechanism and API key management but never document a self-serve signup/key-issuance page.",
+  "api_surface": "REST",
+  "api_breadth": "moderate",
+  "mcp_exists": false,
+  "mcp_notes": "none found — search turned up only unrelated third-party projects (an Apify 'Work Email Waterfall' actor and an unrelated 'Waterfall' issue-tracker MCP server), not anything from waterfall.io itself",
+  "buildability": "partial",
+  "blocker": "API access is sales/benchmark-gated (no public self-serve API key or trial), so Composio could build the toolkit technically (REST API with ~14 documented endpoints: Prospector, Contact/Phone/Company Enrichment, Search Contact, Email Verification, Job Change Detection, Company Reveal, etc.) but each end user would need to go through Waterfall's sales/benchmark process to obtain credentials before the toolkit is usable.",
+  "evidence": [
+    "https://docs.waterfall.io/v1/introduction",
+    "https://docs.waterfall.io/v1/authentication",
+    "https://docs.waterfall.io/llms.txt",
+    "https://www.waterfall.io",
+    "https://www.waterfall.io/pricing",
+    "https://www.waterfall.io/book-a-call"
+  ],
+  "confidence": "high",
+  "_run": {
+    "model": "sonnet",
+    "attempt": 1,
+    "cost_usd": 0.3791356000000001,
+    "duration_ms": 67082,
+    "session_id": "7a82b885-7ce3-44ea-afb9-d5ba87491bbf",
+    "timestamp": "2026-09-16T19:25:08.157785+00:00"
+  }
+}

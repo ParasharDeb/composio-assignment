@@ -1,0 +1,41 @@
+{
+  "id": 3,
+  "name": "Pipedrive",
+  "category": "CRM and Sales",
+  "website": "pipedrive.com",
+  "description": "Sales-pipeline-focused CRM for small and mid-size sales teams.",
+  "auth_methods": [
+    "API token",
+    "OAuth2"
+  ],
+  "self_serve": "self-serve",
+  "gating_notes": "API token is self-served from any Pipedrive account (Company settings > Personal preferences > API), provided API access is enabled for the user; OAuth2 is required for Marketplace apps and needs a free developer sandbox account to register the app and get client_id/client_secret.",
+  "api_surface": "REST",
+  "api_breadth": "broad",
+  "mcp_exists": true,
+  "mcp_notes": "No official Pipedrive-built MCP server could be verified as of Sept 2026 (nothing in Pipedrive's developer docs, API changelog, support KB, or GitHub org). Several maintained community MCP servers wrap the REST API and are listed in the official MCP registry (e.g. ckalima's 155-tool server, pipeworx-io, usefulapi), and building one is straightforward given the token auth and broad REST surface.",
+  "buildability": "yes",
+  "blocker": "none",
+  "evidence": [
+    "https://developers.pipedrive.com/docs/api/v1",
+    "https://pipedrive.readme.io/docs/how-to-find-the-api-token",
+    "https://pipedrive.readme.io/docs/marketplace-oauth-authorization",
+    "https://registry.modelcontextprotocol.io/v0/servers?search=pipedrive"
+  ],
+  "confidence": "high",
+  "_critic": {
+    "verdict": "dispute",
+    "disputed_fields": [
+      "mcp_notes",
+      "evidence",
+      "confidence"
+    ],
+    "notes": "The flagged dev.to URL is a real 404 and was the only support for the 'official MCP server released June 2026, on every plan' claim; I could not corroborate it anywhere — developers.pipedrive.com, its API changelog, the Pipedrive support KB and the Pipedrive GitHub org have no MCP server, and the official MCP registry lists only third-party Pipedrive servers (ckalima, pipeworx-io, usefulapi, Servosity), none under a pipedrive.com namespace. mcp_exists stays true because working community MCP servers do exist, but mcp_notes is corrected to drop the 'official' framing. Auth (API token from Personal preferences > API, plus OAuth 2.0 for Marketplace apps), REST surface, broad breadth (~50+ endpoint groups: deals, persons, orgs, activities, pipelines, products, leads, webhooks) and self-serve gating all verified on live docs, so confidence is raised to high.",
+    "reviewed_urls": [
+      "https://dev.to/grove_chatforest/crm-mcp-servers-salesforce-hubspot-pipedrive-attio-and-beyond-off"
+    ],
+    "model": "opus",
+    "cost_usd": 0.9078059999999999,
+    "timestamp": "2026-09-16T19:22:43.274367+00:00"
+  }
+}

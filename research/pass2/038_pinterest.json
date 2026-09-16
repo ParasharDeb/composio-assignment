@@ -1,0 +1,35 @@
+{
+  "id": 38,
+  "name": "Pinterest",
+  "category": "Marketing, Ads, Email and Social",
+  "website": "https://developers.pinterest.com",
+  "description": "Pinterest's developer platform provides a REST API (v5) for managing Pins, Boards, Ads campaigns, product Catalogs, user accounts, and analytics on the Pinterest visual discovery platform.",
+  "auth_methods": [
+    "OAuth2"
+  ],
+  "self_serve": "partial",
+  "gating_notes": "Creating a developer app and requesting Trial access is free and self-serve (business account + email verification + form), but every app must pass a manual review (business-day turnaround) before any API access is granted. Trial access only allows sandboxed Pins/Boards visible to the creator. Production-grade 'Standard' access (public Pins/Boards, higher rate limits) requires an additional approval step including a video demo proving correct OAuth implementation and no storage of sensitive user data — effectively an admin-approval gate rather than instant self-serve.",
+  "api_surface": "REST",
+  "api_breadth": "broad",
+  "mcp_exists": false,
+  "mcp_notes": "No official Pinterest MCP server for the public developer API was found. Pinterest Engineering has built an internal MCP ecosystem for its own engineers/agents (per their engineering blog), but this is not an externally available product. Several unofficial/community MCP servers exist on GitHub (e.g. aymandakirgh/pinterest-mcp, scottheffield/pinterest-mcp) wrapping the public API v5.",
+  "buildability": "yes",
+  "blocker": "Manual app-review gating (Trial approval, then a separate Standard-access video-demo review) adds friction/delay versus instant self-serve API key issuance, but does not block eventual toolkit construction.",
+  "evidence": [
+    "https://developers.pinterest.com/docs/getting-started/connect-app/",
+    "https://developers.pinterest.com/docs/key-concepts/access-tiers/",
+    "https://developers.pinterest.com/docs/api/v5/oauth-token/",
+    "https://medium.com/pinterest-engineering/building-an-mcp-ecosystem-at-pinterest-d881eb4c16f1",
+    "https://github.com/aymandakirgh/pinterest-mcp",
+    "https://github.com/pinterest/pinterest-python-generated-api-client"
+  ],
+  "confidence": "medium",
+  "_run": {
+    "model": "sonnet",
+    "attempt": 1,
+    "cost_usd": 0.29953680000000005,
+    "duration_ms": 59472,
+    "session_id": "e31399e3-6cfd-48ad-93ab-62ce730b8b3a",
+    "timestamp": "2026-09-16T19:24:21.666644+00:00"
+  }
+}

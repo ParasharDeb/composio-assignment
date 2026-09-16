@@ -1,0 +1,41 @@
+{
+  "id": 1,
+  "name": "Salesforce",
+  "category": "CRM and Sales",
+  "website": "salesforce.com",
+  "description": "Enterprise CRM and platform for sales, service, marketing, and custom app development.",
+  "auth_methods": [
+    "OAuth2",
+    "Connected Apps / Session token"
+  ],
+  "self_serve": "self-serve",
+  "gating_notes": "Free Developer Edition org signup at developer.salesforce.com gives full API access (capped at 15,000 requests/day); production access typically comes with a paid org but developer/trial orgs are free and unrestricted for building.",
+  "api_surface": "REST+GraphQL",
+  "api_breadth": "broad",
+  "mcp_exists": true,
+  "mcp_notes": "Official Salesforce DX MCP Server (github.com/salesforcecli/mcp, npm @salesforce/mcp) exposes 60+ tools across 14 toolsets (data, metadata, orgs, testing, code analysis, mobile, users, DevOps Center, etc.); orgs must be authorized first via `sf org login web`. Sits alongside REST, SOAP, Bulk v1/v2, Composite, Connect, Tooling, Metadata, UI, and GraphQL APIs.",
+  "buildability": "yes",
+  "blocker": "none",
+  "evidence": [
+    "https://trailhead.salesforce.com/content/learn/modules/api_basics/api_basics_overview",
+    "https://github.com/salesforcecli/mcp",
+    "https://github.com/forcedotcom/postman-salesforce-apis"
+  ],
+  "confidence": "high",
+  "_critic": {
+    "verdict": "dispute",
+    "disputed_fields": [
+      "mcp_notes",
+      "evidence"
+    ],
+    "notes": "The three 403s are bot-blocking on developer.salesforce.com (Salesforce's doc site rejects non-browser fetchers), not dead or wrong pages, so the substance of pass 1 holds; I re-verified every field against fetchable sources instead. Only substantive correction: GraphQL is no longer a pilot — it is listed as a shipped Salesforce API in Trailhead's API Basics and is covered by Salesforce's own Postman collection — and I added that the official MCP server is the Salesforce DX MCP Server (@salesforce/mcp, 60+ tools across 14 toolsets, orgs authorized via `sf org login web`). Evidence swapped to three URLs that return 200 and visibly support auth, API breadth, and MCP existence.",
+    "reviewed_urls": [
+      "https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_oauth_and_connected_apps.htm",
+      "https://developer.salesforce.com/docs/platform/api-rest/guide/quickstart-oauth.html",
+      "https://developer.salesforce.com/docs/platform/connect-rest-api/guide/quickstart_dev_org.html"
+    ],
+    "model": "opus",
+    "cost_usd": 1.2174539999999998,
+    "timestamp": "2026-09-16T19:23:16.074206+00:00"
+  }
+}

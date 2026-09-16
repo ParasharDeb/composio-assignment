@@ -1,0 +1,36 @@
+{
+  "id": 89,
+  "name": "Ramp",
+  "category": "Finance and Fintech",
+  "website": "https://docs.ramp.com",
+  "description": "Corporate card and spend-management platform API for users, cards, transactions, bills, departments, and accounting integrations.",
+  "auth_methods": [
+    "OAuth2 (client_credentials for server-to-server, authorization_code for user-delegated)"
+  ],
+  "self_serve": "partial",
+  "gating_notes": "Sandbox access is self-serve via a request form (ready in about a minute) and lets developers build/test freely. Moving to production (onboarding real Ramp business customers) requires applying and being approved by Ramp, i.e. a partner/review gate before live data access.",
+  "api_surface": "REST",
+  "api_breadth": "moderate",
+  "mcp_exists": true,
+  "mcp_notes": "Ramp MCP integration documented (e.g. via c1.ai setup guide referencing 'Ramp MCP server'); Composio itself already lists Ramp OAuth integration (composio.dev/auth/ramp), suggesting a usable MCP/agent-toolkit layer exists.",
+  "buildability": "yes",
+  "blocker": "none for sandbox/dev use; production customer onboarding needs Ramp approval",
+  "evidence": [
+    "https://support.ramp.com/accessing-the-developer-api",
+    "https://docs.ramp.com/developer-api/v1/authorization"
+  ],
+  "confidence": "medium",
+  "_critic": {
+    "verdict": "agree",
+    "disputed_fields": [
+      "evidence"
+    ],
+    "notes": "The flag was a false positive: docs.ramp.com is a JS-rendered app, so an automated fetch of the scopes page returns an empty shell rather than actual content. Fetching the site's plain-text mirror (llms-guides.txt) confirms the Authorization guide explicitly describes OAuth 2.0 with Client Credentials (server-to-server) and Authorization Code (user-delegated, third-party consent) flows plus scoped permissions, matching pass 1 exactly. The support.ramp.com page also independently corroborates the sandbox self-serve / production-approval gating story. Swapped the scopes URL for the more precisely-matching authorization guide URL; no other fields changed.",
+    "reviewed_urls": [
+      "https://docs.ramp.com/developer-api/v1/overview/scopes"
+    ],
+    "model": "sonnet",
+    "cost_usd": 0.2072464,
+    "timestamp": "2026-09-16T19:33:40.817574+00:00"
+  }
+}

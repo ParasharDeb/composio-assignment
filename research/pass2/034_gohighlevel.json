@@ -1,0 +1,36 @@
+{
+  "id": 34,
+  "name": "GoHighLevel",
+  "category": "Marketing, Ads, Email and Social",
+  "website": "https://www.gohighlevel.com/",
+  "description": "An all-in-one sales/marketing CRM platform (used heavily by agencies) offering contacts, conversations, calendars, opportunities/pipelines, payments, workflows, and websites, exposed via a REST API and marketplace app ecosystem.",
+  "auth_methods": [
+    "OAuth2 (Authorization Code grant only)",
+    "API Key / Basic Auth (Private Integration Tokens, location-level)",
+    "Agency API Keys (Agency Pro plan only)"
+  ],
+  "self_serve": "partial",
+  "gating_notes": "Developer/marketplace app registration and OAuth app creation appear self-serve (register as developer, create app, configure scopes/redirect URL, get client ID/secret) per the App Creation Guide. However, actual API access on the platform is plan-gated: per official support docs, 'Basic API access is included' only on Starter ($97/mo+) and Unlimited plans (location-level API keys), while Agency-level API keys and full OAuth2 agency access require the Agency Pro plan. There is no free tier for API access. Also, an app's chosen auth type (OAuth vs Basic) cannot be changed after publishing.",
+  "api_surface": "REST",
+  "api_breadth": "broad",
+  "mcp_exists": true,
+  "mcp_notes": "Official HighLevel/LeadConnector MCP server exists at https://services.leadconnectorhq.com/mcp/ (platform-specific endpoints for Claude and ChatGPT/Codex). It exposes 4 unified meta-tools (list_locations, search_operations, describe_operation, execute_operation) that route to 550+ read/create/update/delete operations across 38 domains (contacts, opportunities, payments, workflows, social media, etc.). Uses OAuth2 consent flow scoped per sub-account (location); sensitive/irreversible operations require additional confirmation. Multiple unofficial community MCP servers also exist on GitHub (e.g., drausal/gohighlevel-mcp, basicmachines-co/open-ghl-mcp).",
+  "buildability": "yes",
+  "blocker": "none",
+  "evidence": [
+    "https://marketplace.gohighlevel.com/docs/",
+    "https://marketplace.gohighlevel.com/docs/oauth/AppCreationGuide",
+    "https://marketplace.gohighlevel.com/docs/oauth/ExternalAuthentication",
+    "https://marketplace.gohighlevel.com/docs/other/mcp",
+    "https://help.gohighlevel.com/support/solutions/articles/48001060529-highlevel-api"
+  ],
+  "confidence": "high",
+  "_run": {
+    "model": "sonnet",
+    "attempt": 1,
+    "cost_usd": 0.32542,
+    "duration_ms": 67396,
+    "session_id": "533939fd-53a8-48ea-b4b0-524e5f031e12",
+    "timestamp": "2026-09-16T19:23:58.730286+00:00"
+  }
+}

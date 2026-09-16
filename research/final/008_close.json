@@ -1,0 +1,40 @@
+{
+  "id": 8,
+  "name": "Close",
+  "category": "CRM and Sales",
+  "website": "close.com",
+  "description": "Sales CRM built for inside-sales teams with built-in calling, SMS, and email.",
+  "auth_methods": [
+    "API key",
+    "OAuth2"
+  ],
+  "self_serve": "self-serve",
+  "gating_notes": "API keys are generated directly by any Close user from Settings → Developer → API Keys and used via HTTP Basic auth; Close offers a free trial, so developers can self-serve without a sales conversation. OAuth 2.0 is also available for user-facing integrations (requires creating an OAuth app).",
+  "api_surface": "REST",
+  "api_breadth": "broad",
+  "mcp_exists": true,
+  "mcp_notes": "Official first-party Close MCP server at https://mcp.close.com/mcp, documented at developer.close.com/mcp/. Supports OAuth 2.0 Dynamic Client Registration (recommended) or API key via the Close-API-Key header, with a three-tier scope model — mcp.read, mcp.write_safe, mcp.write_destructive — set via the Close-Scope header or chosen at OAuth authorization; each tier unlocks a different tool set.",
+  "buildability": "yes",
+  "blocker": "none",
+  "evidence": [
+    "https://developer.close.com/",
+    "https://developer.close.com/mcp/",
+    "https://developer.close.com/topics/authentication/"
+  ],
+  "confidence": "high",
+  "_critic": {
+    "verdict": "agree",
+    "disputed_fields": [
+      "mcp_notes",
+      "evidence",
+      "confidence"
+    ],
+    "notes": "The 404 was a false positive for the substance of the claim: the dead dev.to blog post was the only weak source, and every field it backed is confirmed by Close's own developer docs. developer.close.com/mcp/ documents an official first-party MCP server at https://mcp.close.com/mcp with exactly the three-tier scope model claimed (mcp.read / mcp.write_safe / mcp.write_destructive) and both OAuth 2.0 DCR and Close-API-Key auth; developer.close.com/topics/authentication/ confirms self-serve API key generation at Settings → Developer → API Keys plus OAuth. I replaced the dead link with the two official docs pages, firmed up mcp_notes from 'appears first-party' to confirmed, and raised confidence to high.",
+    "reviewed_urls": [
+      "https://dev.to/grove_chatforest/crm-mcp-servers-salesforce-hubspot-pipedrive-attio-and-beyond-off"
+    ],
+    "model": "opus",
+    "cost_usd": 0.371985,
+    "timestamp": "2026-09-16T19:23:46.094696+00:00"
+  }
+}

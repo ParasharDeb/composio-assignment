@@ -1,0 +1,34 @@
+{
+  "id": 20,
+  "name": "Gladly",
+  "category": "Support and Helpdesk",
+  "website": "https://www.gladly.com",
+  "description": "Gladly is a radically personal customer service (helpdesk/CX) platform that unifies conversations across channels around a single customer timeline for contact center agents.",
+  "auth_methods": [
+    "Basic Auth (agent email + API token)"
+  ],
+  "self_serve": "gated",
+  "gating_notes": "Gladly has no public self-serve signup or pricing page (enterprise contact-sales model, ~$150-210/agent/month per third-party pricing aggregators). Within an existing paid account, only users granted the 'API User' role by an admin (Settings > Users) can generate an API token (Settings > App Developer Tools > API Tokens); token generation itself takes ~15 min but requires an admin-provisioned enterprise account first.",
+  "api_surface": "REST",
+  "api_breadth": "broad",
+  "mcp_exists": false,
+  "mcp_notes": "No official Gladly-built MCP server found in its developer docs. Only third-party/unofficial offerings exist, e.g. StackOne advertises a Gladly MCP connector with 65 pre-built actions, but this is not published or endorsed by Gladly itself.",
+  "buildability": "yes",
+  "blocker": "none",
+  "evidence": [
+    "https://developer.gladly.com/rest/",
+    "https://developer.gladly.com/",
+    "https://help.gladly.com/implementation/docs/get-your-api-tokens",
+    "https://help.gladly.com/docs/generate-api-tokens-and-create-webhooks",
+    "https://help.gladly.com/developer-tutorials/docs"
+  ],
+  "confidence": "high",
+  "_run": {
+    "model": "sonnet",
+    "attempt": 1,
+    "cost_usd": 0.2770634,
+    "duration_ms": 53650,
+    "session_id": "989235de-7ca5-46a7-a041-2b9bafbafd41",
+    "timestamp": "2026-09-16T19:23:29.466554+00:00"
+  }
+}

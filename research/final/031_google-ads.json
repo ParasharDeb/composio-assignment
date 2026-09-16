@@ -1,0 +1,35 @@
+{
+  "id": 31,
+  "name": "Google Ads",
+  "category": "Marketing, Ads, Email and Social",
+  "website": "https://developers.google.com/google-ads",
+  "description": "Google's advertising platform API for managing search/display/video ad campaigns, budgets, and reporting.",
+  "auth_methods": [
+    "OAuth2",
+    "API key (developer token)"
+  ],
+  "self_serve": "partial",
+  "gating_notes": "OAuth2 client credentials are self-serve via Google Cloud, but every call also requires a Google Ads 'developer token' which must be applied for and approved by Google; tokens start at a restricted 'test account' level and require application review to reach Basic/Standard access for production/real accounts.",
+  "api_surface": "REST",
+  "api_breadth": "broad",
+  "mcp_exists": true,
+  "mcp_notes": "Google itself open-sourced an official read-only Google Ads MCP server (googleads/google-ads-mcp, referenced at developers.google.com/google-ads/api/docs/developer-toolkit/mcp-server); it supports OAuth2 or service-account auth and cannot modify bids/pause campaigns/create assets. Multiple community MCP servers also exist (e.g. jgdeutsch/google-ads-mcp, gomarble-ai/google-ads-mcp-server).",
+  "buildability": "yes",
+  "blocker": "none",
+  "evidence": [
+    "https://developers.google.com/google-ads/api/docs/start",
+    "https://developers.google.com/google-ads/api/docs/developer-toolkit/mcp-server"
+  ],
+  "confidence": "high",
+  "_critic": {
+    "verdict": "agree",
+    "disputed_fields": [],
+    "notes": "The searchengineland.com 403 is bot-blocking, not a dead/incorrect link; independently confirmed via developers.google.com/google-ads/api/docs/developer-toolkit/mcp-server that Google open-sourced a read-only Google Ads MCP server (googleads/google-ads-mcp) supporting OAuth2/service-account auth, matching the pass-1 claim. All other fields (auth_methods, self_serve, gating_notes, api_surface, api_breadth, buildability, blocker) are unaffected by the flagged URL and remain accurate.",
+    "reviewed_urls": [
+      "https://searchengineland.com/google-open-sources-ads-api-mcp-server-463219"
+    ],
+    "model": "sonnet",
+    "cost_usd": 0.1396472,
+    "timestamp": "2026-09-16T19:31:57.594183+00:00"
+  }
+}

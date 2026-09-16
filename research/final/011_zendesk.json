@@ -1,0 +1,41 @@
+{
+  "id": 11,
+  "name": "Zendesk",
+  "category": "Support and Helpdesk",
+  "website": "zendesk.com",
+  "description": "Widely used customer service and ticketing platform with a broad suite of support, messaging, and voice APIs.",
+  "auth_methods": [
+    "OAuth2",
+    "API token (Basic auth)"
+  ],
+  "self_serve": "self-serve",
+  "gating_notes": "Free trial accounts are available self-serve and include full API access; API tokens can be generated directly from Admin Center > Apps and integrations > APIs > Zendesk API without sales involvement, and are used via Basic auth as {email}/token:{api_token}. OAuth access tokens (Bearer) are the recommended method; distributing a public/marketplace OAuth app requires a global OAuth client and goes through Zendesk app review.",
+  "api_surface": "REST",
+  "api_breadth": "broad",
+  "mcp_exists": true,
+  "mcp_notes": "Zendesk's official, documented MCP capability is an MCP *client* (GA) that connects Zendesk action flows to third-party MCP servers, managed via Admin Center Connections. Zendesk's own docs note it 'can also act as an MCP server in other scenarios' but publish no endpoint, scopes, or setup instructions — the previously claimed per-tenant server at https://<subdomain>.zendesk.com/api/mcp is not documented anywhere on developer.zendesk.com or support.zendesk.com and should be treated as unverified. Practical MCP access today comes from community servers wrapping the REST API (reminia/zendesk-mcp-server, koundinya/zd-mcp-server, michaelrice/zendesk-mcp, fruggr/zendesk-mcp-server).",
+  "buildability": "yes",
+  "blocker": "none",
+  "evidence": [
+    "https://developer.zendesk.com/api-reference/introduction/security-and-auth/",
+    "https://developer.zendesk.com/api-reference/",
+    "https://support.zendesk.com/hc/en-us/articles/10497779528730-Connecting-to-MCP-servers-and-using-MCP-tools-in-action-flows",
+    "https://support.zendesk.com/hc/en-us/articles/11105393853210-Announcing-the-general-availability-of-the-MCP-client",
+    "https://github.com/reminia/zendesk-mcp-server"
+  ],
+  "confidence": "high",
+  "_critic": {
+    "verdict": "dispute",
+    "disputed_fields": [
+      "mcp_notes",
+      "evidence"
+    ],
+    "notes": "The auth flag was a false positive: developer.zendesk.com/api-reference/ is live but is only a capability index, while the sibling security-and-auth page explicitly documents OAuth access tokens (Bearer) and API tokens over Basic auth (email/token:token) generated self-serve in Admin Center > Apps and integrations > APIs, with no deprecation notice. The real error was mcp_notes: Zendesk's documented and GA'd MCP feature is an MCP *client* for action flows, not a per-tenant MCP server at https://<subdomain>.zendesk.com/api/mcp — that endpoint appears nowhere in developer or help-center docs, which only say Zendesk 'can also act as an MCP server in other scenarios' with no endpoint or scopes published. mcp_exists stays true on the strength of numerous working community servers (reminia/zendesk-mcp-server, ~119 stars; michaelrice/zendesk-mcp; koundinya/zd-mcp-server), and buildability is unaffected since the REST API plus API-token auth is the real integration path.",
+    "reviewed_urls": [
+      "https://developer.zendesk.com/api-reference/"
+    ],
+    "model": "opus",
+    "cost_usd": 0.8114655,
+    "timestamp": "2026-09-16T19:24:41.452283+00:00"
+  }
+}

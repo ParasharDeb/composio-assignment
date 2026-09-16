@@ -1,0 +1,43 @@
+{
+  "id": 7,
+  "name": "Zoho CRM",
+  "category": "CRM and Sales",
+  "website": "zoho.com/crm",
+  "description": "CRM component of the broader Zoho SaaS suite, covering sales pipeline, automation, and analytics.",
+  "auth_methods": [
+    "OAuth2"
+  ],
+  "self_serve": "self-serve",
+  "gating_notes": "Any Zoho account can self-register an OAuth client at api-console.zoho.com (server-based, client-based, mobile, or self-client) with no approval or sales gate; docs note dummy domains/redirect URLs are acceptable. Free edition includes API access at 5,000 API credits per 24-hour window, and a free Developer Edition is offered for testing. Zoho's MCP platform also offers free self-serve signup.",
+  "api_surface": "REST",
+  "api_breadth": "broad",
+  "mcp_exists": true,
+  "mcp_notes": "Zoho runs an official MCP offering at zoho.com/mcp — OAuth-authorized, actions constrained to the user's own permissions, free self-serve signup, and it explicitly covers Zoho CRM alongside Mail, Calendar, Desk, Cliq, Projects, and WorkDrive (plus 500+ third-party integrations). No CRM-specific MCP developer doc page (zoho.com/crm/mcp returns 404); details live on the central MCP product page.",
+  "buildability": "yes",
+  "blocker": "none",
+  "evidence": [
+    "https://www.zoho.com/crm/developer/docs/api/v8/oauth-overview.html",
+    "https://www.zoho.com/crm/developer/docs/api/v8/register-client.html",
+    "https://www.zoho.com/crm/developer/docs/api/v8/api-limits.html",
+    "https://www.zoho.com/crm/developer/docs/api/v7/",
+    "https://www.zoho.com/mcp/"
+  ],
+  "confidence": "high",
+  "_critic": {
+    "verdict": "dispute",
+    "disputed_fields": [
+      "mcp_exists",
+      "mcp_notes",
+      "evidence",
+      "confidence"
+    ],
+    "notes": "The auth/gating flags were false positives: the v7 API index is just a landing page, but the linked v8 OAuth overview confirms OAuth 2.0, and the register-client doc shows anyone can self-register a client at api-console.zoho.com with no approval step (Free edition gets 5,000 API credits/day per the API limits doc). Pass 1 was wrong on MCP: Zoho now ships an official, OAuth-based MCP platform at zoho.com/mcp with free self-serve signup that explicitly covers Zoho CRM, so mcp_exists flips to true and the generic PulseMCP directory link was replaced with real Zoho docs.",
+    "reviewed_urls": [
+      "https://www.pulsemcp.com/servers",
+      "https://www.zoho.com/crm/developer/docs/api/v7/"
+    ],
+    "model": "opus",
+    "cost_usd": 0.5501895,
+    "timestamp": "2026-09-16T19:23:25.104863+00:00"
+  }
+}
