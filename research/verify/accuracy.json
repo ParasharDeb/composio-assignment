@@ -1,0 +1,298 @@
+{
+  "generated_at": "2026-09-16T20:15:30.855054+00:00",
+  "n_total_rows": 80,
+  "n_scored": 56,
+  "n_unscored_pending_truth": 24,
+  "pass1_accuracy_pct": 78.6,
+  "final_accuracy_pct": 78.6,
+  "by_field": {
+    "auth": {
+      "n": 14,
+      "pass1_accuracy_pct": 78.6,
+      "final_accuracy_pct": 85.7
+    },
+    "access": {
+      "n": 14,
+      "pass1_accuracy_pct": 92.9,
+      "final_accuracy_pct": 92.9
+    },
+    "api_mcp": {
+      "n": 14,
+      "pass1_accuracy_pct": 57.1,
+      "final_accuracy_pct": 57.1
+    },
+    "buildability": {
+      "n": 14,
+      "pass1_accuracy_pct": 85.7,
+      "final_accuracy_pct": 78.6
+    }
+  },
+  "improved_by_verification": [
+    {
+      "app": "Gladly",
+      "field": "auth",
+      "pass1": "unknown (API reference at developer.gladly.com was not directly accessible; likely API key/OAuth token per standard app platform patterns)",
+      "final": "API key (token) via HTTP Basic Auth — agent email as username, API token as password, generated in-app under More settings > API Tokens by a user with the API User permission",
+      "truth": "API key (token) via HTTP Basic Auth — agent email as username, API token as password",
+      "source_url": "https://help.gladly.com/developer-tutorials/docs/authentication",
+      "evidence_quote": "Basic auth requires an Agent to provide a username and password for a request.",
+      "verdict": "pass1_wrong_final_correct"
+    }
+  ],
+  "regressed_by_verification": [
+    {
+      "app": "Gladly",
+      "field": "buildability",
+      "pass1": "partial",
+      "final": "yes",
+      "truth": "partial",
+      "source_url": "https://www.gladly.ai/get-started/",
+      "evidence_quote": "Request a demo",
+      "verdict": "pass1_correct"
+    }
+  ],
+  "still_wrong_in_final": [
+    {
+      "app": "DealCloud",
+      "field": "auth",
+      "pass1": "API key, Authorization token (OAuth-style token exchange)",
+      "final": "API key, Authorization token (OAuth-style token exchange)",
+      "truth": "OAuth2 (client credentials, bearer token, requires API key)",
+      "source_url": "https://api.docs.dealcloud.com/docs/token",
+      "evidence_quote": "DealCloud uses the OAuth2 Client Credentials flow to generate a bearer token, which is then used in the HTTP Authentication header",
+      "verdict": "pass1_correct"
+    },
+    {
+      "app": "DealCloud",
+      "field": "api_mcp",
+      "pass1": "REST (mcp=no)",
+      "final": "REST (mcp=no)",
+      "truth": "REST (mcp=yes)",
+      "source_url": "https://api.docs.dealcloud.com/mcp",
+      "evidence_quote": "New: DealCloud MCP Server — client preview starting July 2026",
+      "verdict": "both_wrong"
+    },
+    {
+      "app": "Pylon",
+      "field": "auth",
+      "pass1": "API token, OAuth2 (for MCP)",
+      "final": "API token, OAuth2 (for MCP)",
+      "truth": "API Token (Bearer) for REST; OAuth2 (AuthKit) for MCP",
+      "source_url": "https://docs.usepylon.com/pylon-docs/developer/api/authentication",
+      "evidence_quote": "Authorization: Bearer <token>",
+      "verdict": "pass1_correct"
+    },
+    {
+      "app": "Gladly",
+      "field": "api_mcp",
+      "pass1": "REST (mcp=yes)",
+      "final": "REST (mcp=yes)",
+      "truth": "REST (mcp=no)",
+      "source_url": "https://developer.gladly.com/",
+      "evidence_quote": "Integrate seamlessly with Gladly by enabling a connector, calling Gladly's REST APIs, or implementing the Lookup API",
+      "verdict": "both_wrong"
+    },
+    {
+      "app": "Gladly",
+      "field": "buildability",
+      "pass1": "partial",
+      "final": "yes",
+      "truth": "partial",
+      "source_url": "https://www.gladly.ai/get-started/",
+      "evidence_quote": "Request a demo",
+      "verdict": "pass1_correct"
+    },
+    {
+      "app": "fanbasis",
+      "field": "access",
+      "pass1": "self-serve",
+      "final": "self-serve",
+      "truth": "gated",
+      "source_url": "https://commasdocs.com/",
+      "evidence_quote": "returned when your creator account is not yet approved for API access",
+      "verdict": "both_wrong"
+    },
+    {
+      "app": "fanbasis",
+      "field": "buildability",
+      "pass1": "yes",
+      "final": "yes",
+      "truth": "partial",
+      "source_url": "https://commasdocs.com/",
+      "evidence_quote": "Contact support to get your account approved.",
+      "verdict": "both_wrong"
+    },
+    {
+      "app": "Sherlock",
+      "field": "api_mcp",
+      "pass1": "none public (mcp=no)",
+      "final": "none public (mcp=no)",
+      "truth": "CLI (mcp=yes)",
+      "source_url": "https://github.com/Burnsedia/sherlock-mcp",
+      "evidence_quote": "FastMCP integration for social media username searches across 400+ platforms using Model Context Protocol",
+      "verdict": "both_wrong"
+    },
+    {
+      "app": "Sherlock",
+      "field": "buildability",
+      "pass1": "no",
+      "final": "no",
+      "truth": "yes",
+      "source_url": "https://github.com/Burnsedia/sherlock-mcp",
+      "evidence_quote": "FastMCP integration for social media username searches across 400+ platforms using Model Context Protocol",
+      "verdict": "both_wrong"
+    },
+    {
+      "app": "Paygent Connect",
+      "field": "api_mcp",
+      "pass1": "unknown (mcp=no)",
+      "final": "unknown (mcp=no)",
+      "truth": "none (mcp=no)",
+      "source_url": "https://pay-gent.com",
+      "evidence_quote": "Paygent",
+      "verdict": "both_wrong"
+    },
+    {
+      "app": "iPayX",
+      "field": "api_mcp",
+      "pass1": "other (mcp=yes)",
+      "final": "other (mcp=yes)",
+      "truth": "REST (mcp=yes)",
+      "source_url": "https://www.ipayx.ai/docs/mcp-server",
+      "evidence_quote": "REST API Reference",
+      "verdict": "both_wrong"
+    },
+    {
+      "app": "PitchBook",
+      "field": "api_mcp",
+      "pass1": "REST (mcp=no)",
+      "final": "REST (mcp=no)",
+      "truth": "REST (mcp=yes)",
+      "source_url": "https://pitchbook.com/help/getting-started-with-pitchbook-premium-connector",
+      "evidence_quote": "AI partners connect securely to PitchBook’s Premium Connector (built on MCP server technology) directly through the partner’s site.",
+      "verdict": "both_wrong"
+    }
+  ],
+  "wrong_in_pass1": [
+    {
+      "app": "DealCloud",
+      "field": "auth",
+      "pass1": "API key, Authorization token (OAuth-style token exchange)",
+      "final": "API key, Authorization token (OAuth-style token exchange)",
+      "truth": "OAuth2 (client credentials, bearer token, requires API key)",
+      "source_url": "https://api.docs.dealcloud.com/docs/token",
+      "evidence_quote": "DealCloud uses the OAuth2 Client Credentials flow to generate a bearer token, which is then used in the HTTP Authentication header",
+      "verdict": "pass1_correct"
+    },
+    {
+      "app": "DealCloud",
+      "field": "api_mcp",
+      "pass1": "REST (mcp=no)",
+      "final": "REST (mcp=no)",
+      "truth": "REST (mcp=yes)",
+      "source_url": "https://api.docs.dealcloud.com/mcp",
+      "evidence_quote": "New: DealCloud MCP Server — client preview starting July 2026",
+      "verdict": "both_wrong"
+    },
+    {
+      "app": "Pylon",
+      "field": "auth",
+      "pass1": "API token, OAuth2 (for MCP)",
+      "final": "API token, OAuth2 (for MCP)",
+      "truth": "API Token (Bearer) for REST; OAuth2 (AuthKit) for MCP",
+      "source_url": "https://docs.usepylon.com/pylon-docs/developer/api/authentication",
+      "evidence_quote": "Authorization: Bearer <token>",
+      "verdict": "pass1_correct"
+    },
+    {
+      "app": "Gladly",
+      "field": "auth",
+      "pass1": "unknown (API reference at developer.gladly.com was not directly accessible; likely API key/OAuth token per standard app platform patterns)",
+      "final": "API key (token) via HTTP Basic Auth — agent email as username, API token as password, generated in-app under More settings > API Tokens by a user with the API User permission",
+      "truth": "API key (token) via HTTP Basic Auth — agent email as username, API token as password",
+      "source_url": "https://help.gladly.com/developer-tutorials/docs/authentication",
+      "evidence_quote": "Basic auth requires an Agent to provide a username and password for a request.",
+      "verdict": "pass1_wrong_final_correct"
+    },
+    {
+      "app": "Gladly",
+      "field": "api_mcp",
+      "pass1": "REST (mcp=yes)",
+      "final": "REST (mcp=yes)",
+      "truth": "REST (mcp=no)",
+      "source_url": "https://developer.gladly.com/",
+      "evidence_quote": "Integrate seamlessly with Gladly by enabling a connector, calling Gladly's REST APIs, or implementing the Lookup API",
+      "verdict": "both_wrong"
+    },
+    {
+      "app": "fanbasis",
+      "field": "access",
+      "pass1": "self-serve",
+      "final": "self-serve",
+      "truth": "gated",
+      "source_url": "https://commasdocs.com/",
+      "evidence_quote": "returned when your creator account is not yet approved for API access",
+      "verdict": "both_wrong"
+    },
+    {
+      "app": "fanbasis",
+      "field": "buildability",
+      "pass1": "yes",
+      "final": "yes",
+      "truth": "partial",
+      "source_url": "https://commasdocs.com/",
+      "evidence_quote": "Contact support to get your account approved.",
+      "verdict": "both_wrong"
+    },
+    {
+      "app": "Sherlock",
+      "field": "api_mcp",
+      "pass1": "none public (mcp=no)",
+      "final": "none public (mcp=no)",
+      "truth": "CLI (mcp=yes)",
+      "source_url": "https://github.com/Burnsedia/sherlock-mcp",
+      "evidence_quote": "FastMCP integration for social media username searches across 400+ platforms using Model Context Protocol",
+      "verdict": "both_wrong"
+    },
+    {
+      "app": "Sherlock",
+      "field": "buildability",
+      "pass1": "no",
+      "final": "no",
+      "truth": "yes",
+      "source_url": "https://github.com/Burnsedia/sherlock-mcp",
+      "evidence_quote": "FastMCP integration for social media username searches across 400+ platforms using Model Context Protocol",
+      "verdict": "both_wrong"
+    },
+    {
+      "app": "Paygent Connect",
+      "field": "api_mcp",
+      "pass1": "unknown (mcp=no)",
+      "final": "unknown (mcp=no)",
+      "truth": "none (mcp=no)",
+      "source_url": "https://pay-gent.com",
+      "evidence_quote": "Paygent",
+      "verdict": "both_wrong"
+    },
+    {
+      "app": "iPayX",
+      "field": "api_mcp",
+      "pass1": "other (mcp=yes)",
+      "final": "other (mcp=yes)",
+      "truth": "REST (mcp=yes)",
+      "source_url": "https://www.ipayx.ai/docs/mcp-server",
+      "evidence_quote": "REST API Reference",
+      "verdict": "both_wrong"
+    },
+    {
+      "app": "PitchBook",
+      "field": "api_mcp",
+      "pass1": "REST (mcp=no)",
+      "final": "REST (mcp=no)",
+      "truth": "REST (mcp=yes)",
+      "source_url": "https://pitchbook.com/help/getting-started-with-pitchbook-premium-connector",
+      "evidence_quote": "AI partners connect securely to PitchBook’s Premium Connector (built on MCP server technology) directly through the partner’s site.",
+      "verdict": "both_wrong"
+    }
+  ]
+}

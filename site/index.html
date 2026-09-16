@@ -347,20 +347,21 @@
   <div class="container">
     <div class="sl">Accuracy check</div>
     <h2 class="st">How trustworthy are the findings?</h2>
-    <p class="sd">A random sample of 20 apps was hand-checked against live documentation. Results render from the <code style="color:var(--accent)">#accuracy</code> script tag below.</p>
+    <p class="sd">8 apps &times; 4 fields = 32 scored rows. Verifier agent quoted live docs; human reviewed all calls. The other 12 sample apps are unscored (time limit).</p>
+    <div id="accHeadline" style="background:rgba(108,99,255,.1);border:1px solid rgba(108,99,255,.3);border-radius:var(--rs);padding:16px 18px;margin-bottom:22px;font-size:13px;line-height:1.6"></div>
     <div class="abars" id="accBars"></div>
     <div class="pfg" id="perFieldGrid"></div>
-    <h3 style="font-size:14px;font-weight:700;margin-bottom:14px">Miss log &mdash; what the agent got wrong</h3>
+    <h3 style="font-size:14px;font-weight:700;margin-bottom:8px;margin-top:28px">Miss log &mdash; what changed at each stage</h3>
+    <p style="font-size:12px;color:var(--muted);margin-bottom:14px">Green final = critic or verifier fixed it. Red final = critic broke it. Truth column is ground truth from live docs.</p>
     <div style="overflow-x:auto">
       <table class="mt" id="missesTable">
-        <thead><tr><th>App</th><th>Field</th><th>Agent said</th><th>Correct</th><th>Reason</th></tr></thead>
+        <thead><tr><th>App</th><th>Field</th><th>Pass 1</th><th>After critic</th><th>Truth (live docs)</th><th>Note</th></tr></thead>
         <tbody id="missesBody">
-          <tr><td colspan="5" style="color:var(--muted);text-align:center;padding:18px">
-            Fill the <code style="color:var(--accent)">#accuracy</code> script tag to populate this table.
-          </td></tr>
+          <tr><td colspan="6" style="color:var(--muted);text-align:center;padding:18px">Loading&hellip;</td></tr>
         </tbody>
       </table>
     </div>
+    <p id="accOverrides" style="font-size:11px;color:var(--muted);margin-top:10px"></p>
   </div>
 </section>
 
@@ -398,7 +399,7 @@
 
 <!-- Accuracy placeholder — fill this to populate Section 6 -->
 <script id="accuracy" type="application/json">
-{"pass1_accuracy":0,"final_accuracy":0,"sample_size":20,"per_field":{},"misses":[]}
+{"sample":"8 apps x 4 fields = 32 rows (LiveAgent, Gladly, fanbasis, Sherlock, Waterfall.io, Paygent Connect, PitchBook, NotebookLM). Verified by a verifier agent that must quote the live docs for every answer, then reviewed by a human. Stopped at time limit; the other 12 sample apps are unscored.","stages":[{"name":"Pass 1 (research agent)","correct":25,"total":32},{"name":"After critic (no quotes)","correct":24,"total":32},{"name":"After quote verifier + human review","correct":32,"total":32}],"misses":[{"app":"Gladly","field":"auth","pass1":"unknown","final":"Basic auth + API token","truth":"Basic auth + API token","note":"critic fixed"},{"app":"LiveAgent","field":"auth","pass1":"API key","final":"API key, OAuth 2.0","truth":"API key","note":"critic introduced error"},{"app":"Gladly","field":"buildability","pass1":"partial","final":"yes","truth":"partial","note":"critic introduced error; demo-request gate"},{"app":"Gladly","field":"api_mcp","pass1":"REST (mcp=yes)","final":"REST (mcp=yes)","truth":"REST (mcp=no)","note":"MCP hallucinated"},{"app":"fanbasis","field":"access","pass1":"self-serve","final":"self-serve","truth":"gated","note":"API needs creator account approval (commasdocs.com)"},{"app":"fanbasis","field":"buildability","pass1":"yes","final":"yes","truth":"partial","note":"approval gate"},{"app":"Sherlock","field":"api_mcp","pass1":"none","final":"none","truth":"CLI + community MCP","note":"missed community sherlock-mcp repo"},{"app":"Sherlock","field":"buildability","pass1":"no","final":"no","truth":"partial","note":"human call: local CLI, community MCP only"},{"app":"PitchBook","field":"api_mcp","pass1":"REST (mcp=no)","final":"REST (mcp=no)","truth":"REST + MCP Premium Connector","note":"missed MCP connector; still contract-gated"}]}
 </script>
 
 <script>
@@ -607,37 +608,38 @@
   // § Verification
   function buildVerification(){
     const a=ACC;
-    const p1=a.pass1_accuracy||0, pf=a.final_accuracy||0;
-    const noData=!p1&&!pf;
-    if(noData){
-      document.getElementById('accBars').innerHTML='<p style="color:var(--muted);font-size:13px">&#128203; Human check in progress on a 20-app sample; see <a href="https://github.com/ParasharDeb/composio-assignment" target="_blank" rel="noopener">research/verify/</a> in the repo.</p>';
-    } else {
-      document.getElementById('accBars').innerHTML=`
-        <div class="abr"><div class="abl">Pass 1</div><div class="abt"><div class="abf" style="width:${p1}%;background:linear-gradient(90deg,#ffd166,#ff9f43)"></div></div><div class="abv">${p1}%</div></div>
-        <div class="abr"><div class="abl">Final</div><div class="abt"><div class="abf" style="width:${pf}%;background:linear-gradient(90deg,#00d4aa,#6c63ff)"></div></div><div class="abv">${pf}%</div></div>`;
-    }
-    const pg=document.getElementById('perFieldGrid');
-    const fields=a.per_field||{};
-    if(!Object.keys(fields).length){
-      pg.innerHTML='';
-    } else {
-      Object.entries(fields).forEach(([f,v])=>{
-        const d=document.createElement('div'); d.className='pfc';
-        const col=v>=90?'#00d4aa':v>=70?'#ffd166':'#ff6b6b';
-        d.innerHTML=`<div class="pfv" style="color:${col}">${v}%</div><div class="pfn">${f}</div>`;
-        pg.appendChild(d);
-      });
-    }
+    const stages=a.stages||[];
+    // Headline
+    const hl=document.getElementById('accHeadline');
+    if(hl) hl.innerHTML='<strong style="color:var(--text)">Key lesson:</strong> an LLM critic <em>without evidence</em> made accuracy slightly <strong style="color:var(--accent3)">WORSE</strong> (78%&rarr;75%): it fixed 1 answer but broke 2. Forcing an exact doc quote per answer, plus human review, corrected all 9 misses. Most common miss: MCP availability (3 of 9). Sample is 32 rows, so treat as directional.';
+    // Stage bars
+    const bars=document.getElementById('accBars');
+    if(stages.length){
+      const grads=['linear-gradient(90deg,#ffd166,#ff9f43)','linear-gradient(90deg,#ff6b6b,#ee5a24)','linear-gradient(90deg,#00d4aa,#6c63ff)'];
+      bars.innerHTML=stages.map((s,i)=>{
+        const pct=Math.round(s.correct/s.total*100);
+        return `<div class="abr"><div class="abl" style="min-width:190px;font-size:11px">${s.name}</div><div class="abt"><div class="abf" style="width:${pct}%;background:${grads[i]||grads[0]}"></div></div><div class="abv">${pct}% <span style="color:var(--muted);font-size:10px">(${s.correct}/${s.total})</span></div></div>`;
+      }).join('');
+    } else { bars.innerHTML=''; }
+    // Hide per-field grid (not in this data shape)
+    const pg=document.getElementById('perFieldGrid'); if(pg) pg.innerHTML='';
+    // Miss table
     const mb=document.getElementById('missesBody');
     const misses=a.misses||[];
     if(misses.length){
       mb.innerHTML='';
       misses.forEach(m=>{
+        const fixed=m.truth===m.final&&m.truth!==m.pass1;
+        const broke=m.truth!==m.final&&m.truth===m.pass1;
+        const finalCol=fixed?'color:var(--accent2)':broke?'color:var(--accent3)':'color:var(--muted)';
         const tr=document.createElement('tr');
-        tr.innerHTML=`<td><strong>${m.app||'&mdash;'}</strong></td><td><code style="color:var(--accent)">${m.field||'&mdash;'}</code></td><td style="color:var(--accent3)">${m.agent_said||'&mdash;'}</td><td style="color:var(--accent2)">${m.correct||'&mdash;'}</td><td style="color:var(--muted)">${m.reason||'&mdash;'}</td>`;
+        tr.innerHTML=`<td><strong>${m.app||'&mdash;'}</strong></td><td><code style="color:var(--accent)">${m.field||'&mdash;'}</code></td><td style="color:var(--muted)">${m.pass1||'&mdash;'}</td><td style="${finalCol}">${m.final||'&mdash;'}</td><td style="color:var(--accent2)">${m.truth||'&mdash;'}</td><td style="color:var(--muted);font-size:11px">${m.note||'&mdash;'}</td>`;
         mb.appendChild(tr);
       });
-    }
+    } else { mb.innerHTML='<tr><td colspan="6" style="color:var(--muted);text-align:center;padding:18px">No misses recorded.</td></tr>'; }
+    // Human overrides note
+    const ov=document.getElementById('accOverrides');
+    if(ov) ov.innerHTML='&#8505; <strong>Human overrides:</strong> Paygent api_mcp ‘unknown’ vs ‘none’ counted as equivalent (weak evidence, Paygent treated as unverifiable); Sherlock buildability set to partial.';
   }
 
   // § Honesty

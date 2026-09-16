@@ -1,32 +1,32 @@
 app,field,pass1,final,truth,source_url,evidence_quote,verdict
-Attio,auth,"OAuth2, API key","OAuth2, API key",,https://docs.attio.com/rest-api/guides/authentication,,
-Attio,access,self-serve,self-serve,,https://docs.attio.com/rest-api/guides/authentication,,
-Attio,api_mcp,REST (mcp=yes),REST (mcp=yes),,https://docs.attio.com/rest-api/guides/authentication,,
-Attio,buildability,yes,yes,,https://docs.attio.com/rest-api/guides/authentication,,
-DealCloud,auth,"API key, Authorization token (OAuth-style token exchange)","API key, Authorization token (OAuth-style token exchange)",,https://api.docs.dealcloud.com/,,
-DealCloud,access,gated,gated,,https://api.docs.dealcloud.com/,,
-DealCloud,api_mcp,REST (mcp=no),REST (mcp=no),,https://api.docs.dealcloud.com/,,
-DealCloud,buildability,partial,partial,,https://api.docs.dealcloud.com/,,
-Pylon,auth,"API token, OAuth2 (for MCP)","API token, OAuth2 (for MCP)",,https://docs.usepylon.com/pylon-docs/developer/api,,
-Pylon,access,gated,gated,,https://docs.usepylon.com/pylon-docs/developer/api,,
-Pylon,api_mcp,REST (mcp=yes),REST (mcp=yes),,https://docs.usepylon.com/pylon-docs/developer/api,,
-Pylon,buildability,partial,partial,,https://docs.usepylon.com/pylon-docs/developer/api,,
+Attio,auth,"OAuth2, API key","OAuth2, API key","OAuth2, API key",https://docs.attio.com/rest-api/guides/authentication,There are two ways to generate an access token: 1. By implementing an OAuth 2.0 flow 2. By generating an API key for your workspace,pass1_correct
+Attio,access,self-serve,self-serve,self-serve,https://docs.attio.com/rest-api/guides/authentication,generate an API key in the developer settings page of your apps,pass1_correct
+Attio,api_mcp,REST (mcp=yes),REST (mcp=yes),REST (mcp=yes),https://docs.attio.com/mcp/overview,Attio MCP is Attio's hosted MCP server that gives AI tools secure access to your Attio workspace,pass1_correct
+Attio,buildability,yes,yes,yes,https://docs.attio.com/mcp/overview,Attio MCP is Attio's hosted MCP server that gives AI tools secure access to your Attio workspace,pass1_correct
+DealCloud,auth,"API key, Authorization token (OAuth-style token exchange)","API key, Authorization token (OAuth-style token exchange)","OAuth2 (client credentials, bearer token, requires API key)",https://api.docs.dealcloud.com/docs/token,"DealCloud uses the OAuth2 Client Credentials flow to generate a bearer token, which is then used in the HTTP Authentication header",pass1_correct
+DealCloud,access,gated,gated,gated,https://api.docs.dealcloud.com/docs/apikeys,ensure the intended user is assigned to a user group with the appropriate permissions,pass1_correct
+DealCloud,api_mcp,REST (mcp=no),REST (mcp=no),REST (mcp=yes),https://api.docs.dealcloud.com/mcp,New: DealCloud MCP Server — client preview starting July 2026,both_wrong
+DealCloud,buildability,partial,partial,partial,https://api.docs.dealcloud.com/docs/apikeys,ensure the intended user is assigned to a user group with the appropriate permissions,pass1_correct
+Pylon,auth,"API token, OAuth2 (for MCP)","API token, OAuth2 (for MCP)",API Token (Bearer) for REST; OAuth2 (AuthKit) for MCP,https://docs.usepylon.com/pylon-docs/developer/api/authentication,Authorization: Bearer <token>,pass1_correct
+Pylon,access,gated,gated,gated,https://www.usepylon.com/pricing,Schedule a demo,pass1_correct
+Pylon,api_mcp,REST (mcp=yes),REST (mcp=yes),REST (mcp=yes),https://docs.usepylon.com/pylon-docs/integrations/pylon-mcp,Server URL: https://mcp.usepylon.com,pass1_correct
+Pylon,buildability,partial,partial,partial,https://docs.usepylon.com/pylon-docs/developer/api/authentication,Generate an API token in the Pylon dashboard,pass1_correct
 LiveAgent,auth,API key,"API key, OAuth 2.0",API key,https://support.liveagent.com/741982-API-key,Your API key has to be set in header of your requests,pass1_correct
 LiveAgent,access,self-serve,self-serve,self-serve,https://www.liveagent.com/pricing/,30 days free trial. No credit card required.,pass1_correct
 LiveAgent,api_mcp,REST (mcp=yes),REST (mcp=yes),REST (mcp=yes),https://support.liveagent.com/647358-MCP-Integration-for-Agents,LiveAgent exposes a built-in MCP server (Model Context Protocol),pass1_correct
 LiveAgent,buildability,yes,yes,yes,https://support.liveagent.com/802463-REST-API,While logged in as an admin navigate to Configuration> System> API,pass1_correct
-Gorgias,auth,"API key (Basic auth) for private apps, OAuth2 for public apps","API key (Basic auth) for private apps, OAuth2 for public apps",,https://developers.gorgias.com/reference/introduction,,
-Gorgias,access,self-serve,self-serve,,https://developers.gorgias.com/reference/introduction,,
-Gorgias,api_mcp,REST (mcp=yes),REST (mcp=yes),,https://developers.gorgias.com/reference/introduction,,
-Gorgias,buildability,yes,yes,,https://developers.gorgias.com/reference/introduction,,
+Gorgias,auth,"API key (Basic auth) for private apps, OAuth2 for public apps","API key (Basic auth) for private apps, OAuth2 for public apps","API key (Basic auth) for private apps, OAuth2 for public apps",https://developers.gorgias.com/reference/authentication,Private app → API key / Public app → OAuth2,pass1_correct
+Gorgias,access,self-serve,self-serve,self-serve,https://developers.gorgias.com/docs/access-tokens-api-keys,"Navigate to Settings → REST API, Click the Create API key button",pass1_correct
+Gorgias,api_mcp,REST (mcp=yes),REST (mcp=yes),REST (mcp=yes),https://updates.gorgias.com/publications/gorgias-mcp-is-now-in-open-beta,Gorgias MCP is now in Open Beta,pass1_correct
+Gorgias,buildability,yes,yes,yes,https://updates.gorgias.com/publications/gorgias-mcp-is-now-in-open-beta,Gorgias MCP is now in Open Beta,pass1_correct
 Gladly,auth,unknown (API reference at developer.gladly.com was not directly accessible; likely API key/OAuth token per standard app platform patterns),"API key (token) via HTTP Basic Auth — agent email as username, API token as password, generated in-app under More settings > API Tokens by a user with the API User permission","API key (token) via HTTP Basic Auth — agent email as username, API token as password",https://help.gladly.com/developer-tutorials/docs/authentication,Basic auth requires an Agent to provide a username and password for a request.,pass1_wrong_final_correct
 Gladly,access,gated,gated,gated,https://www.gladly.ai/get-started/,Request a demo,pass1_correct
 Gladly,api_mcp,REST (mcp=yes),REST (mcp=yes),REST (mcp=no),https://developer.gladly.com/,"Integrate seamlessly with Gladly by enabling a connector, calling Gladly's REST APIs, or implementing the Lookup API",both_wrong
 Gladly,buildability,partial,yes,partial,https://www.gladly.ai/get-started/,Request a demo,pass1_correct
-Google Ads,auth,"OAuth2, API key (developer token)","OAuth2, API key (developer token)",,https://developers.google.com/google-ads/api/docs/start,,
-Google Ads,access,partial,partial,,https://developers.google.com/google-ads/api/docs/start,,
-Google Ads,api_mcp,REST (mcp=yes),REST (mcp=yes),,https://developers.google.com/google-ads/api/docs/start,,
-Google Ads,buildability,yes,yes,,https://developers.google.com/google-ads/api/docs/start,,
+Google Ads,auth,"OAuth2, API key (developer token)","OAuth2, API key (developer token)","OAuth2, API key (developer token)",https://developers.google.com/google-ads/api/rest/auth,You need both OAuth 2.0 credentials and a developer token when calling the Google Ads API.,pass1_correct
+Google Ads,access,partial,partial,partial,https://developers.google.com/google-ads/api/docs/api-policy/developer-token,Basic access applications are now automated and will be reviewed within minutes after brand verification and submission.,pass1_correct
+Google Ads,api_mcp,REST (mcp=yes),REST (mcp=yes),REST (mcp=yes),https://developers.google.com/google-ads/api/docs/developer-toolkit/mcp-server,"Google Ads API is a gRPC API, with REST bindings",pass1_correct
+Google Ads,buildability,yes,yes,yes,https://github.com/googleads/google-ads-mcp,source code for running an MCP server that interacts with the Google Ads API,pass1_correct
 GoHighLevel,auth,"OAuth2, Private Integration Token","OAuth2, Private Integration Token",,https://marketplace.gohighlevel.com/docs/other/mcp,,
 GoHighLevel,access,self-serve,self-serve,,https://marketplace.gohighlevel.com/docs/other/mcp,,
 GoHighLevel,api_mcp,REST (mcp=yes),REST (mcp=yes),,https://marketplace.gohighlevel.com/docs/other/mcp,,
@@ -43,22 +43,22 @@ Sherlock,auth,none (no hosted API or account required),none (no hosted API or ac
 Sherlock,access,self-serve,self-serve,self-serve,https://github.com/sherlock-project/sherlock,pipx install sherlock-project,pass1_correct
 Sherlock,api_mcp,none public (mcp=no),none public (mcp=no),CLI (mcp=yes),https://github.com/Burnsedia/sherlock-mcp,FastMCP integration for social media username searches across 400+ platforms using Model Context Protocol,both_wrong
 Sherlock,buildability,no,no,yes,https://github.com/Burnsedia/sherlock-mcp,FastMCP integration for social media username searches across 400+ platforms using Model Context Protocol,both_wrong
-Waterfall.io,auth,API key (x-api-key header),API key (x-api-key header),,https://www.waterfall.io/,,
-Waterfall.io,access,gated,gated,,https://www.waterfall.io/,,
-Waterfall.io,api_mcp,REST (mcp=no),REST (mcp=no),,https://www.waterfall.io/,,
-Waterfall.io,buildability,partial,partial,,https://www.waterfall.io/,,
+Waterfall.io,auth,API key (x-api-key header),API key (x-api-key header),API key (x-api-key header),https://docs.waterfall.io/v1/introduction,All requests require an API key in the x-api-key header.,pass1_correct
+Waterfall.io,access,gated,gated,gated,https://www.waterfall.io/,Talk to our team (most likely one of the founders),pass1_correct
+Waterfall.io,api_mcp,REST (mcp=no),REST (mcp=no),REST (mcp=no),https://docs.waterfall.io/v1/introduction,"Prospector, Search Contact",pass1_correct
+Waterfall.io,buildability,partial,partial,partial,https://docs.waterfall.io/v1/introduction,Book a Call,pass1_correct
 Asana,auth,"OAuth2, Personal Access Token, Service Account (Enterprise-only)","OAuth2, Personal Access Token, Service Account (Enterprise-only)",,https://developers.asana.com/docs/authentication,,
 Asana,access,self-serve,self-serve,,https://developers.asana.com/docs/authentication,,
 Asana,api_mcp,REST (mcp=yes),REST (mcp=yes),,https://developers.asana.com/docs/authentication,,
 Asana,buildability,yes,yes,,https://developers.asana.com/docs/authentication,,
-Paygent Connect,auth,"unknown (likely API/security key, consistent with NMI-based gateways)","unknown (likely API/security key, consistent with NMI-based gateways)",,https://www.pay-gent.com/,,
-Paygent Connect,access,unknown,unknown,,https://www.pay-gent.com/,,
-Paygent Connect,api_mcp,unknown (mcp=no),unknown (mcp=no),,https://www.pay-gent.com/,,
-Paygent Connect,buildability,no,no,,https://www.pay-gent.com/,,
-iPayX,auth,API key (optional for basic mid-market rate lookups; required for live provider comparisons),API key (optional for basic mid-market rate lookups; required for live provider comparisons),,https://ipayx.ai/mcp-config,,
-iPayX,access,self-serve,self-serve,,https://ipayx.ai/mcp-config,,
-iPayX,api_mcp,other (mcp=yes),other (mcp=yes),,https://ipayx.ai/mcp-config,,
-iPayX,buildability,yes,yes,,https://ipayx.ai/mcp-config,,
+Paygent Connect,auth,"unknown (likely API/security key, consistent with NMI-based gateways)","unknown (likely API/security key, consistent with NMI-based gateways)",unknown,https://pay-gent.com,Paygent,pass1_correct
+Paygent Connect,access,unknown,unknown,unknown,https://pay-gent.com,Paygent,pass1_correct
+Paygent Connect,api_mcp,unknown (mcp=no),unknown (mcp=no),none (mcp=no),https://pay-gent.com,Paygent,both_wrong
+Paygent Connect,buildability,no,no,no,https://pay-gent.com,Paygent,pass1_correct
+iPayX,auth,API key (optional for basic mid-market rate lookups; required for live provider comparisons),API key (optional for basic mid-market rate lookups; required for live provider comparisons),API key (optional for basic mid-market rate lookups; required for live provider comparisons),https://github.com/Ipayx-stellar/mcp-fx-audit,Mid-market rates work without a key (powered by ECB via exchangerate.host),pass1_correct
+iPayX,access,self-serve,self-serve,self-serve,https://www.ipayx.ai/docs/mcp-server,Open your iPayX dashboard → API keys,pass1_correct
+iPayX,api_mcp,other (mcp=yes),other (mcp=yes),REST (mcp=yes),https://www.ipayx.ai/docs/mcp-server,REST API Reference,both_wrong
+iPayX,buildability,yes,yes,yes,https://www.ipayx.ai/docs/mcp-server,https://hvujzsdwcoweirroubeh.supabase.co/functions/v1/mcp-server,pass1_correct
 Ramp,auth,"OAuth2 (client_credentials for server-to-server, authorization_code for user-delegated)","OAuth2 (client_credentials for server-to-server, authorization_code for user-delegated)",,https://support.ramp.com/accessing-the-developer-api,,
 Ramp,access,partial,partial,,https://support.ramp.com/accessing-the-developer-api,,
 Ramp,api_mcp,REST (mcp=yes),REST (mcp=yes),,https://support.ramp.com/accessing-the-developer-api,,
@@ -67,10 +67,10 @@ PitchBook,auth,API key,API key,API key,https://pitchbook.com/help/PitchBook-api,
 PitchBook,access,gated,gated,gated,https://pitchbook.com/help/PitchBook-api,Our API is a separate offering from the PitchBook Platform that requires a standalone contract agreement.,pass1_correct
 PitchBook,api_mcp,REST (mcp=no),REST (mcp=no),REST (mcp=yes),https://pitchbook.com/help/getting-started-with-pitchbook-premium-connector,AI partners connect securely to PitchBook’s Premium Connector (built on MCP server technology) directly through the partner’s site.,both_wrong
 PitchBook,buildability,no,no,no,https://pitchbook.com/help/PitchBook-api,"To start your API connection, you will need to send a request directly to our Direct Data team through this link.",pass1_correct
-NotebookLM,auth,"OAuth2 (Google Cloud IAM / gcloud bearer token), Google Workspace / Cloud Identity SSO","OAuth2 (Google Cloud IAM / gcloud bearer token), Google Workspace / Cloud Identity SSO",,https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks,,
-NotebookLM,access,gated,gated,,https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks,,
-NotebookLM,api_mcp,REST (mcp=no),REST (mcp=no),,https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks,,
-NotebookLM,buildability,partial,partial,,https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks,,
+NotebookLM,auth,"OAuth2 (Google Cloud IAM / gcloud bearer token), Google Workspace / Cloud Identity SSO","OAuth2 (Google Cloud IAM / gcloud bearer token), Google Workspace / Cloud Identity SSO",OAuth2 (Google Cloud IAM / gcloud bearer token),https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks,Authorization:Bearer $(gcloud auth print-access-token),pass1_correct
+NotebookLM,access,gated,gated,gated,https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/overview,You can purchase Gemini Notebook Enterprise as a standalone product or as part of Gemini Enterprise,pass1_correct
+NotebookLM,api_mcp,REST (mcp=no),REST (mcp=no),REST (mcp=no),https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks,https://ENDPOINT_LOCATION-discoveryengine.googleapis.com/v1alpha/projects/PROJECT_NUMBER/locations/LOCATION/notebooks,pass1_correct
+NotebookLM,buildability,partial,partial,partial,https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/overview,granted this role in order to access Gemini Notebook Enterprise,pass1_correct
 Consensus,auth,"OAuth 2.0 (with PKCE, per RFC 6749/8707), API key/secret pair (V2 API)","OAuth 2.0 (with PKCE, per RFC 6749/8707), API key/secret pair (V2 API)",,https://consensus.app/home/api/,,
 Consensus,access,partial,partial,,https://consensus.app/home/api/,,
 Consensus,api_mcp,REST (mcp=yes),REST (mcp=yes),,https://consensus.app/home/api/,,
