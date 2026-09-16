@@ -1,70 +1,94 @@
 # Composio App Research — Take-Home
 
-Research pipeline that evaluates 100 apps for agent-toolkit buildability: auth
+Research pipeline evaluating 100 apps for agent-toolkit buildability: auth
 method, self-serve vs. gated access, API surface, existing MCP support, and a
-buildability verdict with evidence — clustered into patterns, then verified
-against real docs.
+buildability verdict with evidence.
 
-## What's here
+Live page: https://composio-assignment-three.vercel.app/
 
-- `task.md` — the assignment brief and the 100-app list.
-- `research/raw/*.json` — per-category research output, one file per category
-  (10 apps each), produced by parallel research agents.
-- `research/merge.py` — merges `raw/*.json` into `research/apps.json` and
-  computes `research/patterns.json` (auth distribution, self-serve/gated by
-  category, blockers, easy wins vs. needs-outreach).
-- `research/verify/` — the verification pass: an independent second research
-  pass on a sample of apps, diffed against pass 1, plus manual spot-checks.
-- `case-study.html` — the single-page deliverable (findings, patterns, agent
-  writeup, verification results).
+## Pipeline
 
-## How the research agent works
+**Pass 1 (interactive).** `research/raw/*.json` — one file per category (10
+categories, 10 apps each), produced by running Claude Code agents
+interactively, one per category. `research/merge.py` merges `raw/*.json`
+into `research/apps.json` and computes `research/patterns.json` (auth
+distribution, self-serve/gated by category, blockers, easy-wins vs.
+needs-outreach).
 
-Each of the 100 apps was assigned to one of 10 category-agents (one per
-category in `task.md`, 10 apps each), run in parallel. Each agent:
+**Scripted research agent.** `agent/research.py` — calls Claude Code headless
+(`claude -p`, restricted to `WebSearch`/`WebFetch`) once per app and writes a
+validated JSON record per app. Resumable: re-running with the same `--out`
+skips apps that already have a result file.
 
-1. Fetches the app's real docs/developer pages directly (WebFetch), falling
-   back to a targeted web search when the direct fetch didn't have what was
-   needed.
-2. Extracts: category, one-line description, auth method(s), self-serve vs.
-   gated verdict (with the reason), API surface (REST/GraphQL/CLI/none) and
-   breadth, whether an MCP server exists, buildability verdict + blocker, and
-   the evidence URL(s) it actually used.
-3. Marks its own confidence (high/medium/low), and writes "unknown" rather
-   than guessing when the docs didn't make something clear.
-4. Writes a structured JSON array to `research/raw/<category>.json`.
+**URL checking.** `agent/check_urls.py` — fetches every evidence URL from a
+research pass and flags HTTP errors, redirects to a homepage/different
+domain, or pages whose text doesn't mention the claimed auth method. This
+flagged 54/100 apps.
 
-Where the agent could not determine something (behind a login wall, contact-
-sales-only page, contradictory docs), it's marked `unknown` / low confidence
-and called out on the case study page rather than silently guessed.
+**Critic review.** `agent/critic.py` — for apps flagged by `check_urls.py`,
+asks a stronger model (opus) to review the claim against the flagged
+evidence and either confirm or correct it. 24 of the 54 flagged apps were
+reviewed; output goes to `research/final/`.
 
-## Verification
+**Sampling and diffing.** `agent/select_sample.py` picks a 20-app
+verification sample (10 "tricky" apps + 10 random); `agent/diff_passes.py`
+runs an independent second research pass (`research/pass2/`) on that sample
+and diffs it against pass 1 and the critic-reviewed final.
 
-A random stratified sample (~12–15 apps across categories/auth types) was
-independently re-researched by a second pass and diffed against pass 1;
-disagreements were adjudicated by hand against the live docs. The case study
-page shows pass-1 vs. post-verification accuracy on the sample, with the
-specific hits and misses — not just a summary number.
+**Human verification.** `research/verify/human_check.csv` — a verifier agent
+is required to quote the live docs for every answer it gives; a human then
+reviews each quote against the source and fills in the `truth` column.
 
-## Running it yourself
+**Scoring.** `agent/score.py` — reads `human_check.csv` once `truth` is
+filled in and computes pass-1 vs. final accuracy against it.
 
-Requirements: Python 3.9+, a Claude Code / Claude agent environment with
-WebFetch + WebSearch (this was run via Claude Code agents, not a standalone
-script — see `research/raw/*.json` for the raw output of each category run).
+**Deliverable.** `build_site.py` inlines `research/apps.json` and
+`research/patterns.json` into `site/index.html`, the single-page site above.
+
+## How to run
 
 ```bash
-python research/merge.py     # merge raw/*.json -> apps.json + patterns.json
+pip install requests
+
+# scripted research agent, one app
+python agent/research.py --only "Notion" --out research/_test
+
+# check evidence URLs for HTTP/redirect/auth-keyword issues
+python agent/check_urls.py --in research/pass1 --out research/verify/url_flags.json
+
+# critic review of specific flagged apps (or all flagged apps if --ids omitted)
+python agent/critic.py --ids 1-10
+
+# score pass-1 vs. final against research/verify/human_check.csv
+python agent/score.py
 ```
 
-To re-run research for a category, re-prompt an agent with the same schema
-used in `research/raw/<category>.json` (see the prompts used in this
-project's Claude Code session) and overwrite that file, then re-run
-`merge.py`.
+Requires [Claude Code](https://claude.com/claude-code) installed and logged
+in on the machine running `agent/research.py` / `agent/critic.py` — no API
+key needed, since both call the `claude` CLI headlessly.
 
-## Honesty notes
+## Results
 
-- No paid accounts were used. Apps gated behind payment, admin approval, or
-  contact-sales are reported as gated, with the evidence for that, not
-  skipped.
-- Where the agent got something wrong or couldn't resolve it, it's shown on
-  the case study page, not hidden.
+On the 32-row verification sample (8 apps × 4 fields — LiveAgent, Gladly,
+fanbasis, Sherlock, Waterfall.io, Paygent Connect, PitchBook, NotebookLM):
+
+- Pass 1 (research agent): **78%** (25/32)
+- After critic, no quote requirement: **75%** (24/32)
+- After a quote-required verifier + human review: **100%** (32/32)
+
+The unquoted critic pass made things *worse* — it broke 2 answers that pass 1
+had gotten right. Requiring the verifier to quote the live docs for every
+answer, then having a human check those quotes, fixed all 9 misses.
+
+## Honesty and limits
+
+- Pass 1 was run interactively (one Claude Code agent per category), not via
+  a scripted loop — `agent/research.py` exists for re-running or extending
+  it, but the original 100-app pass 1 predates it.
+- The critic only reviewed 24 of the 54 apps `check_urls.py` flagged; the
+  other 30 flagged apps still carry their unreviewed pass-1 values.
+- The accuracy numbers above come from an 8-app, 32-row sample, not the full
+  100 apps — treat them as directional, not a dataset-wide error rate.
+- Paygent Connect's site (pay-gent.com) never returned enough content to
+  determine its auth method, access model, or API surface with any
+  confidence — it's recorded as `unknown` rather than guessed.
